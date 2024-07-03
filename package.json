@@ -2,8 +2,9 @@
   "name": "turborepo-2",
   "private": true,
   "scripts": {
+    "with-env-local": "dotenv -e ./.env.local --",
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "yarn with-env-local turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Button, Card, Code } from '@repo/ui/components';
 
 export default function Home() {
+  console.log('HELLO', process.env.HELLO);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Code className="text-red-500">Hello</Code>
