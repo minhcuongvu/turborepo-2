@@ -7,7 +7,12 @@ export default function Home() {
       <div className="text-red-500">Hello</div>
       <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {LINKS.map(({ title, href, description }) => (
-          <Card href={href} key={title} title={title}>
+          <Card
+            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-neutral-700 hover:bg-neutral-800/30"
+            href={href}
+            key={title}
+            title={title}
+          >
             {description}
           </Card>
         ))}
