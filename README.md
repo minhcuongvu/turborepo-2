@@ -67,3 +67,4 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- [Monorepo in Next.js using Turborepo with Remote Caching & Vercel | Medium](https://medium.com/readytowork-org/monorepo-in-next-js-using-turborepo-with-remote-caching-vercel-bc30ebde8951)
