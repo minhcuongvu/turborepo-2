@@ -1,10 +1,16 @@
 import Image from 'next/image';
-import { Card } from '@repo/ui/components';
+import { Button, Card, Code } from '@repo/ui/components';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="text-red-500">Hello</div>
+      <Code className="text-red-500">Hello</Code>
+      <Button
+        appName="web"
+        className="mx-auto rounded-full border border-solid flex items-center justify-center text-sm h-10 px-4 hover:border-none hover:bg-white hover:text-black"
+      >
+        Button
+      </Button>
       <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {LINKS.map(({ title, href, description }) => (
           <Card
