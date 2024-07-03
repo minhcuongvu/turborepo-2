@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "with-env-local": "dotenv -e ./.env.local --",
+    "with-env-development": "dotenv -e ./.env.development --",
+    "with-env-production": "dotenv -e ./.env.production --",
     "build": "turbo build",
     "dev": "yarn with-env-local turbo dev",
     "lint": "turbo lint",

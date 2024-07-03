@@ -40,6 +40,7 @@ yarn dev
 ### Testing
 
 To run some testing, run the following command:
+
 ```
 yarn test
 ```
@@ -51,7 +52,6 @@ Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-cd my-turborepo
 npx turbo login
 ```
 
@@ -74,3 +74,4 @@ Learn more about the power of Turborepo:
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
 - [Monorepo in Next.js using Turborepo with Remote Caching & Vercel | Medium](https://medium.com/readytowork-org/monorepo-in-next-js-using-turborepo-with-remote-caching-vercel-bc30ebde8951)
+- [React Testing Library | Testing Library](https://testing-library.com/docs/react-testing-library/intro)
