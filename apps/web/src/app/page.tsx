@@ -3,9 +3,12 @@ import { Button, Card, Code } from '@repo/ui/components';
 
 export default function Home() {
   console.log('HELLO', process.env.HELLO);
+  console.log('APP_NODE_ENV', process.env.APP_NODE_ENV);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Code className="text-red-500">Hello</Code>
+      <div data-testid="testid-322">
+        <Code className="text-red-500">Hello</Code>
+      </div>
       <Button
         appName="web"
         className="mx-auto rounded-full border border-solid flex items-center justify-center text-sm h-10 px-4 hover:border-none hover:bg-white hover:text-black"
