@@ -1,9 +1,9 @@
-import { NextRequest } from "next/server"
+import { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
   return new Response(JSON.stringify(LINKS), {
-    status: 200}
-  )
+    status: 200,
+  });
 }
 
 const LINKS = [

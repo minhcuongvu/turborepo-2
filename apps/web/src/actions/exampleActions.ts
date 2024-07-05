@@ -1,6 +1,6 @@
-'use server'
+'use server';
 
-import { delay } from "@/utils/helper";
+import { delay } from '@repo/utils/helper';
 
 // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations
 

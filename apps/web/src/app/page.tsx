@@ -1,7 +1,6 @@
-import Hello from '@/components/Hello';
-import LinksPanel from '@/components/LinksPanel';
-import Skeleton from '@/components/Skeleton';
-import { Button, Code } from '@repo/ui/components';
+import HelloAwait from '@/components/hello-await';
+import LinksPanelFull from '@/components/links-panel-full';
+import { Button, Code, Skeleton } from '@repo/ui/components';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -10,11 +9,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Link href="/about">About</Link>
       <Suspense fallback={null}>
-        <Hello />
+        <HelloAwait />
       </Suspense>
       <Button appName="web">Button</Button>
       <Suspense fallback={<Skeleton />}>
-        <LinksPanel />
+        <LinksPanelFull />
       </Suspense>
     </main>
   );

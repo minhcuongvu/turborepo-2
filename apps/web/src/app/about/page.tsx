@@ -1,10 +1,7 @@
-import { Button, Card, Code } from '@repo/ui/components';
+import { Button, Card, Code, Skeleton } from '@repo/ui/components';
 import { SendIt } from '@/actions/exampleActions';
 import React, { Suspense } from 'react';
-import { unstable_noStore } from 'next/cache';
-import Skeleton from '@/components/Skeleton';
-import { delay } from '@/utils/helper';
-import LinksPanel from '@/components/LinksPanel';
+import LinksPanelFull from '@/components/links-panel-full';
 
 interface PageParamProps {
   params: any;
@@ -38,7 +35,7 @@ export default function About({ params, searchParams }: PageParamProps) {
         </form>
       </div>
       <Suspense fallback={<Skeleton />}>
-        <LinksPanel />
+        <LinksPanelFull />
       </Suspense>
     </main>
   );

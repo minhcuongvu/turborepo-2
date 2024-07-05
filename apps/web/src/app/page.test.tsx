@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
+import { Hello } from '@repo/ui/components';
 import { render, screen } from '@testing-library/react';
-import Hello from '@/components/Hello';
 
 // do not test Home, just test its children where they do not have their own async inside
 
