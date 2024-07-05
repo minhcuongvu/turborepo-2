@@ -1,4 +1,4 @@
-'use client';
+// 'use client'; //commented out because suspense
 
 import { Button, Card, Code } from '@repo/ui/components';
 import { SendIt } from '../actions';
@@ -7,7 +7,7 @@ import { unstable_noStore } from 'next/cache';
 
 async function GetSomeData() {
   unstable_noStore();
-  await delay(1000);
+  await delay(2000);
 
   return (
     <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
@@ -20,14 +20,15 @@ async function GetSomeData() {
   );
 }
 
+function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  console.log('Submitted!');
+}
+
 // Helper function to create a delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default function About() {
-  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    console.log('Submitted!');
-  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>About</h1>
