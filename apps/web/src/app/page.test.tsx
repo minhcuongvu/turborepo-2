@@ -2,10 +2,13 @@
  * @jest-environment jsdom
  */
 import { render, screen } from '@testing-library/react';
-import Home from './page';
+import Hello from '@/components/Hello';
 
-it('Check for content inside a code block', () => {
-  render(<Home />);
+// do not test Home, just test its children where they do not have their own async inside
+
+it('Check for async/serverside content inside a code block', async () => {
+  const hello = await Hello();
+  render(hello);
   const element = screen.getByTestId('testid-322');
   expect(element).not.toBeNull();
   expect(element?.textContent).toContain('Hello');

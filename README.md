@@ -69,6 +69,7 @@ Learn more about the power of Turborepo:
 
 - [Next.js App Router: Routing, Data Fetching, Caching - YouTube](https://www.youtube.com/watch?v=gSSsZReIFRk&ab_channel=Vercel)
 - [10 common mistakes with the Next.js App Router - YouTube](https://www.youtube.com/watch?v=RBM03RihZVs&ab_channel=Vercel)
+- [Environments on Vercel - YouTube](https://www.youtube.com/watch?v=nZrAgov_-D8) Deployments
 - [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
 - [Caching](https://turbo.build/repo/docs/core-concepts/caching)
 - [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)

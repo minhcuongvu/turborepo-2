@@ -1,8 +1,10 @@
-'use server'
+import { NextRequest } from "next/server"
 
-import { delay } from "@/utils/helper";
-
-// https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations
+export async function GET(request: NextRequest) {
+  return new Response(JSON.stringify(LINKS), {
+    status: 200}
+  )
+}
 
 const LINKS = [
   {
@@ -27,15 +29,3 @@ const LINKS = [
       'Instantly deploy your Turborepo to a shareable URL with Vercel.',
   },
 ];
-
-export async function GetSomeData() {
-  await delay(3000);
-
-  return LINKS;
-}
-
-export async function SendIt() {
-  console.log('Send it!');
-  console.log('HELLO', process.env.HELLO);
-  console.log('APP_NODE_ENV', process.env.APP_NODE_ENV);
-}
