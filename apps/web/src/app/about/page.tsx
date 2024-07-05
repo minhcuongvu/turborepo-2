@@ -1,7 +1,5 @@
-// 'use client'; //commented out because suspense
-
 import { Button, Card, Code } from '@repo/ui/components';
-import { SendIt } from '../actions';
+import { SendIt } from '@/actions';
 import React, { Suspense } from 'react';
 import { unstable_noStore } from 'next/cache';
 
