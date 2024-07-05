@@ -1,5 +1,5 @@
 import { Button, Card, Code } from '@repo/ui/components';
-import { SendIt } from '@/actions';
+import { SendIt } from '@actions/exampleActions';
 import React, { Suspense } from 'react';
 import { unstable_noStore } from 'next/cache';
 
@@ -16,6 +16,9 @@ async function GetSomeData() {
       ))}
     </div>
   );
+}
+function Skeleton() {
+  return <h2>Loading something...</h2>;
 }
 
 interface PageParamProps {
@@ -38,6 +41,9 @@ export default function About({ params, searchParams }: PageParamProps) {
         About
         {searchParams.hello ? `: ${searchParams.hello}` : ''}
       </h1>
+      <div data-testid="testid-420">
+        <Code>{Date.now()}</Code>
+      </div>
       <div>
         <form
           // action and onSubmit cannot be both executed
@@ -49,7 +55,7 @@ export default function About({ params, searchParams }: PageParamProps) {
           </Button>
         </form>
       </div>
-      <Suspense fallback={<h2>Loading something...</h2>}>
+      <Suspense fallback={<Skeleton />}>
         <GetSomeData />
       </Suspense>
     </main>
