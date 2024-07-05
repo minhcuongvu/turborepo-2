@@ -2,7 +2,26 @@
 
 import { Button, Card, Code } from '@repo/ui/components';
 import { SendIt } from '../actions';
-import React from 'react';
+import React, { Suspense } from 'react';
+import { unstable_noStore } from 'next/cache';
+
+async function GetSomeData() {
+  unstable_noStore();
+  await delay(1000);
+
+  return (
+    <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+      {LINKS.map(({ title, href, description }) => (
+        <Card href={href} key={title} title={title}>
+          {description}
+        </Card>
+      ))}
+    </div>
+  );
+}
+
+// Helper function to create a delay
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default function About() {
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -23,13 +42,9 @@ export default function About() {
           </Button>
         </form>
       </div>
-      <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        {LINKS.map(({ title, href, description }) => (
-          <Card href={href} key={title} title={title}>
-            {description}
-          </Card>
-        ))}
-      </div>
+      <Suspense fallback={<h2>Loading something...</h2>}>
+        <GetSomeData />
+      </Suspense>
     </main>
   );
 }
