@@ -7,4 +7,13 @@
     "*.tsx": "$(capture).test.ts, $(capture).test.tsx"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
+  "css.customData": [
+    ".vscode/tailwind.json"
+  ],
+  // Unknown at rule @apply css(unknownAtRules)
+  // this is for *.module.css or similar
+  // https://github.com/tailwindlabs/tailwindcss/discussions/5258
+  "css.lint.unknownAtRules": "ignore",
+  "[FILE EXTENSION OF STEP 3].lint.unknownAtRules": "ignore"
+  //
 }
