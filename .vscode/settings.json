@@ -6,4 +6,5 @@
     "*.ts": "$(capture).test.ts, $(capture).test.tsx",
     "*.tsx": "$(capture).test.ts, $(capture).test.tsx"
   },
+  "typescript.tsdk": "node_modules/typescript/lib",
 }

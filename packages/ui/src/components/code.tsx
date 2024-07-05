@@ -1,3 +1,5 @@
+import styles from './code.module.css';
+
 export function Code({
   children,
   className,
@@ -8,7 +10,7 @@ export function Code({
   return (
     <>
       <span>
-        Code:&nbsp;<code className={className}>{children}</code>
+        Code:&nbsp;<code className={styles.code}>{children}</code>
       </span>
     </>
   );
