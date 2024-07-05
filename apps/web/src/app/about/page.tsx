@@ -20,6 +20,11 @@ async function GetSomeData() {
   );
 }
 
+interface PageParamProps {
+  params: any;
+  searchParams: { [key: string]: string | undefined };
+}
+
 function onSubmit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault();
   console.log('Submitted!');
@@ -28,10 +33,13 @@ function onSubmit(event: React.FormEvent<HTMLFormElement>) {
 // Helper function to create a delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export default function About() {
+export default function About({ params, searchParams }: PageParamProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>About</h1>
+      <h1>
+        About
+        {searchParams.hello ? `: ${searchParams.hello}` : ''}
+      </h1>
       <div>
         <form
           // action and onSubmit cannot be both executed
