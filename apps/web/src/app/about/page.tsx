@@ -1,16 +1,28 @@
-import { Button, Card, Code } from '@repo/ui/components';
-import Link from 'next/link';
+'use client';
 
-export default function Home() {
-  console.log('HELLO', process.env.HELLO);
-  console.log('APP_NODE_ENV', process.env.APP_NODE_ENV);
+import { Button, Card, Code } from '@repo/ui/components';
+import { SendIt } from '../actions';
+import React from 'react';
+
+export default function About() {
+  function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    console.log('Submitted!');
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Link href="/about">About</Link>
-      <div data-testid="testid-322">
-        <Code>Hello</Code>
+      <h1>About</h1>
+      <div>
+        <form
+          // action and onSubmit cannot be both executed
+          action={SendIt} // server side
+          // onSubmit={onSubmit} // client side
+        >
+          <Button appName="web" type="submit">
+            Send it
+          </Button>
+        </form>
       </div>
-      <Button appName="web">Button</Button>
       <div className="grid mb-32 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         {LINKS.map(({ title, href, description }) => (
           <Card href={href} key={title} title={title}>

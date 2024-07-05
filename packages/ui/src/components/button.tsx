@@ -7,14 +7,12 @@ interface ButtonProps {
   children: ReactNode;
   className?: string;
   appName: string;
+  type?: 'button' | 'submit' | 'reset'; // Specify the possible values for type
 }
 
-export const Button = ({ children, className, appName }: ButtonProps) => {
+export const Button = ({ children, className, type, appName }: ButtonProps) => {
   return (
-    <button
-      className={styles.button}
-      onClick={() => alert(`Hello from your ${appName} app!`)}
-    >
+    <button className={`${styles.button} ${className}`} type={type}>
       {children}
     </button>
   );
