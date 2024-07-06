@@ -1,7 +1,7 @@
 import { Button, Card, Code, Skeleton } from '@repo/ui/components';
 import { SendIt } from '@/actions/example-actions';
 import React, { Suspense } from 'react';
-import LinksPanelComponent from '@/components/links-panel-full';
+import LinksPanelComponent from '@/components/panel/links-panel-full';
 
 interface PageParamProps {
   params: any;

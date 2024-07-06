@@ -9,7 +9,7 @@ export * from './components/links-panel/links-panel';
 
 export * from './components/navbar/navbar';
 
-export * from './components/main/main';
+export * from './components/main-container/main/main';
 export * from './components/header/header';
 export * from './components/root/root';
 export * from './components/tab/tab';

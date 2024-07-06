@@ -1,5 +1,5 @@
 .navbar {
-  @apply text-white sticky flex-shrink-0 top-0 w-full
+  @apply text-white sticky flex-shrink-0 top-0 w-full py-5
 }
 
 .nav {

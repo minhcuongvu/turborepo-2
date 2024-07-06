@@ -3,7 +3,7 @@ import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
 import NavComponent from '@/components/layout/navbar';
 import { SideBarComponent } from '@/components/layout/sidebar';
-import LinksPanelComponent from '@/components/links-panel-full';
+import LinksPanelComponent from '@/components//panel/links-panel-full';
 import {
   Button,
   Code,
@@ -22,13 +22,17 @@ export default function Home() {
       <HeaderComponent />
       <MainComponent>
         <NavComponent />
-        <Suspense fallback={null}>
+        <Suspense fallback={<Skeleton />}>
           <HelloAwait />
         </Suspense>
-        <Button type="button" appName="web">
-          Button
-        </Button>
         <Suspense fallback={<Skeleton />}>
+          <LinksPanelComponent />
+          <LinksPanelComponent />
+          <LinksPanelComponent />
+          <LinksPanelComponent />
+          <LinksPanelComponent />
+          <LinksPanelComponent />
+          <LinksPanelComponent />
           <LinksPanelComponent />
           <LinksPanelComponent />
           <LinksPanelComponent />
