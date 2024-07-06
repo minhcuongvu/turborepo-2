@@ -32,3 +32,7 @@ body {
     text-wrap: balance;
   }
 }
+
+html {
+  @apply overflow-y-scroll overscroll-y-none
+}

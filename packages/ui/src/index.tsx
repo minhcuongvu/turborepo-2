@@ -15,3 +15,5 @@ export * from './components/root/root';
 export * from './components/tab/tab';
 export * from './components/side-bar/side-bar';
 export * from './components/main-container/main-container';
+
+export * from './components/footer-button/footer-button';

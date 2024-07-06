@@ -7,7 +7,7 @@ export const MainContainer = ({
 }) => {
   return (
     <>
-      <div className={styles['main-container']}>{children}</div>
+      <div className={styles['container']}>{children}</div>
     </>
   );
 };

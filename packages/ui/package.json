@@ -6,6 +6,7 @@
     "**/*.css"
   ],
   "exports": {
+    "./interfaces": "./src/interfaces/index.ts",
     "./styles.css": "./dist/index.css",
     "./components": "./src/index.tsx"
   },

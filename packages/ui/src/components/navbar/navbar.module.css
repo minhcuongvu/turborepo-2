@@ -1,5 +1,7 @@
-.navbar {
-  @apply text-white sticky flex-shrink-0 top-0 w-full py-5
+.container {
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  @apply text-white sticky flex-shrink-0 top-0 w-full pt-5 pb-2
 }
 
 .nav {

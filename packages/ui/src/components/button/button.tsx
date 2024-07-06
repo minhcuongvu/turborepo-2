@@ -2,13 +2,7 @@
 
 import { ReactNode } from 'react';
 import styles from './button.module.css';
-
-interface ButtonProps {
-  children: ReactNode;
-  className?: string;
-  appName: string;
-  type?: 'button' | 'submit' | 'reset'; // Specify the possible values for type
-}
+import { ButtonProps } from '@repo/ui/interfaces';
 
 export const Button = ({ children, className, type, appName }: ButtonProps) => {
   return (
