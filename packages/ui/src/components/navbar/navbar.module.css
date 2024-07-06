@@ -1,0 +1,7 @@
+.navbar {
+  @apply text-white sticky flex-shrink-0 top-0 w-full
+}
+
+.nav {
+  @apply flex items-center justify-center flex-row
+}

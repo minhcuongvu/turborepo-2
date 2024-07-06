@@ -1,0 +1,10 @@
+.header {
+  @apply text-white flex flex-col items-end flex-shrink-0 flex-grow
+}
+
+.header-items-container {
+  @apply fixed
+}
+.header-item {
+  @apply text-white
+}

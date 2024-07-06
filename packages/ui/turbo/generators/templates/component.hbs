@@ -1,8 +1,10 @@
+import styles from './{{kebabCase name}}.module.css'
+
 export const {{ pascalCase name }} = ({ children }: { children: React.ReactNode | any }) => {
   return (
     <>
-      <div className="{{ kebabCase name }}">
-        <h1>{{ pascalCase name }} </h1>
+      <div className={ styles['{{kebabCase name}}']}>
+        <h1>{{ pascalCase name }}</h1>
         {children}
       </div>
     </>

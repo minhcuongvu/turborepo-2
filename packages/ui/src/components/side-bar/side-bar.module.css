@@ -1,0 +1,7 @@
+.side-bar {
+  @apply text-white flex flex-col items-start flex-shrink-0 flex-grow
+}
+
+.side-bar-items-container {
+  @apply fixed
+}

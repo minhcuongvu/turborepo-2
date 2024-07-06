@@ -1,0 +1,3 @@
+.tab {
+  @apply text-white sm:flex-1
+}

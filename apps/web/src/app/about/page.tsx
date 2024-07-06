@@ -1,7 +1,7 @@
 import { Button, Card, Code, Skeleton } from '@repo/ui/components';
 import { SendIt } from '@/actions/example-actions';
 import React, { Suspense } from 'react';
-import LinksPanelFull from '@/components/links-panel-full';
+import LinksPanelComponent from '@/components/links-panel-full';
 
 interface PageParamProps {
   params: any;
@@ -35,7 +35,7 @@ export default function About({ params, searchParams }: PageParamProps) {
         </form>
       </div>
       <Suspense fallback={<Skeleton />}>
-        <LinksPanelFull />
+        <LinksPanelComponent />
       </Suspense>
     </main>
   );
