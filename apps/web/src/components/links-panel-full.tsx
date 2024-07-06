@@ -1,6 +1,6 @@
 'use server';
 
-import { GetSomeData } from '@/actions/exampleActions';
+import { GetSomeData } from '@/actions/example-actions';
 import { Card } from '@repo/ui/components';
 import { LinksPanel } from '@repo/ui/components';
 

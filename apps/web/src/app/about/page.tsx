@@ -1,5 +1,5 @@
 import { Button, Card, Code, Skeleton } from '@repo/ui/components';
-import { SendIt } from '@/actions/exampleActions';
+import { SendIt } from '@/actions/example-actions';
 import React, { Suspense } from 'react';
 import LinksPanelFull from '@/components/links-panel-full';
 
