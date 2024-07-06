@@ -9,7 +9,9 @@ export default function HeaderComponent() {
       <Button type="button" appName="web">
         About
       </Button>
-      <FooterButton />
+      <FooterButton type="button" appName="web">
+        Footer
+      </FooterButton>
     </Header>
   );
 }
