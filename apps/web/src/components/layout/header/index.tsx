@@ -1,17 +1,17 @@
-import { Button, Header } from '@repo/ui/components';
+import { ButtonRect, Header } from '@repo/ui/components';
 
 export default function HeaderComponent() {
   return (
     <Header>
-      <Button type="button" appName="web">
+      <ButtonRect type="button" direction="bottom-right" haveBorder={true}>
         Home
-      </Button>
-      <Button type="button" appName="web">
+      </ButtonRect>
+      <ButtonRect type="button" direction="right" haveBorder={true}>
         About
-      </Button>
-      <Button type="button" appName="web">
+      </ButtonRect>
+      <ButtonRect type="button" direction="top-right" haveBorder={true}>
         Footer
-      </Button>
+      </ButtonRect>
     </Header>
   );
 }

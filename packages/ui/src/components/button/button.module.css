@@ -1,4 +1,46 @@
+/* TODO: might need different buttons with slightly different styles */
 .button {
   z-index: 1;
-  @apply relative mx-auto rounded-full border border-solid flex items-center justify-center text-sm h-10 px-4 hover:bg-white hover:text-black overflow-hidden select-none
+  @apply relative mx-auto flex items-center justify-center text-sm h-10 px-4 border-gray-800 border-b hover:border-b hover:border-white overflow-hidden select-none w-full
+}
+
+.have-border {
+  @apply border border-solid border-gray-800
+}
+
+.button-rect {
+  z-index: 1;
+  @apply relative mx-auto flex items-center justify-center text-sm h-10 px-4 hover:bg-white hover:text-black overflow-hidden select-none w-20
+}
+
+.left {
+  @apply border-r-0 border-b-0 border-t-0
+}
+
+.top {
+  @apply border-b-0 border-l-0 border-r-0
+}
+
+.top-left {
+  @apply border-r-0 border-b-0
+}
+
+.top-right {
+  @apply border-l-0 border-b-0
+}
+
+.bottom-left {
+  @apply border-t-0 border-r-0
+}
+
+.bottom-right {
+  @apply border-t-0 border-l-0
+}
+
+.bottom {
+  @apply border-t-0 border-l-0 border-r-0
+}
+
+.right {
+  @apply border-l-0 border-b-0 border-t-0
 }

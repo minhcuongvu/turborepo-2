@@ -1,15 +1,25 @@
-import { Button, SideBar } from '@repo/ui/components';
+import { ButtonRect, SideBar } from '@repo/ui/components';
 import React, { ReactNode } from 'react';
 
 export const SideBarComponent = () => {
   return (
     <SideBar>
-      {/* <Button id="menuToggle" type="button" appName="web">
-        Options
-      </Button> */}
-      {/* <Button type="button" appName="web">
-        Settings
-      </Button> */}
+      <ButtonRect
+        direction="bottom-left"
+        type="button"
+        appName="web"
+        haveBorder={true}
+      >
+        Message
+      </ButtonRect>
+      <ButtonRect
+        direction="left"
+        type="button"
+        appName="web"
+        haveBorder={true}
+      >
+        Do stuff
+      </ButtonRect>
     </SideBar>
   );
 };

@@ -1,10 +1,10 @@
 .header {
   z-index: 2;
-  @apply text-white flex flex-col items-end flex-shrink-0 flex-grow sm:w-2/12 md:w-2/12 lg:w-1/12 xl:w-1/12 max-sm:hidden
+  @apply flex flex-col items-end flex-shrink-0 flex-grow sm:w-2/12 md:w-2/12 lg:w-2/12 xl:w-1/12 max-sm:hidden
 }
 
 .container {
-  @apply fixed py-5
+  @apply fixed py-3
 }
 
 .item {

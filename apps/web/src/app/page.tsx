@@ -20,26 +20,7 @@ export default function Home() {
   return (
     <Root>
       <HeaderComponent />
-      <MainComponent>
-        <NavComponent />
-        <Suspense fallback={<Skeleton />}>
-          <HelloAwait />
-        </Suspense>
-        <Suspense fallback={<Skeleton />}>
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-          <LinksPanelComponent />
-        </Suspense>
-      </MainComponent>
+      <MainComponent />
       <SideBarComponent />
     </Root>
   );
