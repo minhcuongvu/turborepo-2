@@ -1,4 +1,4 @@
-import { Button, FooterButton, Header } from '@repo/ui/components';
+import { Button, Header } from '@repo/ui/components';
 
 export default function HeaderComponent() {
   return (
@@ -9,9 +9,9 @@ export default function HeaderComponent() {
       <Button type="button" appName="web">
         About
       </Button>
-      <FooterButton type="button" appName="web">
+      <Button type="button" appName="web">
         Footer
-      </FooterButton>
+      </Button>
     </Header>
   );
 }
