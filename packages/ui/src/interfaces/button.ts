@@ -4,5 +4,6 @@ export interface ButtonProps {
   children: ReactNode;
   className?: string;
   appName: string;
-  type?: 'button' | 'submit' | 'reset'; // Specify the possible values for type
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
 }
