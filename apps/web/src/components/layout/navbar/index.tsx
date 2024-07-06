@@ -1,6 +1,10 @@
+'use client';
+
 import { Button, Navbar, NavBarContainer, Tab } from '@repo/ui/components';
+import { useRouter } from 'next/navigation';
 
 export default function NavComponent() {
+  const router = useRouter();
   return (
     <NavBarContainer>
       <Navbar>
@@ -15,7 +19,7 @@ export default function NavComponent() {
           </Button>
         </Tab>
         <Tab>
-          <Button type="button" appName="web">
+          <Button type="button" appName="web" onClick={() => router.push('/')}>
             Home
           </Button>
         </Tab>

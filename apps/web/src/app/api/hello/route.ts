@@ -12,7 +12,8 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get('q');
 
   const responseMessage = query ? `world, ${query}` : `world`;
-  return new Response(responseMessage, {
+  const response = JSON.stringify({'hello' : responseMessage})
+  return new Response(response, {
     status: 200,
     headers: { 'Set-Cookie': `token=${token?.value}` },
   });
