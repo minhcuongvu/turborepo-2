@@ -15,11 +15,11 @@ export default function About({
   return (
     <Root>
       <HeaderComponent />
-      <Suspense fallback={<Skeleton />}>
-        <MainComponent>
+      <MainComponent>
+        <Suspense fallback={<Skeleton />}>
           <SendIt />
-        </MainComponent>
-      </Suspense>
+        </Suspense>
+      </MainComponent>
       <SideBarComponent />
     </Root>
   );
