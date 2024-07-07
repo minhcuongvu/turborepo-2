@@ -55,6 +55,7 @@ export default function SendIt() {
   useEffect(() => {
     if (data) {
       console.log('Fetched data', data);
+      setShouldFetch(false);
     }
   }, [data]);
 
