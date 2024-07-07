@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { sendIt } from '@/actions/example-actions';
 import { Button } from '@repo/ui/components';
-import useSWR from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
 const fetcher = (...args: [RequestInfo, RequestInit?]) =>
@@ -23,9 +23,19 @@ async function sendRequest(
 }
 
 export default function SendIt() {
+  const { mutate } = useSWRConfig();
   const [shouldFetch, setShouldFetch] = useState(false);
-  const { data, error } = useSWR(shouldFetch ? '/api/hello' : null, fetcher);
-
+  const { data, error, isLoading } = useSWR(
+    shouldFetch ? '/api/hello' : null,
+    fetcher,
+    {
+      revalidateIfStale: true,
+    }
+  );
+  const [fetchLoading, setFetchLoading] = useState(false);
+  const [fetchResult, setFetchResult] = useState(null);
+  const [postLoading, setPostLoading] = useState(false);
+  const [postResult, setPostResult] = useState(null);
   const {
     trigger,
     isMutating,
@@ -35,12 +45,18 @@ export default function SendIt() {
 
   const handleFetchClick = () => {
     setShouldFetch(true);
+    mutate('/api/hello', null, { revalidate: true }); // clear cache/revalidate for this key
+    setFetchLoading(true);
   };
 
   const handleSendClick = async () => {
     try {
+      setPostLoading(true);
       const result = await trigger({ username: 'johndoe' });
       console.log('Response data', result);
+      setPostLoading(false);
+      setPostResult(result);
+      // mutate('/api/hello');
     } catch (e) {
       console.error('Failed to send data', e);
     }
@@ -55,6 +71,8 @@ export default function SendIt() {
   useEffect(() => {
     if (data) {
       console.log('Fetched data', data);
+      setFetchResult(data);
+      setFetchLoading(false);
       setShouldFetch(false);
     }
   }, [data]);
@@ -86,9 +104,11 @@ export default function SendIt() {
 
       {error && <div>Failed to load</div>}
 
-      {shouldFetch && !data && <div>Loading...</div>}
+      {fetchLoading && <div>Loading...</div>}
 
-      {data && <div>{JSON.stringify(data, null, 2)}</div>}
+      {!fetchLoading && fetchResult && (
+        <div>{JSON.stringify(fetchResult, null, 2)}</div>
+      )}
 
       <form action={sendIt}>
         <Button
@@ -100,6 +120,12 @@ export default function SendIt() {
           {isMutating ? 'Sending...' : 'Send Data'}
         </Button>
       </form>
+
+      {postLoading && <div>...</div>}
+
+      {!postLoading && postResult && (
+        <div>{JSON.stringify(postResult, null, 2)}</div>
+      )}
     </>
   );
 }
