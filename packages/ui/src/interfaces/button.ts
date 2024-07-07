@@ -9,5 +9,6 @@ export interface ButtonProps {
   onClick?: () => void;
   isChecked?: boolean;
   direction?: 'top' | 'right' | 'bottom' | 'left' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-  haveBorder?: boolean
+  haveBorder?: boolean;
+  disabled?: boolean;
 }

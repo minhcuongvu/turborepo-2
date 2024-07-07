@@ -10,6 +10,7 @@ export const Button = ({
   onClick,
   direction,
   haveBorder,
+  disabled,
 }: ButtonProps) => {
   const combinedClassName = `
     ${styles['button']} 
@@ -26,7 +27,12 @@ export const Button = ({
   `.trim();
 
   return (
-    <button className={combinedClassName} type={type} onClick={onClick}>
+    <button
+      className={combinedClassName}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

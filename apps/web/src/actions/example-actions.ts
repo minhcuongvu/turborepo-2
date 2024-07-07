@@ -39,11 +39,3 @@ export async function sendIt() {
   console.log('HELLO', process.env.HELLO);
   console.log('APP_NODE_ENV', process.env.APP_NODE_ENV);
 }
-
-
-export async function getHello() {
-  const res = await fetch(`/api/hello`);
-  const data = res.json();
-  console.log(data);
-  return data;
-}
