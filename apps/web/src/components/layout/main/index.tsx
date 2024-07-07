@@ -19,31 +19,7 @@ export default function MainComponent({
     <MainContainer>
       <Main>
         <NavComponent />
-        <MainContentWrapper>
-          {children !== undefined ? (
-            children
-          ) : (
-            <>
-              <Suspense fallback={<Skeleton />}>
-                <HelloAwait />
-              </Suspense>
-              <Suspense fallback={<Skeleton />}>
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-                <LinksPanelComponent />
-              </Suspense>
-            </>
-          )}
-        </MainContentWrapper>
+        <MainContentWrapper>{children}</MainContentWrapper>
       </Main>
     </MainContainer>
   );

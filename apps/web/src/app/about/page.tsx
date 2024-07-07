@@ -1,5 +1,5 @@
-import { Root } from '@repo/ui/components';
-import React from 'react';
+import { Root, Skeleton } from '@repo/ui/components';
+import React, { Suspense } from 'react';
 import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
 import { SideBarComponent } from '@/components/layout/sidebar';
@@ -15,9 +15,11 @@ export default function About({
   return (
     <Root>
       <HeaderComponent />
-      <MainComponent>
-        <SendIt />
-      </MainComponent>
+      <Suspense fallback={<Skeleton />}>
+        <MainComponent>
+          <SendIt />
+        </MainComponent>
+      </Suspense>
       <SideBarComponent />
     </Root>
   );
