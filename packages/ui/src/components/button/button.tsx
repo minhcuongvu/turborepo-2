@@ -3,6 +3,12 @@
 import styles from './button.module.css';
 import { ButtonProps } from '@repo/ui/interfaces';
 
+// https://codepen.io/jh3y/pen/dyqzzaV
+// https://codepen.io/jh3y/pen/VwGKbKP
+// https://codepen.io/jh3y/pen/LYJNvyE
+// https://codepen.io/jh3y/pen/XWMobqx
+// https://codepen.io/jh3y/pen/eYZZdeK
+
 export const Button = ({
   children,
   className,
@@ -11,9 +17,17 @@ export const Button = ({
   direction,
   haveBorder,
   disabled,
+  id,
+  customStyle,
 }: ButtonProps) => {
   const combinedClassName = `
-    ${styles['button']} 
+    ${
+      customStyle === 'round'
+        ? styles['button']
+        : customStyle === 'rect'
+          ? styles['button-rect']
+          : styles['button']
+    } 
     ${className || ''} 
     ${haveBorder ? styles['have-border'] : ''} 
     ${direction === 'top' ? styles['top'] : ''} 
@@ -28,40 +42,12 @@ export const Button = ({
 
   return (
     <button
+      id={id}
       className={combinedClassName}
       type={type}
       onClick={onClick}
       disabled={disabled}
     >
-      {children}
-    </button>
-  );
-};
-
-export const ButtonRect = ({
-  children,
-  className,
-  type,
-  onClick,
-  direction,
-  haveBorder,
-}: ButtonProps) => {
-  const combinedClassName = `
-    ${styles['button-rect']} 
-    ${className || ''} 
-    ${haveBorder ? styles['have-border'] : ''} 
-    ${direction === 'top' ? styles['top'] : ''} 
-    ${direction === 'right' ? styles['right'] : ''} 
-    ${direction === 'bottom' ? styles['bottom'] : ''} 
-    ${direction === 'left' ? styles['left'] : ''} 
-    ${direction === 'top-left' ? styles['top-left'] : ''} 
-    ${direction === 'top-right' ? styles['top-right'] : ''} 
-    ${direction === 'bottom-left' ? styles['bottom-left'] : ''} 
-    ${direction === 'bottom-right' ? styles['bottom-right'] : ''}
-  `.trim();
-
-  return (
-    <button className={combinedClassName} type={type} onClick={onClick}>
       {children}
     </button>
   );

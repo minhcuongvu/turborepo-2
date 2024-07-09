@@ -5,10 +5,11 @@ export interface ButtonProps {
   id?: string;
   className?: string;
   appName?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   isChecked?: boolean;
   direction?: 'top' | 'right' | 'bottom' | 'left' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   haveBorder?: boolean;
   disabled?: boolean;
+  customStyle?: 'round' | 'rect'
 }

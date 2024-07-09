@@ -14,8 +14,12 @@ export default function NavComponent() {
           </Button>
         </Tab>
         <Tab>
-          <Button type="button" appName="web">
-            Tab 1
+          <Button
+            type="button"
+            appName="web"
+            onClick={() => router.push('/about')}
+          >
+            About
           </Button>
         </Tab>
         <Tab>

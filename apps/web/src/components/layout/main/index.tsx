@@ -1,10 +1,4 @@
-import {
-  Button,
-  Main,
-  MainContainer,
-  SideBar,
-  Skeleton,
-} from '@repo/ui/components';
+import { Main, MainContainer } from '@repo/ui/components';
 import React, { ReactNode, Suspense } from 'react';
 import NavComponent from '../navbar';
 import HelloAwait from '@/components/hello-await';
