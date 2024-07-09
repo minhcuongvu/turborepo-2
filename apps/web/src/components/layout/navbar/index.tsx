@@ -3,6 +3,12 @@
 import { Button, Navbar, NavBarContainer, Tab } from '@repo/ui/components';
 import { useRouter } from 'next/navigation';
 
+// https://codepen.io/jh3y/pen/MWLyGxo
+// https://codepen.io/jh3y/pen/mdGLzNR
+// https://codepen.io/jh3y/pen/eYLKGLK
+// https://codepen.io/jh3y/pen/ZEjBPVZ
+// https://codepen.io/jh3y/pen/GRBNvvX
+
 export default function NavComponent() {
   const router = useRouter();
   return (
