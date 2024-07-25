@@ -9,10 +9,7 @@ import useSWRMutation from 'swr/mutation';
 const fetcher = (...args: [RequestInfo, RequestInit?]) =>
   fetch(...args).then((res) => res.json());
 
-async function sendRequest(
-  url: string,
-  { arg }: { arg: { username: string } }
-) {
+async function sendRequest(url: string, { arg }: { arg: { hello: string } }) {
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -22,11 +19,14 @@ async function sendRequest(
   }).then((res) => res.json());
 }
 
+const helloUrl = 'http://localhost:8080/hello';
+const helloGraphQlUrl = 'http://localhost:8080/helloql';
+
 export default function SendIt() {
   const { mutate } = useSWRConfig();
   const [shouldFetch, setShouldFetch] = useState(false);
   const { data, error, isLoading } = useSWR(
-    shouldFetch ? '/api/hello' : null,
+    shouldFetch ? helloUrl : null,
     fetcher,
     {
       revalidateIfStale: true,
@@ -41,18 +41,24 @@ export default function SendIt() {
     isMutating,
     // data: mutationData,
     // error: mutationError,
-  } = useSWRMutation('/api/hello', sendRequest);
+  } = useSWRMutation(helloGraphQlUrl, sendRequest);
 
   const handleFetchClick = () => {
     setShouldFetch(true);
-    mutate('/api/hello', null, { revalidate: true }); // clear cache/revalidate for this key
+    mutate(helloUrl, null, { revalidate: true });
+    // clear cache/revalidate for this key
+    // there's a bug when sending GET/api/hello
+    // and immediately then POST/api/hello
+    // it will resend GET/api/hello, resulting 3 requests in total
+    // but not the other way around
+    // better to make it a different endpoint
     setFetchLoading(true);
   };
 
   const handleSendClick = async () => {
     try {
       setPostLoading(true);
-      const result = await trigger({ username: 'johndoe' });
+      const result = await trigger({ hello: 'johndoe' });
       console.log('Response data', result);
       setPostLoading(false);
       setPostResult(result);
@@ -92,7 +98,7 @@ export default function SendIt() {
   return (
     <>
       <form action={sendIt}>
-        <Button appName="web" type="submit">
+        <Button appName="web" type="button">
           Send it
         </Button>
       </form>

@@ -37,6 +37,10 @@ import ScrollToTop from '@/components/scroll-to-top';
 // https://codepen.io/Sepion/pen/ZQJyeq
 // https://codepen.io/vubon/pen/bdmvbY
 
+// sticky page progress bar
+// https://codepen.io/pardeepchauhan/pen/gObOZVm
+// https://codepen.io/LucasZapico/pen/yGXjVw
+
 export default function Home() {
   return (
     <>
