@@ -1,0 +1,12 @@
+.framer-motion-basic {
+  @apply text-white
+}
+
+.box {
+  --size: 100px;
+  margin: 20px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--purple);
+}

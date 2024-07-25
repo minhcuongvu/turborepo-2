@@ -1,13 +1,11 @@
 import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
 import { SideBarComponent } from '@/components/layout/sidebar';
-import { Root, Skeleton } from '@repo/ui/components';
+import { FramerMotionBasic, Root, Skeleton } from '@repo/ui/components';
 import { Suspense } from 'react';
-import Loading from './loading';
 import HelloAwait from '@/components/hello-await';
 import LinksPanelComponent from '@/components/panel/links-panel-full';
-import ScrollToTop from '@/components/scroll-to-top';
-import FramerBasic from '@/components/framer-motion';
+import { Metadata, ResolvingMetadata } from 'next';
 
 // https://codepen.io/jh3y/pen/zYmVobx
 // https://codepen.io/jh3y/pen/YzdyjrG
@@ -42,7 +40,25 @@ import FramerBasic from '@/components/framer-motion';
 // https://codepen.io/pardeepchauhan/pen/gObOZVm
 // https://codepen.io/LucasZapico/pen/yGXjVw
 
-export default function Home() {
+// https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+// seems like "export const metadata: Metadata = {}" doesnt work with server page
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  return {
+    title: {
+      absolute: 'Home',
+    },
+  };
+}
+
+export default async function Home() {
   return (
     <>
       <Root>
@@ -52,7 +68,7 @@ export default function Home() {
             <HelloAwait />
           </Suspense>
           <Suspense fallback={<Skeleton />}>
-            <FramerBasic />
+            <FramerMotionBasic />
           </Suspense>
           <Suspense fallback={<Skeleton />}>
             <LinksPanelComponent />

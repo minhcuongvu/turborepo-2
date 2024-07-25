@@ -136,12 +136,3 @@ html {
 		to { --show: 1; }
 	}
 }
-
-.box {
-	--size: 100px;
-	margin: 20px;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background: var(--purple);
-}

@@ -6,8 +6,18 @@ import { Button } from '@repo/ui/components';
 import useSWR, { useSWRConfig } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
-const fetcher = (...args: [RequestInfo, RequestInit?]) =>
-  fetch(...args).then((res) => res.json());
+const fetcher = async (...args: [RequestInfo, RequestInit?]) => {
+  try {
+    const res = await fetch(...args);
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return res.json();
+  } catch (error) {
+    console.error('Failed to fetch data', error);
+    throw error;
+  }
+};
 
 async function sendRequest(url: string, { arg }: { arg: { hello: string } }) {
   return fetch(url, {
@@ -32,7 +42,12 @@ export default function SendIt() {
       revalidateIfStale: true,
     }
   );
+
+  type PostError = any | Error;
+
   const [fetchLoading, setFetchLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(null);
+  const [postError, setPostError] = useState<PostError>(null);
   const [fetchResult, setFetchResult] = useState(null);
   const [postLoading, setPostLoading] = useState(false);
   const [postResult, setPostResult] = useState(null);
@@ -45,7 +60,7 @@ export default function SendIt() {
 
   const handleFetchClick = () => {
     setShouldFetch(true);
-    mutate(helloUrl, null, { revalidate: true });
+    mutate(helloUrl, null, { revalidate: true, throwOnError: false });
     // clear cache/revalidate for this key
     // there's a bug when sending GET/api/hello
     // and immediately then POST/api/hello
@@ -53,18 +68,24 @@ export default function SendIt() {
     // but not the other way around
     // better to make it a different endpoint
     setFetchLoading(true);
+    setFetchError(null);
   };
 
   const handleSendClick = async () => {
     try {
+      setPostError(null);
       setPostLoading(true);
       const result = await trigger({ hello: 'johndoe' });
       console.log('Response data', result);
       setPostLoading(false);
       setPostResult(result);
+      setPostError(null);
       // mutate('/api/hello');
-    } catch (e) {
+    } catch (e: PostError) {
       console.error('Failed to send data', e);
+      setPostError(e);
+    } finally {
+      setPostLoading(false);
     }
   };
 
@@ -95,6 +116,14 @@ export default function SendIt() {
   //   }
   // }, [mutationError]);
 
+  useEffect(() => {
+    if (error) {
+      setFetchLoading(false);
+      setShouldFetch(false);
+      setFetchError(error);
+    }
+  }, [error]);
+
   return (
     <>
       <form action={sendIt}>
@@ -104,13 +133,13 @@ export default function SendIt() {
       </form>
       <form action={sendIt}>
         <Button appName="web" type="button" onClick={handleFetchClick}>
-          Fetch Data
+          {fetchLoading ? 'Fetching' : 'Fetch Data'}
         </Button>
       </form>
 
-      {error && <div>Failed to load</div>}
+      {fetchError && <div>Failed to fetch</div>}
 
-      {fetchLoading && <div>Loading...</div>}
+      {!error && fetchLoading && <div>...</div>}
 
       {!fetchLoading && fetchResult && (
         <div>{JSON.stringify(fetchResult, null, 2)}</div>
@@ -123,9 +152,11 @@ export default function SendIt() {
           onClick={handleSendClick}
           disabled={isMutating}
         >
-          {isMutating ? 'Sending...' : 'Send Data'}
+          {isMutating ? 'Sending' : 'Send Data'}
         </Button>
       </form>
+
+      {postError && <div>Failed to post</div>}
 
       {postLoading && <div>...</div>}
 

@@ -4,6 +4,11 @@ import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
 import { SideBarComponent } from '@/components/layout/sidebar';
 import SendIt from '@/components/send-it';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About',
+};
 
 export default function About({
   params,
