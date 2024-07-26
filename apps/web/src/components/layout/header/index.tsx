@@ -19,7 +19,7 @@ export default function HeaderComponent() {
       >
         About
       </Button>
-      <Button type="button" direction="right" haveBorder={true}>
+      <Button type="button" direction="right-top-bottom" haveBorder={true}>
         Explore
       </Button>
       <Button type="button" direction="top-right" haveBorder={true}>

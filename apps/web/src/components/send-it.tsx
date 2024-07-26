@@ -6,6 +6,9 @@ import { Button } from '@repo/ui/components';
 import useSWR, { useSWRConfig } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
+// https://github.com/vercel/swr/discussions/2602
+// https://swr.vercel.app/docs/mutation#parameters-1
+// https://swr.vercel.app/docs/error-handling
 const fetcher = async (...args: [RequestInfo, RequestInit?]) => {
   try {
     const res = await fetch(...args);
@@ -137,9 +140,9 @@ export default function SendIt() {
         </Button>
       </form>
 
-      {fetchError && <div>Failed to fetch</div>}
+      {fetchLoading && !error && <div>...</div>}
 
-      {!error && fetchLoading && <div>...</div>}
+      {!fetchLoading && fetchError && <div>Failed to fetch</div>}
 
       {!fetchLoading && fetchResult && (
         <div>{JSON.stringify(fetchResult, null, 2)}</div>
@@ -156,9 +159,9 @@ export default function SendIt() {
         </Button>
       </form>
 
-      {postError && <div>Failed to post</div>}
+      {postLoading && !postError && <div>...</div>}
 
-      {postLoading && <div>...</div>}
+      {!postLoading && postError && <div>Failed to post</div>}
 
       {!postLoading && postResult && (
         <div>{JSON.stringify(postResult, null, 2)}</div>

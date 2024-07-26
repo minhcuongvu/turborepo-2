@@ -64,7 +64,7 @@ html {
 	white-space: nowrap;
 	place-self: end;
 	border-radius: 100px;
-	background: var(--accent);
+	background: transparent;
 	text-decoration: none;
 	border: 1px solid white;
 	color: white;

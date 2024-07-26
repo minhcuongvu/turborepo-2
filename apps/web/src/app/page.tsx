@@ -41,14 +41,14 @@ import { Metadata, ResolvingMetadata } from 'next';
 // https://codepen.io/LucasZapico/pen/yGXjVw
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
-type Props = {
+type ParamProps = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 // seems like "export const metadata: Metadata = {}" doesnt work with server page
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params, searchParams }: ParamProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return {

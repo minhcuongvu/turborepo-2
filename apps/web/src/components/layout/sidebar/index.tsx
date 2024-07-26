@@ -12,7 +12,12 @@ export const SideBarComponent = () => {
       >
         Message
       </Button>
-      <Button direction="left" type="button" appName="web" haveBorder={true}>
+      <Button
+        direction="top-left"
+        type="button"
+        appName="web"
+        haveBorder={true}
+      >
         Do stuff
       </Button>
     </SideBar>

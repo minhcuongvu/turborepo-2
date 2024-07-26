@@ -31,14 +31,18 @@ export const Button = ({
     ${className || ''} 
     ${haveBorder ? styles['have-border'] : ''} 
     ${direction === 'top' ? styles['top'] : ''} 
-    ${direction === 'right' ? styles['right'] : ''} 
-    ${direction === 'bottom' ? styles['bottom'] : ''} 
-    ${direction === 'left' ? styles['left'] : ''} 
-    ${direction === 'top-left' ? styles['top-left'] : ''} 
     ${direction === 'top-right' ? styles['top-right'] : ''} 
-    ${direction === 'bottom-left' ? styles['bottom-left'] : ''} 
+    ${direction === 'top-left' ? styles['top-left'] : ''} 
+    ${direction === 'top-left-right' ? styles['top-left-right'] : ''} 
+    ${direction === 'right' ? styles['right'] : ''} 
+    ${direction === 'right-top-bottom' ? styles['right-top-bottom'] : ''} 
+    ${direction === 'left' ? styles['left'] : ''} 
+    ${direction === 'left-top-bottom' ? styles['left-top-bottom'] : ''} 
+    ${direction === 'bottom' ? styles['bottom'] : ''} 
     ${direction === 'bottom-right' ? styles['bottom-right'] : ''}
-  `.trim();
+    ${direction === 'bottom-left' ? styles['bottom-left'] : ''} 
+    ${direction === 'bottom-left-right' ? styles['bottom-left-right'] : ''} 
+    `.trim();
 
   return (
     <button
