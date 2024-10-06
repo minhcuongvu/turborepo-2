@@ -1,7 +1,8 @@
 'use client';
 
-import { Button, Navbar, NavBarContainer, Tab } from '@repo/ui/components';
+import { DivContainer, Button, Navbar, NavBarContainer, Tab, Icon } from '@repo/ui/components';
 import { useRouter } from 'next/navigation';
+import { relative } from 'path';
 
 // https://codepen.io/jh3y/pen/MWLyGxo
 // https://codepen.io/jh3y/pen/mdGLzNR
@@ -13,6 +14,7 @@ export default function NavComponent() {
   const router = useRouter();
   return (
     <NavBarContainer>
+      {/* 
       <Navbar>
         <Tab>
           <Button type="button" appName="web">
@@ -44,6 +46,12 @@ export default function NavComponent() {
           </Button>
         </Tab>
       </Navbar>
+      */}
+      <DivContainer tailwindStyle='float-right'>
+        <Button haveBorder={true} type="button">
+          Dark 
+        </Button>
+      </DivContainer>
     </NavBarContainer>
   );
 }

@@ -1,0 +1,11 @@
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.div1 {
+  @apply px-5 pt-3 pb-10 flex flex-col items-center
+}

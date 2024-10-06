@@ -9,7 +9,7 @@
     "turbo",
     "global.d.ts",
     "tailwind.config.ts",
-    "postcss.config.mjs",
+    "postcss.config.mjs"
   ],
   "exclude": [
     "node_modules",

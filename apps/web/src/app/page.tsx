@@ -62,7 +62,7 @@ export default async function Home() {
   return (
     <>
       <Root>
-        <HeaderComponent />
+        {/* <HeaderComponent /> */}
         <MainComponent>
           <Suspense fallback={<Skeleton />}>
             <HelloAwait />
@@ -70,22 +70,13 @@ export default async function Home() {
           <Suspense fallback={<Skeleton />}>
             <FramerMotionBasic />
           </Suspense>
+          {/* 
           <Suspense fallback={<Skeleton />}>
             <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-            <LinksPanelComponent />
-          </Suspense>
+          </Suspense> 
+          */}
         </MainComponent>
-        <SideBarComponent />
+        {/* <SideBarComponent /> */}
       </Root>
     </>
   );

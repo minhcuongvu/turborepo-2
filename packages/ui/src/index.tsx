@@ -2,6 +2,10 @@ export * from './components/button/button';
 export * from './components/card/card';
 export * from './components/code/code';
 
+export * from './components/div/div';
+
+export * from './components/icon/icon';
+
 export * from './components/hello/hello';
 export * from './components/skeleton/skeleton';
 

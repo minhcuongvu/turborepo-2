@@ -1,4 +1,4 @@
-import { Main, MainContainer } from '@repo/ui/components';
+import { DivContainer, Main, MainContainer } from '@repo/ui/components';
 import React, { ReactNode, Suspense } from 'react';
 import NavComponent from '../navbar';
 import HelloAwait from '@/components/hello-await';
@@ -21,6 +21,6 @@ export default function MainComponent({
 
 const MainContentWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="px-5 pt-3 pb-10 flex flex-col items-center">{children}</div>
+    <DivContainer tailwindStyle='px-5 pt-3 pb-10 flex flex-col items-center'>{children}</DivContainer>
   );
 };
