@@ -5,7 +5,7 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `web`: a [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component shared library
+- `@repo/ui`: a React Components/Web Components library
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 - `@repo/tailwind-config`: `TailwindCSS` configurations
@@ -43,6 +43,14 @@ To run some testing, run the following command:
 
 ```
 yarn test
+```
+
+### Start
+
+Run build
+
+```
+yarn start
 ```
 
 ### Remote Caching

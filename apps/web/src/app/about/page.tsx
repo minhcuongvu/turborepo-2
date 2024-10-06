@@ -5,6 +5,7 @@ import MainComponent from '@/components/layout/main';
 import { SideBarComponent } from '@/components/layout/sidebar';
 import SendIt from '@/components/send-it';
 import { Metadata } from 'next';
+import { ThemeProvider } from '@/components/theme';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -18,7 +19,7 @@ export default function About({
   searchParams?: { [key: string]: string | undefined };
 }) {
   return (
-    <Root>
+    <>
       <HeaderComponent />
       <MainComponent>
         <Suspense fallback={<Skeleton />}>
@@ -26,6 +27,6 @@ export default function About({
         </Suspense>
       </MainComponent>
       <SideBarComponent />
-    </Root>
+    </>
   );
 }

@@ -57,28 +57,26 @@ export async function generateMetadata(
 
 export default async function Home() {
   return (
-    <Root>
-      <ThemeProvider>
-        <MainComponent>
-          <Suspense fallback={<Skeleton />}>
-            <DivContainer tailwindStyle="text-center text-black dark:text-white">
-              <p>Hi there, I&apos;m <SpanContainer tailwindStyle='text-black dark:text-white'>Adrian</SpanContainer></p>
-            </DivContainer>
-          </Suspense>
-          <Suspense fallback={<Skeleton />}>
-            <FramerMotionBasic />
-          </Suspense>
-          <Suspense fallback={<Skeleton />}>
-            <DivContainer tailwindStyle='text-black dark:text-white'>
-              <p>
-                <SpanContainer>
-                  Here you can see some of the projects that I&apos;ve made public
-                </SpanContainer>
-              </p>
-            </DivContainer>
-          </Suspense>
-        </MainComponent>
-      </ThemeProvider>
-    </Root>
+    <>
+      <MainComponent>
+        <Suspense fallback={<Skeleton />}>
+          <DivContainer tailwindStyle="text-center text-black dark:text-white">
+            <p>Hello there, I&apos;m <SpanContainer tailwindStyle='text-black dark:text-white'>Adrian</SpanContainer></p>
+          </DivContainer>
+        </Suspense>
+        <Suspense fallback={<Skeleton />}>
+          <FramerMotionBasic />
+        </Suspense>
+        <Suspense fallback={<Skeleton />}>
+          <DivContainer tailwindStyle='text-black dark:text-white'>
+            <p>
+              <SpanContainer>
+                Here you can see some of the projects that I&apos;ve made public
+              </SpanContainer>
+            </p>
+          </DivContainer>
+        </Suspense>
+      </MainComponent>
+    </>
   );
 }

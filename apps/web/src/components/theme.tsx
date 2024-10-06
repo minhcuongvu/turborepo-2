@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { DivContainer } from '@repo/ui/components';
+import { DivContainer, Root } from '@repo/ui/components';
 
 type Theme = 'light' | 'dark';
 
@@ -22,14 +22,15 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   useEffect(() => {
     // Update the class on the html element
     document.documentElement.setAttribute('theme', theme);
-    document.documentElement.classList = theme;
     // Optionally store the theme in localStorage
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+      <Root className={`${theme}`}>
+        {children}
+      </Root>
     </ThemeContext.Provider>
   );
 };

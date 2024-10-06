@@ -1,8 +1,10 @@
-import { DivContainer } from '../div/div';
+import { BaseContainerProps } from '../../interfaces';
 import styles from './root.module.css';
 
-export const Root = ({ children }: { children: React.ReactNode | any }) => {
-  const combinedClassnames = [ styles.root ]
+export const Root = ({ children, className }: BaseContainerProps) => {
+  const combinedClassnames = [ styles.root,
+    className
+  ]
   .filter(Boolean)
   .join(' ')
   .trim(); 

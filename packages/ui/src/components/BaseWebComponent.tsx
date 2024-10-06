@@ -1,4 +1,4 @@
-class BaseComponent extends HTMLElement {
+class BaseWebComponent extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
@@ -22,4 +22,4 @@ class BaseComponent extends HTMLElement {
   }
 }
 
-export default BaseComponent
+export default BaseWebComponent

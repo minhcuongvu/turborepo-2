@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import '@repo/ui/styles.css';
+import { ThemeProvider } from '@/components/theme';
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ThemeProvider>
         {children}
+        </ThemeProvider>
       </body>
     </html>
   );

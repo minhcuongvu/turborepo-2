@@ -8,7 +8,8 @@
   "exports": {
     "./interfaces": "./src/interfaces/index.ts",
     "./styles.css": "./dist/index.css",
-    "./components": "./src/index.tsx"
+    "./components": "./src/index.tsx",
+    "./global.d.ts": "./global.d.ts"
   },
   "scripts": {
     "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
