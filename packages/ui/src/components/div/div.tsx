@@ -3,14 +3,14 @@ import { DivContainerProps } from '@repo/ui/interfaces';
 
 export const DivContainer = ({
   children,
+  className,
   customStyle,
   tailwindStyle,
 }: DivContainerProps) => {
-  const combinedClassNames = `
-${customStyle?.div1 !== undefined ? styles['div1'] : ''}
-${tailwindStyle !== undefined ? tailwindStyle : ''}
-`.trim();
-
+  const combinedClassNames = [className, customStyle?.string, tailwindStyle]
+  .filter(Boolean)
+  .join(' ')
+  .trim();
   return <div className={combinedClassNames}>{children}</div>;
 };
 

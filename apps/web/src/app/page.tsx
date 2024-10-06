@@ -1,11 +1,8 @@
-import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
-import { SideBarComponent } from '@/components/layout/sidebar';
-import { FramerMotionBasic, Root, Skeleton } from '@repo/ui/components';
+import { DivContainer, FramerMotionBasic, Hello, Root, Skeleton, SpanContainer } from '@repo/ui/components';
 import { Suspense } from 'react';
-import HelloAwait from '@/components/hello-await';
-import LinksPanelComponent from '@/components/panel/links-panel-full';
 import { Metadata, ResolvingMetadata } from 'next';
+import { ThemeProvider } from '@/components/theme';
 
 // https://codepen.io/jh3y/pen/zYmVobx
 // https://codepen.io/jh3y/pen/YzdyjrG
@@ -60,24 +57,28 @@ export async function generateMetadata(
 
 export default async function Home() {
   return (
-    <>
-      <Root>
-        {/* <HeaderComponent /> */}
+    <Root>
+      <ThemeProvider>
         <MainComponent>
           <Suspense fallback={<Skeleton />}>
-            <HelloAwait />
+            <DivContainer tailwindStyle="text-center text-black dark:text-white">
+              <p>Hi there, I&apos;m <SpanContainer tailwindStyle='text-black dark:text-white'>Adrian</SpanContainer></p>
+            </DivContainer>
           </Suspense>
           <Suspense fallback={<Skeleton />}>
             <FramerMotionBasic />
           </Suspense>
-          {/* 
           <Suspense fallback={<Skeleton />}>
-            <LinksPanelComponent />
-          </Suspense> 
-          */}
+            <DivContainer tailwindStyle='text-black dark:text-white'>
+              <p>
+                <SpanContainer>
+                  Here you can see some of the projects that I&apos;ve made public
+                </SpanContainer>
+              </p>
+            </DivContainer>
+          </Suspense>
         </MainComponent>
-        {/* <SideBarComponent /> */}
-      </Root>
-    </>
+      </ThemeProvider>
+    </Root>
   );
 }

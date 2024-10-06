@@ -17,6 +17,7 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
+    "@repo/tailwind-config": "*",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@repo/utils": "*",

@@ -3,6 +3,7 @@ export * from './components/card/card';
 export * from './components/code/code';
 
 export * from './components/div/div';
+export * from './components/span/span';
 
 export * from './components/icon/icon';
 

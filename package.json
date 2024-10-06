@@ -5,6 +5,7 @@
     "with-env-local": "dotenv -e ./.env.local --",
     "with-env-development": "dotenv -e ./.env.development --",
     "with-env-production": "dotenv -e ./.env.production --",
+    "start": "yarn --cwd ./apps/web start",
     "build": "turbo build",
     "dev": "yarn with-env-local turbo dev",
     "lint": "turbo lint",

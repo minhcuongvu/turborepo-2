@@ -1,5 +1,6 @@
 'use client';
 
+import { useTheme } from '@/components/theme';
 import { DivContainer, Button, Navbar, NavBarContainer, Tab, Icon } from '@repo/ui/components';
 import { useRouter } from 'next/navigation';
 import { relative } from 'path';
@@ -11,45 +12,15 @@ import { relative } from 'path';
 // https://codepen.io/jh3y/pen/GRBNvvX
 
 export default function NavComponent() {
-  const router = useRouter();
+  const {theme, toggleTheme} = useTheme();
   return (
     <NavBarContainer>
-      {/* 
-      <Navbar>
-        <Tab>
-          <Button type="button" appName="web">
-            Back
-          </Button>
-        </Tab>
-        <Tab>
-          <Button
-            type="button"
-            appName="web"
-            onClick={() => router.push('/about')}
-          >
-            About
-          </Button>
-        </Tab>
-        <Tab>
-          <Button type="button" appName="web" onClick={() => router.push('/')}>
-            Home
-          </Button>
-        </Tab>
-        <Tab>
-          <Button type="button" appName="web">
-            Tab 2
-          </Button>
-        </Tab>
-        <Tab>
-          <Button type="button" appName="web">
-            Next
-          </Button>
-        </Tab>
-      </Navbar>
-      */}
-      <DivContainer tailwindStyle='float-right'>
-        <Button haveBorder={true} type="button">
-          Dark 
+      <DivContainer tailwindStyle='float-right flex'>
+        <Button className='text-black dark:text-white' haveBorder={false} type="button">
+          Lang 
+        </Button>
+        <Button className='text-black dark:text-white' haveBorder={false} type="button" onClick={toggleTheme}>
+          {theme === 'light' ? 'Light' : 'Dark'} 
         </Button>
       </DivContainer>
     </NavBarContainer>

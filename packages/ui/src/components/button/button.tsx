@@ -42,7 +42,7 @@ export const Button = ({
     ${direction === 'bottom-right' ? styles['bottom-right'] : ''}
     ${direction === 'bottom-left' ? styles['bottom-left'] : ''} 
     ${direction === 'bottom-left-right' ? styles['bottom-left-right'] : ''} 
-    `.trim();
+    `.replace(/\s+/g, ' ').trim();
 
   return (
     <button
