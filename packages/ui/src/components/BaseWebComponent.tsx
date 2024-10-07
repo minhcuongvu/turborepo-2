@@ -12,7 +12,11 @@ class BaseWebComponent extends HTMLElement {
     return ['content'];
   }
 
-  attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
+  attributeChangedCallback(
+    name: string,
+    oldValue: string | null,
+    newValue: string | null
+  ) {
     if (name === 'content' && this.shadowRoot) {
       const wrapper = this.shadowRoot.querySelector('.wrapper');
       if (wrapper) {
@@ -22,4 +26,4 @@ class BaseWebComponent extends HTMLElement {
   }
 }
 
-export default BaseWebComponent
+export default BaseWebComponent;

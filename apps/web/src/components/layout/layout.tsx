@@ -7,9 +7,5 @@ export default function LayoutComponent({
 }: {
   children?: React.ReactNode;
 }) {
-  return (
-    <ThemeProvider>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

@@ -5,9 +5,9 @@ export const NavBarContainer = ({
 }: {
   children: React.ReactNode | any;
 }) => {
-  return <navbar className={styles['container']}>{children}</navbar>;
+  return <div className={styles.container}>{children}</div>;
 };
 
 export const Navbar = ({ children }: { children: React.ReactNode | any }) => {
-  return <navbar className={styles['nav']}>{children}</navbar>;
+  return <navbar className={styles.nav}>{children}</navbar>;
 };

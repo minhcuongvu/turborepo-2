@@ -8,9 +8,8 @@ export const SpanContainer = ({
   tailwindStyle,
 }: SpanContainerProps) => {
   const combinedClassNames = [className, customStyle?.string, tailwindStyle]
-  .filter(Boolean)
-  .join(' ')
-  .trim();
+    .filter(Boolean)
+    .join(' ')
+    .trim();
   return <span className={combinedClassNames}>{children}</span>;
 };
-

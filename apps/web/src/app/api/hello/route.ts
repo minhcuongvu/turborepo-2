@@ -15,10 +15,10 @@ export async function GET(request: NextRequest) {
 
   // Construct the response message
   const responseMessage = query ? `world, ${query}` : `world`;
-  const response = JSON.stringify({'hello' : responseMessage})
+  const response = JSON.stringify({ hello: responseMessage });
 
   // Simulate a delay
-  await delay(2000)
+  await delay(2000);
 
   return new NextResponse(response, {
     status: 200,
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
   // Construct the response message
   const responseMessage = `Hello, ${username}`;
-  const response = JSON.stringify({ 'greeting': responseMessage });
+  const response = JSON.stringify({ greeting: responseMessage });
 
   // Simulate a delay
   await delay(2000);

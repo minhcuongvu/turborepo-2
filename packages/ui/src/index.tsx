@@ -23,3 +23,5 @@ export * from './components/side-bar/side-bar';
 export * from './components/main-container/main-container';
 
 export * from './components/framer-motion-basic/framer-motion-basic';
+
+export * from './components/page-wrapper/page-wrapper';

@@ -8,9 +8,8 @@ export const DivContainer = ({
   tailwindStyle,
 }: DivContainerProps) => {
   const combinedClassNames = [className, customStyle?.string, tailwindStyle]
-  .filter(Boolean)
-  .join(' ')
-  .trim();
+    .filter(Boolean)
+    .join(' ')
+    .trim();
   return <div className={combinedClassNames}>{children}</div>;
 };
-

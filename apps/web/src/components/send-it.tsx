@@ -116,14 +116,24 @@ export default function SendIt() {
   }, [error]);
 
   return (
-    <DivContainer className='text-black dark:text-white'>
+    <DivContainer className="text-black dark:text-white">
       <form action={sendIt}>
-        <Button className='text-black dark:text-white' appName="web" type="button" onClick={() => sendIt()}>
+        <Button
+          className="text-black dark:text-white"
+          appName="web"
+          type="button"
+          onClick={() => sendIt()}
+        >
           Send it
         </Button>
       </form>
       <form action={sendIt}>
-        <Button className='text-black dark:text-white' appName="web" type="button" onClick={handleFetchClick}>
+        <Button
+          className="text-black dark:text-white"
+          appName="web"
+          type="button"
+          onClick={handleFetchClick}
+        >
           {fetchLoading ? 'Fetching' : 'Fetch Data'}
         </Button>
       </form>
@@ -138,7 +148,7 @@ export default function SendIt() {
 
       <form action={sendIt}>
         <Button
-          className='text-black dark:text-white' 
+          className="text-black dark:text-white"
           appName="web"
           type="button"
           onClick={handleSendClick}

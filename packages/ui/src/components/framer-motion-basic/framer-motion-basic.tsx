@@ -4,10 +4,10 @@ import styles from './framer-motion-basic.module.css';
 import { motion } from 'framer-motion';
 
 export const FramerMotionBasic = () => {
-  const boxClassNames = [ styles['box'], 'bg-black', 'dark:bg-white']
-  .filter(Boolean)
-  .join(' ')
-  .trim();
+  const boxClassNames = [styles['box'], 'bg-black', 'dark:bg-white']
+    .filter(Boolean)
+    .join(' ')
+    .trim();
   return (
     <>
       <div className={styles['framer-motion-basic']}>

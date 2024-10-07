@@ -1,7 +1,5 @@
-import BaseWebComponent from "../BaseWebComponent";
+import BaseWebComponent from '../BaseWebComponent';
 
-class RootComponent extends BaseWebComponent {
-}
+class RootComponent extends BaseWebComponent {}
 
 customElements.define('root', RootComponent);
-

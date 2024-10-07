@@ -10,7 +10,7 @@
     "dev": "yarn with-env-local turbo dev",
     "lint": "turbo lint",
     "test": "jest --watch",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx}\" --ignore-path=\".eslintignore\""
   },
   "devDependencies": {
     "@testing-library/dom": "^10.3.0",

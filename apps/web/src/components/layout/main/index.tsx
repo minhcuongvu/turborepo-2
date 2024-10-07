@@ -6,21 +6,19 @@ import FooterComponent from '../footer';
 export default function MainComponent({
   children,
 }: {
-    children?: React.ReactNode;
-  }) {
+  children?: React.ReactNode;
+}) {
   return (
     <Main>
-      <NavComponent />
-      <MainContentWrapper>
-        {children}
-      </MainContentWrapper>
-      <FooterComponent />
+      <MainContentWrapper>{children}</MainContentWrapper>
     </Main>
   );
 }
 
 const MainContentWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <DivContainer tailwindStyle='flex-grow px-5 pt-3 pb-10 flex flex-col items-center'>{children}</DivContainer>
+    <DivContainer tailwindStyle="flex-grow px-5 pt-3 pb-10 flex flex-col items-center">
+      {children}
+    </DivContainer>
   );
 };

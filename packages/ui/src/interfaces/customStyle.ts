@@ -7,4 +7,4 @@ export interface CustomStyle {
 export type Theme = {
   Light: string;
   Dark: string;
-}
+};

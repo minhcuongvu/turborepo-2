@@ -1,3 +1,5 @@
 .root {
- @apply flex size-full items-stretch justify-between
+ /*@apply*/
+ /*   flex*/
+ /*   size-full*/
 }

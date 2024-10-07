@@ -1,8 +1,8 @@
 .container {
   backdrop-filter: blur(12px);
-  /*@apply size-full */
+  @apply size-full 
 }
 
 .nav {
-  @apply flex items-center justify-center flex-row pt-1 pb-1
+  @apply size-full flex items-center justify-center
 }

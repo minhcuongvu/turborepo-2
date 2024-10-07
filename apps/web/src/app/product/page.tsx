@@ -20,13 +20,13 @@ async function ProductQuantity() {
   //https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering
 
   let data = await res.json();
-  return <h1 className='text-black dark:text-white'>{data.fact}</h1>;
+  return <h1 className="text-black dark:text-white">{data.fact}</h1>;
 }
 
 export default function Product() {
   return (
     <MainComponent>
-      <Code className='text-black dark:text-white'>{Date.now()}</Code>
+      <Code className="text-black dark:text-white">{Date.now()}</Code>
       <ProductQuantity />
     </MainComponent>
   );
