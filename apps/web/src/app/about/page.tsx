@@ -1,4 +1,9 @@
-import { FramerMotionBasic, PageWrapper, Root, Skeleton } from '@repo/ui/components';
+import {
+  FramerMotionBasic,
+  PageWrapper,
+  Root,
+  Skeleton,
+} from '@repo/ui/components';
 import React, { Suspense } from 'react';
 import MainComponent from '@/components/layout/main';
 import SendIt from '@/components/send-it';
@@ -14,9 +19,9 @@ export default function About({
   params,
   searchParams,
 }: {
-    params?: any;
-    searchParams?: { [key: string]: string | undefined };
-  }) {
+  params?: any;
+  searchParams?: { [key: string]: string | undefined };
+}) {
   return (
     <>
       <HeaderComponent />

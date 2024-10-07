@@ -11,7 +11,33 @@ import { PageWrapper, Root } from '@repo/ui/components';
 import { Theme } from '@radix-ui/themes';
 
 type ThemeColor = 'light' | 'dark';
-type AccentColor = "gray" |  "gold" |  "bronze" |  "brown" |  "yellow" |  "amber" |  "orange" |  "tomato" |  "red" |  "ruby" |  "crimson" |  "pink" |  "plum" |  "purple" |  "violet" |  "iris" |  "indigo" |  "blue" |  "cyan" |  "teal" |  "jade" |  "green" |  "grass" |  "lime" |  "mint" |  "sky";
+type AccentColor =
+  | 'gray'
+  | 'gold'
+  | 'bronze'
+  | 'brown'
+  | 'yellow'
+  | 'amber'
+  | 'orange'
+  | 'tomato'
+  | 'red'
+  | 'ruby'
+  | 'crimson'
+  | 'pink'
+  | 'plum'
+  | 'purple'
+  | 'violet'
+  | 'iris'
+  | 'indigo'
+  | 'blue'
+  | 'cyan'
+  | 'teal'
+  | 'jade'
+  | 'green'
+  | 'grass'
+  | 'lime'
+  | 'mint'
+  | 'sky';
 
 interface ThemeContextType {
   theme: ThemeColor;
@@ -32,7 +58,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
 
   const switchAccentColor = () => {
     setAccentColor((prev) => (prev === 'red' ? 'sky' : 'red'));
-  }
+  };
 
   useEffect(() => {
     // Update the class on the html element
@@ -48,9 +74,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
       <body className={`${theme}`}>
         <Root>
           <Theme accentColor={`${accentColor}`} hasBackground={false}>
-            <PageWrapper>
-              {children}
-            </PageWrapper>
+            <PageWrapper>{children}</PageWrapper>
           </Theme>
         </Root>
       </body>

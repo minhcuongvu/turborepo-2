@@ -20,10 +20,10 @@ export default function NavComponent() {
         {theme === 'light' ? (
           <MoonIcon width="20" height="20" />
         ) : (
-            <SunIcon width="20" height="20" />
-          )}
+          <SunIcon width="20" height="20" />
+        )}
       </IconButton>
-      <Flex className='absolute right-0' pr="4" gap="4" align="center">
+      <Flex className="absolute right-0" pr="4" gap="4" align="center">
         <Button className="text-black dark:text-white" type="button">
           Lang
         </Button>
@@ -38,8 +38,8 @@ export default function NavComponent() {
           {theme === 'light' ? (
             <MoonIcon width="20" height="20" />
           ) : (
-              <SunIcon width="20" height="20" />
-            )}
+            <SunIcon width="20" height="20" />
+          )}
         </IconButton>
       </Flex>
     </Navbar>
