@@ -3,12 +3,6 @@
 import styles from './button.module.css';
 import { ButtonProps } from '@repo/ui/interfaces';
 
-// https://codepen.io/jh3y/pen/dyqzzaV
-// https://codepen.io/jh3y/pen/VwGKbKP
-// https://codepen.io/jh3y/pen/LYJNvyE
-// https://codepen.io/jh3y/pen/XWMobqx
-// https://codepen.io/jh3y/pen/eYZZdeK
-
 export const Button = ({
   children,
   className,

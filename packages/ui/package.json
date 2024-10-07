@@ -18,8 +18,8 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@repo/tailwind-config": "*",
     "@repo/eslint-config": "*",
+    "@repo/tailwind-config": "*",
     "@repo/typescript-config": "*",
     "@repo/utils": "*",
     "@turbo/gen": "^1.12.4",
@@ -34,6 +34,7 @@
     "typescript-plugin-css-modules": "^5.1.0"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
     "framer-motion": "^11.3.17",
     "react": "^18.2.0"
   }

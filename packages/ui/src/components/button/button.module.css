@@ -1,7 +1,7 @@
 /* TODO: might need different buttons with slightly different styles */
 .button {
   z-index: 1;
-  @apply relative mx-auto flex items-center justify-center text-sm h-10 px-4 hover:border-white overflow-hidden select-none w-full
+  @apply relative mx-auto flex items-center justify-center p-4 hover:border-white overflow-hidden select-none w-full
 }
 
 .have-border {
