@@ -22,10 +22,11 @@
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
-  [role="group"] {
-    max-height: 300px;
-    overflow-y: scroll;
-  }
+}
+.DropdownMenuContent[role="group"],
+.DropdownMenuSubContent[role="group"] {
+  max-height: 300px;
+  overflow-y: scroll;
 }
 .DropdownMenuContent[data-side="top"],
 .DropdownMenuSubContent[data-side="top"] {
