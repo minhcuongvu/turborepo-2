@@ -1,4 +1,4 @@
-body {
+:root body {
   --padding: 2rem;
   --scroll-threshold: 50vh;
 }
@@ -31,7 +31,7 @@ body {
     translate: 0 calc(80vh - (var(--show-scroll-to-top, 0) * 80vh));
     transition: translate 0.475s cubic-bezier(0.4, 0, 0.2, 1);
   }	
-  body {
+  :root body {
     animation: show both steps(1);
     animation-timeline: scroll(root);
     animation-range: 0 var(--scroll-threshold);
