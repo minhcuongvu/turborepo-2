@@ -120,7 +120,6 @@ export default function SendIt() {
       <form action={sendIt}>
         <Button
           className="text-black dark:text-white"
-          appName="web"
           type="button"
           onClick={() => sendIt()}
         >
@@ -130,7 +129,6 @@ export default function SendIt() {
       <form action={sendIt}>
         <Button
           className="text-black dark:text-white"
-          appName="web"
           type="button"
           onClick={handleFetchClick}
         >
@@ -149,7 +147,6 @@ export default function SendIt() {
       <form action={sendIt}>
         <Button
           className="text-black dark:text-white"
-          appName="web"
           type="button"
           onClick={handleSendClick}
           disabled={isMutating}

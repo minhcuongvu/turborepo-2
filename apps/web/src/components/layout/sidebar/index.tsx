@@ -5,18 +5,12 @@ export const SideBarComponent = () => {
   return (
     <SideBar>
       <Button
-        direction="bottom-left"
         type="button"
-        appName="web"
-        haveBorder={true}
       >
         Message
       </Button>
       <Button
-        direction="top-left"
         type="button"
-        appName="web"
-        haveBorder={true}
       >
         Do stuff
       </Button>

@@ -50,30 +50,30 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [theme, setTheme] = useState<ThemeColor>('dark');
-  const [accentColor, setAccentColor] = useState<AccentColor>('red');
+  //const [accentColor, setAccentColor] = useState<AccentColor>('red');
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const switchAccentColor = () => {
-    setAccentColor((prev) => (prev === 'red' ? 'sky' : 'red'));
-  };
+  //const switchAccentColor = () => {
+  //  setAccentColor((prev) => (prev === 'red' ? 'sky' : 'red'));
+  //};
 
   useEffect(() => {
     // Update the class on the html element
     document.documentElement.setAttribute('theme', theme);
     // Optionally store the theme in localStorage
     localStorage.setItem('theme', theme);
-    document.documentElement.setAttribute('accentColor', accentColor);
-    localStorage.setItem('accentColor', accentColor);
+    //document.documentElement.setAttribute('accentColor', accentColor);
+    //localStorage.setItem('accentColor', accentColor);
   }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <body className={`${theme}`}>
         <Root>
-          <Theme accentColor={`${accentColor}`} hasBackground={false}>
+          <Theme accentColor={'red'} hasBackground={false}>
             <PageWrapper>{children}</PageWrapper>
           </Theme>
         </Root>
