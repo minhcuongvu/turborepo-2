@@ -16,6 +16,7 @@ export * from './components/navbar/navbar';
 
 export * from './components/main-container/main/main';
 export * from './components/header/header';
+export * from './components/footer/footer';
 export * from './components/root/root';
 export * from './components/tab/tab';
 export * from './components/side-bar/side-bar';

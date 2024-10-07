@@ -1,6 +1,6 @@
 .container {
   backdrop-filter: blur(12px);
-  @apply size-full 
+  /*@apply size-full */
 }
 
 .nav {

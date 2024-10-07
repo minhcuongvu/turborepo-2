@@ -1,3 +1,4 @@
+import MainComponent from '@/components/layout/main';
 import { Code } from '@repo/ui/components';
 import { unstable_noStore as noStore } from 'next/cache';
 import { cookies } from 'next/headers';
@@ -19,14 +20,14 @@ async function ProductQuantity() {
   //https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering
 
   let data = await res.json();
-  return <h1>{data.fact}</h1>;
+  return <h1 className='text-black dark:text-white'>{data.fact}</h1>;
 }
 
 export default function Product() {
   return (
-    <>
-      <Code>{Date.now()}</Code>
+    <MainComponent>
+      <Code className='text-black dark:text-white'>{Date.now()}</Code>
       <ProductQuantity />
-    </>
+    </MainComponent>
   );
 }

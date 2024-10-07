@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { DivContainer, Root } from '@repo/ui/components';
+import { Root } from '@repo/ui/components';
 
 type Theme = 'light' | 'dark';
 
@@ -28,9 +28,11 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <Root className={`${theme}`}>
-        {children}
-      </Root>
+      <body className={`${theme}`}>
+        <Root>
+          {children}
+        </Root>
+      </body>
     </ThemeContext.Provider>
   );
 };

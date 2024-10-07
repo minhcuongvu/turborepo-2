@@ -3,24 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 	--padding: 2rem;
 	--distance: 10vh;
-}
-
-[theme="dark"] {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-}
-
-body {
-  height: 100%;
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--background-end-rgb));
-		
+  --background-color: white;
+  --background-color-opposite: black;
+  
 	--black: #000000;
 	--ash-black: #222;
 	--white: #fafafa;
@@ -33,9 +20,19 @@ body {
 	--red: #fe0222;
 	--orange: #fd7702;
 	--yellow: #ffbb00;
-
-  --background: var(--white);
   --accent: var(--blue);
+}
+
+[theme="dark"] {
+  --background-color: black;
+  --background-color-opposite: white;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  color: var(--background-color);
+  background-color: var(--background-color);
 }
 
 @layer utilities {
@@ -45,10 +42,11 @@ body {
 }
 
 html {
-  @apply overflow-y-scroll overscroll-y-none
+  @apply size-full overflow-y-scroll overscroll-y-none
 }
 
 #cta {
+  z-index: 97;
 	position: sticky;
 	bottom: var(--padding);
 	margin-top: calc(100vh + var(--distance, 0));
@@ -59,10 +57,10 @@ html {
 	border-radius: 100px;
 	background: transparent;
 	text-decoration: none;
-	border: 1px solid white;
-	color: white;
-	width: 40px;
-	height: 40px;
+	border: 1px solid var(--background-color-opposite); 
+	color: var(--background-color-opposite);
+	width: 56px;
+	height: 56px;
 	aspect-ratio: 1;
 	place-items: center;
 	
@@ -80,52 +78,54 @@ html {
 }
 
 #cta svg {
+  z-index: 98;
 	width: 24px;
 	stroke-width: 3;
+  stroke: var(--background-color-opposite);
 }
 
 #cta:is(:hover, :focus-visible) {
 	--intent: 1;
+  border: none;
 }
 
 #cta::after {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: white;
+	background: var(--background-color);
 	border-radius: 100px;
-	opacity: calc(var(--intent, 0) * 0.1);
+	opacity: calc(var(--intent, 0));
 	transition: opacity 0.2s;
 }
 
+#cta:hover::after {
+  background: var(--background-color-opposite);
+}
+
+#cta:hover svg {
+  stroke: var(--background-color);
+}
+
 @supports (animation-timeline: scroll()) {
-	@property --show {
-		inherits: true;
-		initial-value: 0;
-		syntax: '<number>';
-	}
-	:root #cta {
-		position: fixed;
-		bottom: var(--padding);
-		right: var(--padding);
-		translate: 0 calc(20vh - (var(--show, 0) * 20vh));
-		transition: translate 0.875s linear(
-	    0, 0.5007 7.21%, 0.7803 12.29%,
-	    0.8883 14.93%, 0.9724 17.63%,
-	    1.0343 20.44%, 1.0754 23.44%,
-	    1.0898 25.22%, 1.0984 27.11%,
-	    1.1014 29.15%, 1.0989 31.4%,
-	    1.0854 35.23%, 1.0196 48.86%,
-	    1.0043 54.06%, 0.9956 59.6%,
-	    0.9925 68.11%, 1
-	  );
-	}	
-	:root body {
-		animation: show-cta both steps(1);
-		animation-timeline: scroll(root);
-		animation-range: 0 var(--distance);
-	}
-	@keyframes show-cta {
-		to { --show: 1; }
-	}
+  @property --show {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<number>';
+  }
+  :root #cta {
+    position: fixed;
+    bottom: var(--padding);
+    right: var(--padding);
+    translate: 0 calc(80vh - (var(--show, 0) * 80vh));
+    transition: translate 0.475s cubic-bezier(0.4, 0, 0.2, 1);
+  }	
+  :root body {
+    animation: show-cta both steps(1);
+    animation-timeline: scroll(root);
+    animation-range: 0 var(--distance);
+  }
+  @keyframes show-cta {
+    to { --show: 1; }
+  }
 }

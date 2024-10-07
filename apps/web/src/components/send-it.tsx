@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { sendIt } from '@/actions/example-actions';
-import { Button } from '@repo/ui/components';
+import { Button, DivContainer } from '@repo/ui/components';
 import useSWR, { useSWRConfig } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
@@ -107,18 +107,6 @@ export default function SendIt() {
     }
   }, [data]);
 
-  // useEffect(() => {
-  //   if (mutationData) {
-  //     console.log('Mutation response data', mutationData);
-  //   }
-  // }, [mutationData]);
-
-  // useEffect(() => {
-  //   if (mutationError) {
-  //     console.error('Mutation error', mutationError);
-  //   }
-  // }, [mutationError]);
-
   useEffect(() => {
     if (error) {
       setFetchLoading(false);
@@ -128,21 +116,21 @@ export default function SendIt() {
   }, [error]);
 
   return (
-    <>
+    <DivContainer className='text-black dark:text-white'>
       <form action={sendIt}>
-        <Button appName="web" type="button">
+        <Button className='text-black dark:text-white' appName="web" type="button" onClick={() => sendIt()}>
           Send it
         </Button>
       </form>
       <form action={sendIt}>
-        <Button appName="web" type="button" onClick={handleFetchClick}>
+        <Button className='text-black dark:text-white' appName="web" type="button" onClick={handleFetchClick}>
           {fetchLoading ? 'Fetching' : 'Fetch Data'}
         </Button>
       </form>
 
       {fetchLoading && !error && <div>...</div>}
 
-      {!fetchLoading && fetchError && <div>Failed to fetch</div>}
+      {!fetchLoading && fetchError && <div>Failed to fetch.</div>}
 
       {!fetchLoading && fetchResult && (
         <div>{JSON.stringify(fetchResult, null, 2)}</div>
@@ -150,6 +138,7 @@ export default function SendIt() {
 
       <form action={sendIt}>
         <Button
+          className='text-black dark:text-white' 
           appName="web"
           type="button"
           onClick={handleSendClick}
@@ -161,11 +150,11 @@ export default function SendIt() {
 
       {postLoading && !postError && <div>...</div>}
 
-      {!postLoading && postError && <div>Failed to post</div>}
+      {!postLoading && postError && <div>Failed to post.</div>}
 
       {!postLoading && postResult && (
         <div>{JSON.stringify(postResult, null, 2)}</div>
       )}
-    </>
+    </DivContainer>
   );
 }
