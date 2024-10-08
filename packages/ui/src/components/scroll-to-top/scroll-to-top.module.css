@@ -1,13 +1,11 @@
-html > .dark, html > .light {
-  --padding: 2rem;
-  --scroll-threshold: 50vh;
-}
-
 .btn {
   border: 2px solid var(--accent-10); 
   .icon {
     color: var(--accent-10);
   }
+  animation: show both steps(1);
+  animation-timeline: scroll(root);
+  animation-range: 0 var(--scroll-threshold);
 }
 
 .btn:hover {
@@ -31,11 +29,6 @@ html > .dark, html > .light {
     translate: 0 calc(80vh - (var(--show-scroll-to-top, 0) * 80vh));
     transition: translate 0.475s cubic-bezier(0.4, 0, 0.2, 1);
   }	
-  html > .dark, html > .light {
-    animation: show both steps(1);
-    animation-timeline: scroll(root);
-    animation-range: 0 var(--scroll-threshold);
-  }
   @keyframes show {
     to { --show-scroll-to-top: 1; }
   }

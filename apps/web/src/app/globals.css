@@ -17,6 +17,8 @@
 body {
   color: var(--background-color);
   background-color: var(--background-color);
+  --padding: 2rem;
+  --scroll-threshold: 50vh;
 }
 
 svg {
