@@ -15,7 +15,7 @@ export default function NavComponent() {
     toggleTheme,
     accentColor,
     switchAccentColor,
-    accentColorOptions,
+    AccentColorOptions,
   } = useTheme();
   return (
     <Navbar>
@@ -39,7 +39,7 @@ export default function NavComponent() {
         <AccentColorSwitcherDropdown
           data={accentColor}
           setData={switchAccentColor}
-          items={accentColorOptions}
+          items={AccentColorOptions}
         />
         <IconButton
           className="text-black dark:text-white"
