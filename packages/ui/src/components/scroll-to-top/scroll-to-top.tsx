@@ -6,7 +6,7 @@ import styles from './scroll-to-top.module.css';
 export const ScrollToTop = () => {
   const classNames = [
     styles.btn,
-    'flex items-center justify-center w-16 h-16 rounded-full border-2 border-solid border-blue-500',
+    'flex items-center justify-center w-16 h-16 rounded-full',
   ]
     .join(' ')
     .trim();
