@@ -3,11 +3,7 @@
 import { useTheme } from '@/components/theme';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { Flex, IconButton } from '@radix-ui/themes';
-import {
-  AccentColorSwitcherDropdown,
-  Button,
-  Navbar,
-} from '@repo/ui/components';
+import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';
 
 export default function NavComponent() {
   const {
@@ -20,13 +16,13 @@ export default function NavComponent() {
   return (
     <Navbar>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
-        <Button
+        {/* <Button
           variant="solid"
           className="text-black dark:text-white"
           type="button"
         >
           Lang
-        </Button>
+        </Button> */}
         <AccentColorSwitcherDropdown
           data={accentColor}
           setData={switchAccentColor}

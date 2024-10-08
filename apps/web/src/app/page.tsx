@@ -1,15 +1,7 @@
 import MainComponent from '@/components/layout/main';
-import {
-  FramerMotionBasic,
-  Hello,
-  Root,
-  ScrollToTop,
-  Skeleton,
-} from '@repo/ui/components';
+import { FramerMotionBasic, Skeleton } from '@repo/ui/components';
 import { Suspense } from 'react';
 import { Metadata, ResolvingMetadata } from 'next';
-import { ThemeProvider } from '@/components/theme';
-//import ScrollToTop from '@/components/scroll-to-top';
 import HeaderComponent from '@/components/layout/header';
 import FooterComponent from '@/components/layout/footer';
 import { Flex } from '@radix-ui/themes';
@@ -45,19 +37,6 @@ export default async function Home() {
           </Flex>
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <div className="flex">
-            <FramerMotionBasic />
-          </div>
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
           <FramerMotionBasic />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
