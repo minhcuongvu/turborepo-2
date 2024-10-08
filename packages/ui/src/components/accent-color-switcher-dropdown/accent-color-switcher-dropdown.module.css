@@ -64,7 +64,7 @@
 .DropdownMenuCheckboxItem[data-highlighted],
 .DropdownMenuRadioItem[data-highlighted],
 .DropdownMenuSubTrigger[data-highlighted] {
-	background-color: var(--gray-12);
+	background-color: var(--gray);
 	color: var(--black-a12);
 }
 

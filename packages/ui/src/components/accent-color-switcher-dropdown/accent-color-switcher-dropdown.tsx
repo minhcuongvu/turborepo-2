@@ -1,11 +1,21 @@
-'use client'
+'use client';
 
 import { DotFilledIcon, HamburgerMenuIcon } from '@radix-ui/react-icons';
-import styles from './accent-color-switcher-dropdown.module.css'
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import { AccentColorSwitcherDropdownProps } from '../../interfaces';
+import styles from './accent-color-switcher-dropdown.module.css';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import {
+  AccentColor,
+  AccentColorSwitcherDropdownProps,
+} from '../../interfaces';
 
-export const AccentColorSwitcherDropdown = ({ data, setData, items }: AccentColorSwitcherDropdownProps) => {
+export const AccentColorSwitcherDropdown = ({
+  data,
+  setData,
+  items,
+}: AccentColorSwitcherDropdownProps) => {
+  const handleValueChange = (value: string) => {
+    setData(value as AccentColor);
+  };
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
@@ -14,15 +24,23 @@ export const AccentColorSwitcherDropdown = ({ data, setData, items }: AccentColo
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className={styles.DropdownMenuContent} sideOffset={5}>
-          <DropdownMenu.RadioGroup value={data} onValueChange={setData}>
+        <DropdownMenu.Content
+          className={styles.DropdownMenuContent}
+          sideOffset={5}
+        >
+          <DropdownMenu.RadioGroup
+            value={data}
+            onValueChange={handleValueChange}
+          >
             {items?.map((item) => (
               <DropdownMenu.RadioItem
                 key={item.value}
                 className={styles.DropdownMenuRadioItem}
                 value={item.value}
               >
-                <DropdownMenu.ItemIndicator className={styles.DropdownMenuItemIndicator}>
+                <DropdownMenu.ItemIndicator
+                  className={styles.DropdownMenuItemIndicator}
+                >
                   <DotFilledIcon />
                 </DropdownMenu.ItemIndicator>
                 {item.label}
