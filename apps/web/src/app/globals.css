@@ -5,8 +5,6 @@
 @tailwind utilities;
 
 :root {
-	--padding: 2rem;
-	--scroll-threshold: 50vh;
   --background-color: #f0f6fc;
   --background-color-opposite: #0d1117;
 }
@@ -16,100 +14,8 @@
   --background-color-opposite: #f0f6fc;
 }
 
-html {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   color: var(--background-color);
   background-color: var(--background-color);
 }
 
-html {
-  @apply size-full overflow-y-scroll overscroll-y-none
-}
-
-#cta {
-  z-index: 97;
-	position: sticky;
-	bottom: var(--padding);
-	margin-top: calc(100vh + var(--scroll-threshold, 0));
-	translate: calc(-100% - var(--padding)) 0;
-	display: grid;
-	white-space: nowrap;
-	place-self: end;
-	border-radius: 100px;
-	background: transparent;
-	text-decoration: none;
-	border: 1px solid var(--accent-9); 
-	width: 56px;
-	height: 56px;
-	aspect-ratio: 1;
-	place-items: center;
-	
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border-width: 0;
-	}
-}
-
-#cta svg {
-  z-index: 98;
-	width: 24px;
-	stroke-width: 3;
-  stroke: var(--accent-9);
-}
-
-#cta:is(:hover, :focus-visible) {
-	--intent: 1;
-  border: none;
-}
-
-#cta::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: var(--background-color);
-	border-radius: 100px;
-	opacity: calc(var(--intent, 0));
-	transition: opacity 0.2s;
-}
-
-#cta:hover::after {
-  background: var(--accent-9);
-}
-
-#cta:hover svg {
-  stroke: var(--background-color);
-}
-
-@supports (animation-timeline: scroll()) {
-  @property --show {
-    inherits: true;
-    initial-value: 0;
-    syntax: '<number>';
-  }
-  :root #cta {
-    position: fixed;
-    bottom: var(--padding);
-    right: var(--padding);
-    translate: 0 calc(80vh - (var(--show, 0) * 80vh));
-    transition: translate 0.475s cubic-bezier(0.4, 0, 0.2, 1);
-  }	
-  :root body {
-    animation: show-cta both steps(1);
-    animation-timeline: scroll(root);
-    animation-range: 0 var(--scroll-threshold);
-  }
-  @keyframes show-cta {
-    to { --show: 1; }
-  }
-}

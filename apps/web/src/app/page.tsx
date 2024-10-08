@@ -1,18 +1,18 @@
 import MainComponent from '@/components/layout/main';
 import {
-  DivContainer,
   FramerMotionBasic,
   Hello,
   Root,
+  ScrollToTop,
   Skeleton,
-  SpanContainer,
 } from '@repo/ui/components';
 import { Suspense } from 'react';
 import { Metadata, ResolvingMetadata } from 'next';
 import { ThemeProvider } from '@/components/theme';
-import ScrollToTop from '@/components/scroll-to-top';
+//import ScrollToTop from '@/components/scroll-to-top';
 import HeaderComponent from '@/components/layout/header';
 import FooterComponent from '@/components/layout/footer';
+import { Flex } from '@radix-ui/themes';
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
 type ParamProps = {
@@ -38,15 +38,16 @@ export default async function Home() {
       <HeaderComponent />
       <MainComponent>
         <Suspense fallback={<Skeleton />}>
-          <DivContainer tailwindStyle="text-center text-black dark:text-white">
+          <Flex className="text-center text-black dark:text-white">
             <p>
-              Hello{' '}
-              <SpanContainer tailwindStyle="dark:italic">there</SpanContainer>
+              Hello <span className="dark:italic">there</span>
             </p>
-          </DivContainer>
+          </Flex>
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <FramerMotionBasic />
+          <div className="flex">
+            <FramerMotionBasic />
+          </div>
           <FramerMotionBasic />
           <FramerMotionBasic />
           <FramerMotionBasic />
@@ -60,10 +61,10 @@ export default async function Home() {
           <FramerMotionBasic />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <DivContainer tailwindStyle="text-black dark:text-white"></DivContainer>
+          <div className="text-black dark:text-white"></div>
         </Suspense>
-        <ScrollToTop />
       </MainComponent>
+      <ScrollToTop />
       <FooterComponent />
     </>
   );

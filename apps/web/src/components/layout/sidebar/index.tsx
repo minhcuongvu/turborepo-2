@@ -4,16 +4,8 @@ import React, { ReactNode } from 'react';
 export const SideBarComponent = () => {
   return (
     <SideBar>
-      <Button
-        type="button"
-      >
-        Message
-      </Button>
-      <Button
-        type="button"
-      >
-        Do stuff
-      </Button>
+      <Button type="button">Message</Button>
+      <Button type="button">Do stuff</Button>
     </SideBar>
   );
 };

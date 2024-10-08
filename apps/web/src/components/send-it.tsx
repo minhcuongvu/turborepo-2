@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { sendIt } from '@/actions/example-actions';
-import { Button, DivContainer } from '@repo/ui/components';
+import { Button } from '@repo/ui/components';
 import useSWR, { useSWRConfig } from 'swr';
 import useSWRMutation from 'swr/mutation';
 
@@ -116,7 +116,7 @@ export default function SendIt() {
   }, [error]);
 
   return (
-    <DivContainer className="text-black dark:text-white">
+    <div className="text-black dark:text-white">
       <form action={sendIt}>
         <Button
           className="text-black dark:text-white"
@@ -162,6 +162,6 @@ export default function SendIt() {
       {!postLoading && postResult && (
         <div>{JSON.stringify(postResult, null, 2)}</div>
       )}
-    </DivContainer>
+    </div>
   );
 }

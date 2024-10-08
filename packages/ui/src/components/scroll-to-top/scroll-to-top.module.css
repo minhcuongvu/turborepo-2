@@ -1,0 +1,42 @@
+body {
+  --padding: 2rem;
+  --scroll-threshold: 50vh;
+}
+
+.btn {
+  border: 2px solid var(--accent-9); 
+  .icon {
+    color: var(--accent-9);
+  }
+}
+
+.btn:hover {
+  border: none;
+  background: var(--accent-9);
+  .icon {
+    color: var(--background-color);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @property --show-scroll-to-top {
+    inherits: true;
+    initial-value: 0;
+    syntax: '<number>';
+  }
+  .btn {
+    position: fixed;
+    bottom: var(--padding);
+    right: var(--padding);
+    translate: 0 calc(80vh - (var(--show-scroll-to-top, 0) * 80vh));
+    transition: translate 0.475s cubic-bezier(0.4, 0, 0.2, 1);
+  }	
+  body {
+    animation: show both steps(1);
+    animation-timeline: scroll(root);
+    animation-range: 0 var(--scroll-threshold);
+  }
+  @keyframes show {
+    to { --show-scroll-to-top: 1; }
+  }
+}
