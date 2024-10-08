@@ -34,15 +34,21 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const switchAccentColor = (color: AccentColor) => {
+    localStorage.setItem('accentColor', color);
+    document.documentElement.setAttribute('accentColor', color);
     setAccentColor(color);
   };
 
   useEffect(() => {
     document.documentElement.setAttribute('theme', theme);
     localStorage.setItem('theme', theme);
-    document.documentElement.setAttribute('accentColor', accentColor);
-    localStorage.setItem('accentColor', accentColor);
-  }, [theme]);
+    
+    const savedColor = (localStorage.getItem('accentColor') as AccentColor) || 'red';
+    setAccentColor(savedColor);
+    console.log(savedColor);
+    document.documentElement.setAttribute('accentColor', savedColor);
+    localStorage.setItem('accentColor', savedColor);
+  }, [theme, accentColor]);
 
   return (
     <ThemeContext.Provider
