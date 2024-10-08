@@ -33,16 +33,21 @@ export default function NavComponent() {
         )}
       </IconButton>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
-        <Button className="text-black dark:text-white" type="button">
+        <Button
+          variant="solid"
+          className="text-black dark:text-white"
+          type="button"
+        >
           Lang
         </Button>
         <AccentColorSwitcherDropdown
           data={accentColor}
           setData={switchAccentColor}
           items={AccentColorOptions}
+          theme={theme}
         />
         <IconButton
-          className="text-black dark:text-white"
+          className="cursor-pointer text-black dark:text-white"
           type="button"
           onClick={toggleTheme}
           variant="ghost"
