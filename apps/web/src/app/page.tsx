@@ -64,7 +64,7 @@ export default async function Home() {
           <div className="text-black dark:text-white"></div>
         </Suspense>
       </MainComponent>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <FooterComponent />
     </>
   );

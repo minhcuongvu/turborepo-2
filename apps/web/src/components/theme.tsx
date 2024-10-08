@@ -42,8 +42,9 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   useEffect(() => {
     document.documentElement.setAttribute('theme', theme);
     localStorage.setItem('theme', theme);
-    
-    const savedColor = (localStorage.getItem('accentColor') as AccentColor) || 'red';
+
+    const savedColor =
+      (localStorage.getItem('accentColor') as AccentColor) || 'red';
     setAccentColor(savedColor);
     console.log(savedColor);
     document.documentElement.setAttribute('accentColor', savedColor);

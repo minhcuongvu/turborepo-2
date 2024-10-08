@@ -3,6 +3,10 @@
 import * as Icons from '@radix-ui/react-icons';
 import styles from './scroll-to-top.module.css';
 
+// @jh3yy
+// https://x.com/jh3yy/status/1765168337254809849
+// https://codepen.io/jh3y/pen/YzMyPmo
+
 export const ScrollToTop = () => {
   const classNames = [
     styles.btn,

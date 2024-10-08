@@ -19,19 +19,6 @@ export default function NavComponent() {
   } = useTheme();
   return (
     <Navbar>
-      <IconButton
-        className="text-black dark:text-white"
-        type="button"
-        onClick={toggleTheme}
-        variant="ghost"
-        size="3"
-      >
-        {theme === 'light' ? (
-          <MoonIcon width="20" height="20" />
-        ) : (
-          <SunIcon width="20" height="20" />
-        )}
-      </IconButton>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
         <Button
           variant="solid"

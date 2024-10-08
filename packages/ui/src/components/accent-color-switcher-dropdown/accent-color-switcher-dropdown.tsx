@@ -1,6 +1,12 @@
 'use client';
 
-import { BlendingModeIcon, ColorWheelIcon, DotFilledIcon, HamburgerMenuIcon, SunIcon } from '@radix-ui/react-icons';
+import {
+  BlendingModeIcon,
+  ColorWheelIcon,
+  DotFilledIcon,
+  HamburgerMenuIcon,
+  SunIcon,
+} from '@radix-ui/react-icons';
 import { Button, IconButton } from '@radix-ui/themes';
 import styles from './accent-color-switcher-dropdown.module.css';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
@@ -28,9 +34,13 @@ export const AccentColorSwitcherDropdown = ({
           variant="ghost"
           className={controlBtnClass}
           type="button"
-          size='3'
+          size="3"
         >
-          <BlendingModeIcon className={styles.ControlBtnIcon} width="20" height="20" />
+          <BlendingModeIcon
+            className={styles.ControlBtnIcon}
+            width="20"
+            height="20"
+          />
         </IconButton>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
