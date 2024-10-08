@@ -15,11 +15,6 @@
 }
 
 body {
-  --padding: 2rem;
-  --scroll-threshold: 50vh;
-}
-
-body {
   color: var(--background-color);
   background-color: var(--background-color);
 }

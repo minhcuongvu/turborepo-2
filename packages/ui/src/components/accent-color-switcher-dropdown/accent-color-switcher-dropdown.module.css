@@ -1,7 +1,5 @@
 .ControlBtn:hover, .ControlBtn:focus-visible {
   outline: none;
-  /*outline: 2px solid var(--accent-9);*/
-  /*outline-offset: 2px;*/
 }
 .ControlBtnIcon {
   color: var(--accent-9);
