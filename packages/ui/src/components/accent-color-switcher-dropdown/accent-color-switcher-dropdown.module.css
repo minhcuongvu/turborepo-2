@@ -23,8 +23,8 @@
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
-.DropdownMenuContent[role="group"],
-.DropdownMenuSubContent[role="group"] {
+.DropdownMenuContent>div[role="group"],
+.DropdownMenuSubContent>div[role="group"] {
   max-height: 300px;
   overflow-y: scroll;
 }
