@@ -7,7 +7,7 @@
   color: var(--accent-9);
 }
 :root[theme='light'] .ControlBtnIcon {
-  color: var(--accent-11);
+  color: var(--accent-10);
 }
 .DropdownMenuContent,
 .DropdownMenuSubContent {
@@ -100,7 +100,7 @@
 :root[theme='dark'] .DropdownMenuCheckboxItem[data-highlighted],
 :root[theme='dark'] .DropdownMenuRadioItem[data-highlighted],
 :root[theme='dark'] .DropdownMenuSubTrigger[data-highlighted] {
-  background-color: var(--white-a11);
+  background-color: var(--white-a10);
   color: var(--black-a11);
 }
 

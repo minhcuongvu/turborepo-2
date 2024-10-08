@@ -1,18 +1,21 @@
+<<<<<<< HEAD
 :root body {
   --padding: 2rem;
   --scroll-threshold: 50vh;
 }
 
+=======
+>>>>>>> 232a264 (fix css production build)
 .btn {
-  border: 2px solid var(--accent-9); 
+  border: 2px solid var(--accent-10); 
   .icon {
-    color: var(--accent-9);
+    color: var(--accent-10);
   }
 }
 
 .btn:hover {
   border: none;
-  background: var(--accent-9);
+  background: var(--accent-10);
   .icon {
     color: var(--background-color);
   }
