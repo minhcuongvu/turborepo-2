@@ -26,7 +26,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
       {
         type: 'append',
-        path: 'src/index.tsx',
+        path: 'src/components/index.tsx',
         template: `export * from './components/{{kebabCase name}}/{{kebabCase name}}';`,
       },
       // {
