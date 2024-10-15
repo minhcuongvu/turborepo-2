@@ -18,6 +18,7 @@ RSYNC_EXCLUDES="$SCRIPT_DIR/../rsync-excludes"  # rsync-excludes is in the paren
 REMOTE_USER="root"
 REMOTE_DIR="/app"
 SCRIPTS_DIR="$REMOTE_DIR/scripts"
+ARCHIVE_NAME="deployment-$(date +%Y%m%d%H%M%S).tar.gz"  # Generate unique archive name based on the current timestamp
 
 # Define log directory and create it if it doesn't exist
 LOG_DIR="/tmp/logs"
@@ -57,25 +58,27 @@ echo "Cleaning /app directory on remote server..."
 run_ssh "rm -rf $REMOTE_DIR/*"
 echo "Done."
 
-# Step 2: Sync files from local to remote server, excluding specified files
-echo "Syncing files to remote server..."
-rsync -avz \
-  --exclude-from="$RSYNC_EXCLUDES" \
-  -e "ssh -A -i $SSH_KEY" \
-  "$LOCAL_DIR/" "$REMOTE_USER@$REMOTE_IP:$REMOTE_DIR"
+# Step 2: Create a compressed tar archive of the local files, excluding specified files
+echo "Creating tar archive of local files..."
+tar --exclude-from="$RSYNC_EXCLUDES" -czf "$ARCHIVE_NAME" -C "$LOCAL_DIR" .
 echo "Done."
 
-# Step 3: Run the site setup script
+# Step 3: Transfer the tar archive to the /tmp directory on the remote server using rsync
+echo "Transferring archive to remote server (/tmp)..."
+rsync -avz -e "ssh -A -i $SSH_KEY" "$ARCHIVE_NAME" "$REMOTE_USER@$REMOTE_IP:/tmp"
+echo "Done."
+
+# Step 4: Unpack the archive in /tmp, excluding the parent folder, into /app
+echo "Unpacking the archive into /app..."
+run_ssh "tar -xzf /tmp/$ARCHIVE_NAME -C $REMOTE_DIR --strip-components=1 && rm -f /tmp/$ARCHIVE_NAME"
+echo "Done."
+
+# Step 5: Run the site setup script
 echo "Running site setup script..."
 run_ssh "$SCRIPTS_DIR/yarn-setup.sh"
 echo "Done."
 
-# Step 4: Run the nginx setup script
-echo "Running nginx setup script..."
-run_ssh "$SCRIPTS_DIR/nginx-setup.sh"
-echo "Done."
-
-# Step 5: Kill ssh-agent to clean up
+# Step 7: Kill ssh-agent to clean up
 echo "Cleaning up ssh-agent..."
 ssh-agent -k > /dev/null 2>&1
 
