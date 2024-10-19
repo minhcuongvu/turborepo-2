@@ -1,4 +1,5 @@
 import MainComponent from '@/components/layout/main';
+import { Page } from '@/components/page';
 import { Code } from '@repo/ui/components';
 import { unstable_noStore as noStore } from 'next/cache';
 import { cookies } from 'next/headers';
@@ -25,9 +26,11 @@ async function ProductQuantity() {
 
 export default function Product() {
   return (
-    <MainComponent>
-      <Code className="text-black dark:text-white">{Date.now()}</Code>
-      <ProductQuantity />
-    </MainComponent>
+    <Page>
+      <MainComponent>
+        <Code className="text-black dark:text-white">{Date.now()}</Code>
+        <ProductQuantity />
+      </MainComponent>
+    </Page>
   );
 }

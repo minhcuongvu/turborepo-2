@@ -4,13 +4,14 @@
 .ControlBtnIcon {
   color: var(--accent-9);
 }
-:root[theme='light'] .ControlBtnIcon {
+:root[data-theme='light'] .ControlBtnIcon {
   color: var(--accent-10);
 }
 .DropdownMenuContent,
 .DropdownMenuSubContent {
+  background-color: var(--panel-menu-bg-color);
+  color: var(--panel-menu-text-color);
   min-width: 120px;
-  background-color: var(--gray-a3);
   backdrop-filter: blur(12px);
   border-radius: 6px;
   padding: 5px;
@@ -47,9 +48,9 @@
 .DropdownMenuCheckboxItem,
 .DropdownMenuRadioItem,
 .DropdownMenuSubTrigger {
+  color: inherit;
   font-size: 13px;
   line-height: 1;
-  color: var(--black-a11);
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -60,10 +61,10 @@
   user-select: none;
   outline: none;
 }
-:root[theme='dark'] .DropdownMenuItem,
-:root[theme='dark'] .DropdownMenuCheckboxItem,
-:root[theme='dark'] .DropdownMenuRadioItem,
-:root[theme='dark'] .DropdownMenuSubTrigger {
+:root[data-theme='dark'] .DropdownMenuItem,
+:root[data-theme='dark'] .DropdownMenuCheckboxItem,
+:root[data-theme='dark'] .DropdownMenuRadioItem,
+:root[data-theme='dark'] .DropdownMenuSubTrigger {
   font-size: 13px;
   line-height: 1;
   color: var(--white-a9);
@@ -78,28 +79,26 @@
   outline: none;
 }
 .DropdownMenuSubTrigger[data-state="open"] {
-  /*background-color: var(--violet-4);*/
-  /*color: var(--violet-11);*/
 }
 .DropdownMenuItem[data-disabled],
 .DropdownMenuCheckboxItem[data-disabled],
 .DropdownMenuRadioItem[data-disabled],
 .DropdownMenuSubTrigger[data-disabled] {
-  /*color: var(--mauve-8);*/
-  /*pointer-events: none;*/
 }
 .DropdownMenuItem[data-highlighted],
 .DropdownMenuCheckboxItem[data-highlighted],
 .DropdownMenuRadioItem[data-highlighted],
 .DropdownMenuSubTrigger[data-highlighted] {
-  background-color: var(--gray-a3);
+  background-color: var(--panel-menu-bg-color-hover);
+  /*@apply text-black bg-red-500*/
 }
-:root[theme='dark'] .DropdownMenuItem[data-highlighted],
-:root[theme='dark'] .DropdownMenuCheckboxItem[data-highlighted],
-:root[theme='dark'] .DropdownMenuRadioItem[data-highlighted],
-:root[theme='dark'] .DropdownMenuSubTrigger[data-highlighted] {
-  background-color: var(--white-a10);
-  color: var(--black-a11);
+:root[data-theme='dark'] .DropdownMenuItem[data-highlighted],
+:root[data-theme='dark'] .DropdownMenuCheckboxItem[data-highlighted],
+:root[data-theme='dark'] .DropdownMenuRadioItem[data-highlighted],
+:root[data-theme='dark'] .DropdownMenuSubTrigger[data-highlighted] {
+  /*background-color: var(--gray-a3);*/
+  /*background-color: var(--white-a10);*/
+  /*color: var(--black-a11);*/
 }
 
 .DropdownMenuLabel {
@@ -125,9 +124,8 @@
 }
 
 .DropdownMenuArrow {
-  /*background-color: var(--gray-a6);*/
   backdrop-filter: blur(12px);
-  fill: var(--gray-a6);
+  fill: var(--panel-menu-bg-color);
 }
 
 .IconButton {

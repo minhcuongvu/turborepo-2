@@ -5,5 +5,4 @@ export interface AccentColorSwitcherDropdownProps {
   setData: (value: AccentColor) => void;
   children?: React.ReactNode;
   items: { value: AccentColor; label: string }[];
-  theme: string;
 }

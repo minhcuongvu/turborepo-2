@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import '@repo/ui/styles.css';
-import ThemeProviderWrapper from '@/components/themeWrapper';
-
+import StoreProvider from './StoreProvider';
 export const metadata: Metadata = {
   title: {
     template: '%s | App',
@@ -16,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

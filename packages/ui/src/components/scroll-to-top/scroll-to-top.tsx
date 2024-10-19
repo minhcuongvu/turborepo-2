@@ -9,7 +9,7 @@ const ScrollButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;  // 64px
+  width: 4rem; // 64px
   height: 4rem; // 64px
   border-radius: 50%;
   cursor: pointer;
@@ -29,7 +29,7 @@ const ScrollButton = styled.div`
 `;
 
 const Icon = styled(Icons.ChevronUpIcon)`
-  width: 3rem;  // 48px
+  width: 3rem; // 48px
   height: 3rem; // 48px
   color: var(--accent-10);
 `;

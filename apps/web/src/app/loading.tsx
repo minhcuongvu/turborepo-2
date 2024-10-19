@@ -1,5 +1,5 @@
 import MainComponent from '@/components/layout/main';
-import { ThemeProvider } from '@/components/theme';
+import { ThemeProvider } from 'next-themes';
 
 export default function Loading() {
   return (

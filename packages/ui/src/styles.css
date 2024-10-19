@@ -3,3 +3,15 @@
 
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --panel-menu-bg-color: white;
+  --panel-menu-text-color: black;
+  --panel-menu-bg-color-hover: rgba(0,0,0,0.06);
+}
+
+[theme='dark'] {
+  --panel-menu-bg-color: rgba(255,255,255,0.06);
+  --panel-menu-text-color: white;
+  --panel-menu-bg-color-hover: rgba(255,255,255,0.06);
+}

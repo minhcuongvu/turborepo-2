@@ -1,6 +1,6 @@
 'use client';
+import { ThemeProvider } from 'next-themes';
 import React from 'react';
-import { ThemeProvider } from '../theme';
 
 export default function LayoutComponent({
   children,

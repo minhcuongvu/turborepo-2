@@ -1,10 +1,10 @@
-import MainComponent from '@/components/layout/main';
-import { FramerMotionBasic, ScrollToTop, Skeleton } from '@repo/ui/components';
-import { Suspense } from 'react';
 import { Metadata, ResolvingMetadata } from 'next';
+import { Page } from '@/components/page';
 import HeaderComponent from '@/components/layout/header';
-import FooterComponent from '@/components/layout/footer';
+import MainComponent from '@/components/layout/main';
 import { Flex } from '@radix-ui/themes';
+import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
+import FooterComponent from '@/components/layout/footer';
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
 type ParamProps = {
@@ -24,9 +24,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function Home() {
+const Home = () => {
   return (
-    <>
+    <Page>
       <HeaderComponent />
       <MainComponent>
         <Flex className="text-center text-black dark:text-white">
@@ -37,9 +37,7 @@ export default async function Home() {
       </MainComponent>
       <ScrollToTop />
       <FooterComponent />
-    </>
+    </Page>
   );
-}
-//<Suspense fallback={<Skeleton />}>
-//  <FramerMotionBasic />
-//</Suspense>
+};
+export default Home;
