@@ -2,9 +2,11 @@ import { Metadata, ResolvingMetadata } from 'next';
 import { Page } from '@/components/page';
 import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
-import { Flex } from '@radix-ui/themes';
+import { Container, Flex, IconButton } from '@radix-ui/themes';
 import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
+import { SunIcon } from '@radix-ui/react-icons';
+import TestRedux from '@/components/test-redux';
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
 type ParamProps = {
@@ -34,6 +36,7 @@ const Home = () => {
             Hello <span className="dark:italic">there</span>
           </p>
         </Flex>
+        <TestRedux />
       </MainComponent>
       <ScrollToTop />
       <FooterComponent />

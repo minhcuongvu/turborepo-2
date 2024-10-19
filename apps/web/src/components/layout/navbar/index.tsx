@@ -7,12 +7,16 @@ import { Flex, IconButton } from '@radix-ui/themes';
 import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';
 import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { setTheme as themeSeliceSetTheme } from '@/lib/features/themeSlice';
 
 export default function NavComponent() {
   const { resolvedTheme, setTheme } = useTheme();
   const { accentColor } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
+
+  // State to manage theme loading
+  const [isThemeReady, setIsThemeReady] = useState(false);
 
   // Wrap the handler function in useCallback to prevent it from changing on every render
   const switchAccentColorHandler = useCallback(
@@ -24,45 +28,42 @@ export default function NavComponent() {
     [dispatch]
   );
 
-  const switchTheme = () => {
+  const toggleTheme = () => {
     const newTheme = resolvedTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
+    dispatch(themeSeliceSetTheme(newTheme));
 
     document.documentElement.setAttribute('theme', newTheme);
     localStorage.setItem('theme', newTheme);
   };
 
   useEffect(() => {
+    // Check if the theme has been resolved after mount
+    setIsThemeReady(true);
     const savedColor =
       (localStorage.getItem('accentColor') as AccentColor) ?? 'red';
     switchAccentColorHandler(savedColor);
-    document.documentElement.setAttribute('theme', 'dark');
-    localStorage.setItem('theme', 'dark');
   }, [switchAccentColorHandler]);
 
   return (
     <Navbar>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
-        <IconButton
-          className="cursor-pointer text-black dark:text-white"
-          type="button"
-          onClick={switchTheme}
-          variant="ghost"
-          size="3"
-        >
-          {resolvedTheme === 'light' ? (
-            <MoonIcon width="20" height="20" />
-          ) : (
-            <SunIcon width="20" height="20" />
-          )}
-        </IconButton>
+        {isThemeReady && (
+          <IconButton
+            className="cursor-pointer text-black dark:text-white"
+            type="button"
+            onClick={toggleTheme}
+            variant="ghost"
+            size="3"
+          >
+            {resolvedTheme === 'light' ? (
+              <MoonIcon width="20" height="20" />
+            ) : (
+              <SunIcon width="20" height="20" />
+            )}
+          </IconButton>
+        )}
       </Flex>
     </Navbar>
   );
 }
-
-//<AccentColorSwitcherDropdown
-//  data={accentColor as AccentColor}
-//  setData={switchAccentColorHandler}
-//  items={AccentColorOptions}
-///>

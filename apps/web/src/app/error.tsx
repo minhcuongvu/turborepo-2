@@ -4,7 +4,7 @@ import HeaderComponent from '@/components/layout/header';
 import FooterComponent from '@/components/layout/footer';
 import { Flex } from '@radix-ui/themes';
 
-export default async function Error() {
+export default function Error() {
   return (
     <>
       <HeaderComponent />
