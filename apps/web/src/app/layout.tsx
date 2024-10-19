@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import '@repo/ui/styles.css';
-import { ThemeProvider } from '@/components/theme';
-import HeaderComponent from '@/components/layout/header';
+import ThemeProviderWrapper from '@/components/themeWrapper';
 
 export const metadata: Metadata = {
   title: {
@@ -18,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider>
-        {children}
-      </ThemeProvider>
+      <body>
+        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+      </body>
     </html>
   );
 }

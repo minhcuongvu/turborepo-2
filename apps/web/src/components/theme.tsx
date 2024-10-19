@@ -1,17 +1,15 @@
 'use client';
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-} from 'react';
+import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import { PageWrapper, Root } from '@repo/ui/components';
 import { Theme } from '@radix-ui/themes';
-import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
-
-type ThemeColor = 'light' | 'dark';
+import {
+  AccentColor,
+  AccentColorOptions,
+  ThemeColor,
+} from '@repo/ui/interfaces';
+import { toggleTheme, switchAccentColor } from '@/lib/features/themeSlice';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 
 interface ThemeContextType {
   theme: ThemeColor;
@@ -26,50 +24,41 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [theme, setTheme] = useState<ThemeColor>('dark');
-  const [accentColor, setAccentColor] = useState<AccentColor>('red');
+  const dispatch = useAppDispatch();
+  const { theme, accentColor } = useAppSelector((state) => state.theme);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
-
-  const switchAccentColor = (color: AccentColor) => {
+  const switchAccentColorHandler = (color: AccentColor) => {
+    dispatch(switchAccentColor(color));
     localStorage.setItem('accentColor', color);
     document.documentElement.setAttribute('accentColor', color);
-    setAccentColor(color);
   };
 
   useEffect(() => {
-    document.documentElement.classList.remove('light');
-    document.documentElement.classList.remove('dark');
+    const savedColor =
+      (localStorage.getItem('accentColor') as AccentColor) || 'red';
+    switchAccentColorHandler(savedColor);
+
+    document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(theme);
     document.documentElement.setAttribute('theme', theme);
     localStorage.setItem('theme', theme);
-
-    const savedColor =
-      (localStorage.getItem('accentColor') as AccentColor) || 'red';
-    setAccentColor(savedColor);
-    document.documentElement.setAttribute('accentColor', savedColor);
-    localStorage.setItem('accentColor', savedColor);
-  }, [theme, accentColor]);
+  }, [theme, dispatch]);
 
   return (
     <ThemeContext.Provider
       value={{
-        theme,
-        toggleTheme,
-        accentColor,
-        switchAccentColor,
+        theme: theme as ThemeColor,
+        toggleTheme: () => dispatch(toggleTheme()),
+        accentColor: accentColor as AccentColor,
+        switchAccentColor: switchAccentColorHandler,
         AccentColorOptions,
       }}
     >
-      <body>
-        <Theme accentColor={accentColor} hasBackground={false}>
-          <Root>
-            <PageWrapper>{children}</PageWrapper>
-          </Root>
-        </Theme>
-      </body>
+      <Theme accentColor={accentColor as AccentColor} hasBackground={false}>
+        <Root>
+          <PageWrapper>{children}</PageWrapper>
+        </Root>
+      </Theme>
     </ThemeContext.Provider>
   );
 };

@@ -11,7 +11,7 @@
     ]
   },
   "include": [
-    "src/*",
+    "src/**/*",
     "global.d.ts",
     "tailwind.config.ts"
   ],

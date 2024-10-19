@@ -1,18 +1,4 @@
+/* footer.module.css */
 .footer {
-  /*z-index: 2;*/
-  @apply
-    flex
-    py-12
-    px-10
-    justify-center
-    /*border-t*/
-    /*rounded-t-3xl*/
-}
-
-.container {
-  @apply fixed py-3
-}
-
-.item {
-  @apply text-white
+  @apply flex py-12 px-10 justify-center items-center;
 }

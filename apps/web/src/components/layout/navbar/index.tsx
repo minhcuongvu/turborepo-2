@@ -25,14 +25,12 @@ export default function NavComponent() {
           Lang
         </Button> 
         */}
-        {/*
         <AccentColorSwitcherDropdown
           data={accentColor}
           setData={switchAccentColor}
           items={AccentColorOptions}
           theme={theme}
         />
-        */}
         <IconButton
           className="cursor-pointer text-black dark:text-white"
           type="button"

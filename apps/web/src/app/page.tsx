@@ -1,5 +1,5 @@
 import MainComponent from '@/components/layout/main';
-import { FramerMotionBasic, Skeleton } from '@repo/ui/components';
+import { FramerMotionBasic, ScrollToTop, Skeleton } from '@repo/ui/components';
 import { Suspense } from 'react';
 import { Metadata, ResolvingMetadata } from 'next';
 import HeaderComponent from '@/components/layout/header';
@@ -34,16 +34,12 @@ export default async function Home() {
             Hello <span className="dark:italic">there</span>
           </p>
         </Flex>
-        {/*
-        <Suspense fallback={<Skeleton />}>
-          <FramerMotionBasic />
-        </Suspense>
-        */}
       </MainComponent>
-      {/*
-      <ScrollToTop /> 
-      */}
+      <ScrollToTop />
       <FooterComponent />
     </>
   );
 }
+//<Suspense fallback={<Skeleton />}>
+//  <FramerMotionBasic />
+//</Suspense>
