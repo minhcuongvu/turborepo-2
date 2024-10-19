@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, ReactNode, useEffect, useCallback } from 'react';
 import { PageWrapper, Root } from '@repo/ui/components';
 import { Theme } from '@radix-ui/themes';
 import {
@@ -27,11 +27,12 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   const dispatch = useAppDispatch();
   const { theme, accentColor } = useAppSelector((state) => state.theme);
 
-  const switchAccentColorHandler = (color: AccentColor) => {
+  // Wrap the handler function in useCallback to prevent it from changing on every render
+  const switchAccentColorHandler = useCallback((color: AccentColor) => {
     dispatch(switchAccentColor(color));
     localStorage.setItem('accentColor', color);
     document.documentElement.setAttribute('accentColor', color);
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     const savedColor =
@@ -42,7 +43,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
     document.documentElement.classList.add(theme);
     document.documentElement.setAttribute('theme', theme);
     localStorage.setItem('theme', theme);
-  }, [theme, dispatch]);
+  }, [theme, switchAccentColorHandler]);
 
   return (
     <ThemeContext.Provider
