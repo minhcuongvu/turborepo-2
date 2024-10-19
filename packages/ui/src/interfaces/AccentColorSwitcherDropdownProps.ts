@@ -1,4 +1,4 @@
-import { AccentColor } from './customStyle';
+import { AccentColor } from './custom';
 
 export interface AccentColorSwitcherDropdownProps {
   data: AccentColor;
