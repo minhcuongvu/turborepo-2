@@ -34,14 +34,6 @@ export default async function Home() {
             Hello <span className="dark:italic">there</span>
           </p>
         </Flex>
-        <Suspense fallback={<Skeleton />}>
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-          <FramerMotionBasic />
-        </Suspense>
       </MainComponent>
       <ScrollToTop />
       <FooterComponent />
