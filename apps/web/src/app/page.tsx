@@ -29,21 +29,20 @@ export default async function Home() {
     <>
       <HeaderComponent />
       <MainComponent>
-        <Suspense fallback={<Skeleton />}>
-          <Flex className="text-center text-black dark:text-white">
-            <p>
-              Hello <span className="dark:italic">there</span>
-            </p>
-          </Flex>
-        </Suspense>
+        <Flex className="text-center text-black dark:text-white">
+          <p>
+            Hello <span className="dark:italic">there</span>
+          </p>
+        </Flex>
+        {/*
         <Suspense fallback={<Skeleton />}>
           <FramerMotionBasic />
         </Suspense>
-        <Suspense fallback={<Skeleton />}>
-          <div className="text-black dark:text-white"></div>
-        </Suspense>
+        */}
       </MainComponent>
-      {/* <ScrollToTop /> */}
+      {/*
+      <ScrollToTop /> 
+      */}
       <FooterComponent />
     </>
   );

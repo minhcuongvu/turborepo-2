@@ -40,6 +40,9 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   useEffect(() => {
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add(theme);
     document.documentElement.setAttribute('theme', theme);
     localStorage.setItem('theme', theme);
 
@@ -60,7 +63,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
         AccentColorOptions,
       }}
     >
-      <body className={theme}>
+      <body>
         <Theme accentColor={accentColor} hasBackground={false}>
           <Root>
             <PageWrapper>{children}</PageWrapper>

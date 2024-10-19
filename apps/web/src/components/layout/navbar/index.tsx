@@ -16,19 +16,23 @@ export default function NavComponent() {
   return (
     <Navbar>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
-        {/* <Button
+        {/* 
+        <Button
           variant="solid"
           className="text-black dark:text-white"
           type="button"
         >
           Lang
-        </Button> */}
+        </Button> 
+        */}
+        {/*
         <AccentColorSwitcherDropdown
           data={accentColor}
           setData={switchAccentColor}
           items={AccentColorOptions}
           theme={theme}
         />
+        */}
         <IconButton
           className="cursor-pointer text-black dark:text-white"
           type="button"

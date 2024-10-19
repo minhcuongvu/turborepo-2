@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        {children}
+      </ThemeProvider>
     </html>
   );
 }
