@@ -46,7 +46,7 @@ const ScrollToTopButton = React.forwardRef<
   </ScrollButton>
 ));
 
-const MotionComponent = motion(ScrollToTopButton);
+const MotionComponent = motion.create(ScrollToTopButton);
 
 export const ScrollToTop = () => {
   const { scrollYProgress, scrollY } = useScroll();
