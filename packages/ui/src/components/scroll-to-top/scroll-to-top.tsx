@@ -81,7 +81,7 @@ export const ScrollToTop = () => {
       }
     } else {
       // If no overflow, always show the button
-      setIsVisible(true);
+      setIsVisible(false);
     }
   });
 
