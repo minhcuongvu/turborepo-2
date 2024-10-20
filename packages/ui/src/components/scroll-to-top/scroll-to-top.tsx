@@ -4,7 +4,7 @@ import * as Icons from '@radix-ui/react-icons';
 import styles from './scroll-to-top.module.css';
 import styled from 'styled-components';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Create a styled button using styled-components for the container
 const ScrollButton = styled.div`
@@ -46,22 +46,42 @@ const ScrollToTopButton = React.forwardRef<
   </ScrollButton>
 ));
 
-const MotionComponent = motion.create(ScrollToTopButton);
+const MotionComponent = motion(ScrollToTopButton);
 
 export const ScrollToTop = () => {
-  // Scroll hook to track scroll position
-  const { scrollYProgress } = useScroll();
-
-  // State to track visibility and the bounce effect
+  const { scrollYProgress, scrollY } = useScroll();
   const [isVisible, setIsVisible] = useState(false);
   const [isBouncing, setIsBouncing] = useState(false);
+  const [hasOverflow, setHasOverflow] = useState(false);
+
+  // Check if the page has overflow (i.e., scrollable content)
+  useEffect(() => {
+    const checkOverflow = () => {
+      const bodyHeight = document.body.scrollHeight;
+      const windowHeight = window.innerHeight;
+      setHasOverflow(bodyHeight > windowHeight);
+    };
+
+    checkOverflow(); // Check on mount
+    window.addEventListener('resize', checkOverflow); // Re-check on window resize
+
+    return () => {
+      window.removeEventListener('resize', checkOverflow); // Clean up event listener
+    };
+  }, []);
 
   // Event listener for scrolling and updating visibility
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    if (latest > 0.4 && latest < 1) {
-      setIsVisible(true);
+    // Only check scroll progress if there's overflow (scrollable content)
+    if (hasOverflow) {
+      if (latest > 0.4) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     } else {
-      setIsVisible(false);
+      // If no overflow, always show the button
+      setIsVisible(true);
     }
   });
 
