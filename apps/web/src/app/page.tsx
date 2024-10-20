@@ -36,6 +36,12 @@ const Home = () => {
             Hello <span className="dark:italic">there</span>
           </p>
         </Flex>
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
       </MainComponent>
       <FooterComponent />
       <ScrollToTop />
