@@ -3,7 +3,7 @@
 import { switchAccentColor } from '@/lib/features/themeSlice';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { Flex, IconButton } from '@radix-ui/themes';
+import { Button, Container, Flex, IconButton, Text } from '@radix-ui/themes';
 import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';
 import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
@@ -12,7 +12,7 @@ import { setTheme as themeSeliceSetTheme } from '@/lib/features/themeSlice';
 
 export default function NavComponent() {
   const { resolvedTheme, setTheme } = useTheme();
-  const { accentColor } = useAppSelector((state) => state.theme);
+  const { theme, accentColor } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
 
   // State to manage theme loading

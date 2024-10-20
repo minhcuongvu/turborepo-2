@@ -3,6 +3,8 @@
 import * as Icons from '@radix-ui/react-icons';
 import styles from './scroll-to-top.module.css';
 import styled from 'styled-components';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import React, { useState } from 'react';
 
 // Create a styled button using styled-components for the container
 const ScrollButton = styled.div`
@@ -34,14 +36,59 @@ const Icon = styled(Icons.ChevronUpIcon)`
   color: var(--accent-10);
 `;
 
+// ScrollToTop button as a functional component with forwarded ref
+const ScrollToTopButton = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLProps<HTMLDivElement>
+>((props, ref) => (
+  <ScrollButton ref={ref} {...props}>
+    <Icon />
+  </ScrollButton>
+));
+
+const MotionComponent = motion.create(ScrollToTopButton);
+
 export const ScrollToTop = () => {
+  // Scroll hook to track scroll position
+  const { scrollYProgress } = useScroll();
+
+  // State to track visibility and the bounce effect
+  const [isVisible, setIsVisible] = useState(false);
+  const [isBouncing, setIsBouncing] = useState(false);
+
+  // Event listener for scrolling and updating visibility
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    if (latest > 0.4 && latest < 1) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  });
+
+  // Function to handle the bounce and scroll behavior
+  const handleClick = () => {
+    setIsBouncing(true);
+
+    // Trigger scroll after the bounce animation completes
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsBouncing(false); // Reset the bounce state
+    }, 80); // Adjust this time based on your bounce animation duration
+  };
+
   return (
-    <ScrollButton
-      className={`${styles.btn}`}
-      id="cta"
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-    >
-      <Icon />
-    </ScrollButton>
+    <MotionComponent
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: isVisible ? 1 : 0,
+        scale: isBouncing ? 1.4 : 1,
+      }}
+      transition={{
+        opacity: { duration: 0.3 },
+        scale: { type: 'spring', stiffness: 600, damping: 10 }, // Spring animation for bounce
+      }}
+      className={styles.btn}
+      onClick={handleClick}
+    />
   );
 };

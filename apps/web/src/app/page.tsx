@@ -36,10 +36,9 @@ const Home = () => {
             Hello <span className="dark:italic">there</span>
           </p>
         </Flex>
-        <TestRedux />
       </MainComponent>
-      <ScrollToTop />
       <FooterComponent />
+      <ScrollToTop />
     </Page>
   );
 };
