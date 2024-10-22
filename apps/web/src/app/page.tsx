@@ -9,22 +9,22 @@ import { SunIcon } from '@radix-ui/react-icons';
 import TestRedux from '@/components/test-redux';
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
-type ParamProps = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+//type ParamProps = {
+//  params: { id: string };
+//  searchParams: { [key: string]: string | string[] | undefined };
+//};
 
 // seems like "export const metadata: Metadata = {}" doesnt work with server page
-export async function generateMetadata(
-  { params, searchParams }: ParamProps,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  return {
-    title: {
-      absolute: 'Home',
-    },
-  };
-}
+//export async function generateMetadata(
+//  { params, searchParams }: ParamProps,
+//  parent: ResolvingMetadata
+//): Promise<Metadata> {
+//  return {
+//    title: {
+//      absolute: 'Home',
+//    },
+//  };
+//}
 
 const Home = () => {
   return (

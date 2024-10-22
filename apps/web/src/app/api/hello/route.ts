@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   const cookieStore = cookies();
-  const token = cookieStore.get('token');
+  const token = (await cookieStore).get('token');
 
   // Extract the query from the GET request
   const searchParams = request.nextUrl.searchParams;
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const cookieStore = cookies();
-  const token = cookieStore.get('token');
+  const token = (await cookieStore).get('token');
 
   // Extract the JSON body from the POST request
   const { username } = await request.json();

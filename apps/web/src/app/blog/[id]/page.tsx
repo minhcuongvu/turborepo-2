@@ -1,8 +1,10 @@
-export function generateMetadata(params: { params: { id: string } }) {
-  return {
-    title: `Blog - ${params.params.id}`,
-  };
+//export function generateMetadata(params: { params: { id: string } }) {
+//  return {
+//    title: `Blog - ${params.params.id}`,
+//  };
+//}
+//export default function Page({ params }: { params: { id: string } }) {
+const Page = () => {
+  return <></>;
 }
-export default function Page({ params }: { params: { id: string } }) {
-  return <h1>ID: {params.id}</h1>;
-}
+export default Page
