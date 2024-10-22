@@ -42,7 +42,7 @@
     "typescript-plugin-css-modules": "^5.1.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^19.0.0-rc-69d4b800-20241021"
   },
   "dependencies": {}
 }
