@@ -55,6 +55,7 @@ export default function NavComponent() {
             onClick={toggleTheme}
             variant="ghost"
             size="3"
+            aria-label={resolvedTheme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
           >
             {resolvedTheme === 'light' ? (
               <MoonIcon width="20" height="20" />
