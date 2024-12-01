@@ -6,6 +6,7 @@ import MainComponent from '@/components/layout/main';
 import { FramerMotionBasic, Skeleton } from '@repo/ui/components';
 import SendIt from '@/components/send-it';
 import FooterComponent from '@/components/layout/footer';
+import { ThemeColor } from '@repo/ui/interfaces';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -24,18 +25,16 @@ export const metadata: Metadata = {
 //}
 const About = () => {
   return (
-    <>
-      <Page>
-        <HeaderComponent />
-        <MainComponent>
-          <Suspense fallback={<Skeleton />}>
-            <SendIt />
-          </Suspense>
-          <FramerMotionBasic />
-        </MainComponent>
-        <FooterComponent />
-      </Page>
-    </>
+    <Page>
+      <HeaderComponent />
+      <MainComponent>
+        <Suspense fallback={<Skeleton />}>
+          <SendIt />
+        </Suspense>
+        <FramerMotionBasic />
+      </MainComponent>
+      <FooterComponent />
+    </Page>
   );
 };
 export default About;

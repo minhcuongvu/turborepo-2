@@ -1,14 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AccentColor } from '@repo/ui/interfaces';
+import { ThemeDefaults } from '@repo/ui/interfaces';
 
 const initialState: ThemeDefaults = {
-  theme: 'dark',
+  theme: 'light',
   accentColor: 'red',
-};
-
-type ThemeDefaults = {
-  theme: 'light' | 'dark';
-  accentColor: AccentColor;
 };
 
 const themeSlice = createSlice({

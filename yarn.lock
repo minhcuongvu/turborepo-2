@@ -896,6 +896,11 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-15.0.1-canary.1.tgz#e39378cad13524c1bcd17fdbccd6f9249083235e"
   integrity sha512-pK96r/oKFxF7lCVGlZbtF/YYByQahz4mdjPiIsPle/2Hltpyod7nmLGp9ECyKLlH9NezGCc5Jyu/40+TS/pqAA==
 
+"@next/env@^15.0.3":
+  version "15.0.3"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-15.0.3.tgz#a2e9bf274743c52b74d30f415f3eba750d51313a"
+  integrity sha512-t9Xy32pjNOvVn2AS+Utt6VmyrshbpfUMhIjFO60gI58deSo/KgLOp31XZ4O+kY/Is8WAGYwA5gR7kOb1eORDBA==
+
 "@next/eslint-plugin-next@15.0.0":
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-15.0.0.tgz#d83baeb4bd319af7e89c309dff961acdcc1c3223"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppSelector } from '@repo/lib/hooks';
+import { useAppSelector } from '@/lib/hooks';
 import { SunIcon } from '@radix-ui/react-icons';
 import { Flex, IconButton } from '@radix-ui/themes';
 import React from 'react';

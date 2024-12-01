@@ -7,6 +7,9 @@ import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
 import { SunIcon } from '@radix-ui/react-icons';
 import TestRedux from '@/components/test-redux';
+import { Processor } from 'postcss';
+import { ThemeColor } from '@repo/ui/interfaces';
+import { sendIt } from '@/actions/example-actions';
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function
 //type ParamProps = {
@@ -36,11 +39,11 @@ const Home = () => {
             Hello <span className="dark:italic">there</span>
           </p>
         </Flex>
-        <FramerMotionBasic />
-        <FramerMotionBasic />
-        <FramerMotionBasic />
-        <FramerMotionBasic />
-        <FramerMotionBasic />
+        <Flex className="text-center text-black dark:text-white">
+          <p>
+            Welcome to our shop!
+          </p>
+        </Flex>
         <FramerMotionBasic />
       </MainComponent>
       <FooterComponent />

@@ -3,8 +3,8 @@
 import {
   switchAccentColor,
   setTheme as themeSliceSetTheme,
-} from '@repo/lib/features';
-import { useAppDispatch, useAppSelector } from '@repo/lib/hooks';
+} from '@/lib/features';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { Button, Container, Flex, IconButton, Text } from '@radix-ui/themes';
 import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';

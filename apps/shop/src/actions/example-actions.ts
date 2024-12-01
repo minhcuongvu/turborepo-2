@@ -38,4 +38,10 @@ export async function sendIt() {
   console.log('Send it!');
   console.log('HELLO', process.env.HELLO);
   console.log('APP_NODE_ENV', process.env.APP_NODE_ENV);
+  console.log('API_URL', process.env.API_URL);
+  console.log('THEME', process.env.THEME);
+}
+
+export async function getTheme() {
+  return process.env.THEME;
 }

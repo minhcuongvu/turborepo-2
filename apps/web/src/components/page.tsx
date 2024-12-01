@@ -1,21 +1,20 @@
 'use client';
 
-import { Flex, Theme } from '@radix-ui/themes';
-import { PageWrapper, Root, ScrollToTop } from '@repo/ui/components';
+import { Theme } from '@radix-ui/themes';
+import { PageWrapper, Root } from '@repo/ui/components';
 import { ThemeProvider } from 'next-themes';
 import React from 'react';
-import { useAppSelector } from '@repo/lib/hooks';
-import { AccentColor } from '@repo/ui/interfaces';
+import { useAppSelector } from '@/lib/hooks';
 
 interface PageProps {
   children: React.ReactNode;
 }
 
 export const Page: React.FC<PageProps> = ({ children }) => {
-  const { accentColor, theme } = useAppSelector((state) => state.theme);
+  const { accentColor: stateAccentColor, theme: stateTheme } = useAppSelector((state) => state.theme);
   return (
-    <ThemeProvider attribute="class" defaultTheme={theme}>
-      <Theme appearance={theme} accentColor={accentColor as AccentColor}>
+    <ThemeProvider attribute="class" defaultTheme={stateTheme}>
+      <Theme appearance={stateTheme} accentColor={stateAccentColor}>
         <Root>
           <PageWrapper>{children}</PageWrapper>
         </Root>
