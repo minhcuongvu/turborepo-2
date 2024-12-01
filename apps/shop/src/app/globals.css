@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+@import "@radix-ui/themes/styles.css";
+
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #f0f6fc;
+  --background-color-opposite: rgb(10,10,10);
+}
+
+[theme="dark"] {
+  --background-color: rgb(10,10,10);
+  --background-color-opposite: #f0f6fc;
+  --background: rgb(10,10,10);
+  --foreground: #f0f6fc;
+}
+
+body {
+  --padding: 2rem;
+  --scroll-threshold: 50vh;
+  height: 100%;
+  position: relative;
+}
+
+svg {
+  color: var(--accent-10);
+}

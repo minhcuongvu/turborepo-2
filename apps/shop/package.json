@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "shop",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -29,8 +29,8 @@
     "@repo/tailwind-config": "*",
     "@repo/typescript-config": "*",
     "@repo/ui": "*",
-    "@repo/lib": "*",
     "@repo/utils": "*",
+    "@repo/lib": "*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
