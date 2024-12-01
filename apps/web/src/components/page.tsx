@@ -11,10 +11,10 @@ interface PageProps {
 }
 
 export const Page: React.FC<PageProps> = ({ children }) => {
-  const { accentColor: stateAccentColor, theme: stateTheme } = useAppSelector((state) => state.theme);
+  const { accentColor } = useAppSelector((state) => state.theme);
   return (
-    <ThemeProvider attribute="class" defaultTheme={stateTheme}>
-      <Theme appearance={stateTheme} accentColor={stateAccentColor}>
+    <ThemeProvider attribute="class" enableSystem={true}>
+      <Theme accentColor={accentColor}>
         <Root>
           <PageWrapper>{children}</PageWrapper>
         </Root>

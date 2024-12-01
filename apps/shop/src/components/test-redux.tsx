@@ -6,9 +6,9 @@ import { Flex, IconButton } from '@radix-ui/themes';
 import React from 'react';
 
 function TestRedux() {
-  const { theme } = useAppSelector((state) => state.theme);
+  const { accentColor } = useAppSelector((state) => state.theme);
   const LogAccentColor = () => {
-    console.log(theme);
+    console.log(accentColor);
   };
   return (
     <Flex>

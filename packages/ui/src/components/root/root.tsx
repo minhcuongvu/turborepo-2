@@ -6,5 +6,7 @@ export const Root = ({ children, className }: BaseContainerProps) => {
     .filter(Boolean)
     .join(' ')
     .trim();
-  return <root className={combinedClassnames}>{children}</root>;
+  return (
+    <root-component className={combinedClassnames}>{children}</root-component>
+  );
 };

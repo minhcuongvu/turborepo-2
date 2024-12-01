@@ -12,7 +12,7 @@ export type Theme = {
 export type ThemeColor = 'light' | 'dark';
 
 export type ThemeDefaults = {
-  theme: ThemeColor;
+  //theme: ThemeColor;
   accentColor: AccentColor;
 };
 

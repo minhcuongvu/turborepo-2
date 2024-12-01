@@ -5,11 +5,11 @@ declare module '*.module.css' {
 
 declare namespace JSX {
   interface IntrinsicElements {
-    root: React.DetailedHTMLProps<
+    'root-component': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     >;
-    navbar: React.DetailedHTMLProps<
+    'navbar-component': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     >;

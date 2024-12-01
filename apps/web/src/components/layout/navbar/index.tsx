@@ -2,7 +2,7 @@
 
 import {
   switchAccentColor,
-  setTheme as themeSliceSetTheme,
+  //setTheme as themeSliceSetTheme,
 } from '@/lib/features';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
@@ -14,21 +14,10 @@ import { useCallback, useEffect, useState } from 'react';
 
 export default function NavComponent() {
   const { resolvedTheme, setTheme } = useTheme();
-  const { theme, accentColor } = useAppSelector((state) => state.theme);
   const dispatch = useAppDispatch();
 
   // State to manage theme loading
   const [isThemeReady, setIsThemeReady] = useState(false);
-
-  // Wrap the handler function in useCallback to prevent it from changing on every render
-  const switchThemeHandler = useCallback(
-    (theme: string) => {
-      dispatch(themeSliceSetTheme(theme));
-      localStorage.setItem('theme', theme);
-      //document.documentElement.setAttribute('accentColor', color);
-    },
-    [dispatch]
-  );
 
   // Wrap the handler function in useCallback to prevent it from changing on every render
   const switchAccentColorHandler = useCallback(
@@ -40,45 +29,40 @@ export default function NavComponent() {
     [dispatch]
   );
 
-  const toggleTheme = () => {
-    const newTheme = resolvedTheme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    dispatch(themeSliceSetTheme(newTheme));
-    //document.documentElement.setAttribute('theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
-
   useEffect(() => {
     // Check if the theme has been resolved after mount
     setIsThemeReady(true);
     const savedColor =
       (localStorage.getItem('accentColor') as AccentColor) ?? 'red';
     switchAccentColorHandler(savedColor);
-    switchThemeHandler(theme);
-  }, [switchAccentColorHandler, switchThemeHandler, theme]);
+  }, [switchAccentColorHandler]);
 
   return (
     <Navbar>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
         {isThemeReady && (
-          <IconButton
-            className="cursor-pointer text-black dark:text-white"
-            type="button"
-            onClick={toggleTheme}
-            variant="ghost"
-            size="3"
-            aria-label={
-              resolvedTheme === 'light'
-                ? 'Switch to dark theme'
-                : 'Switch to light theme'
-            }
-          >
-            {resolvedTheme === 'light' ? (
+          <>
+            <IconButton
+              className="cursor-pointer text-black dark:text-white"
+              type="button"
+              onClick={() => setTheme('dark')}
+              variant="ghost"
+              size="3"
+              aria-label="Switch to dark theme"
+            >
               <MoonIcon width="20" height="20" />
-            ) : (
+            </IconButton>
+            <IconButton
+              className="cursor-pointer text-black dark:text-white"
+              type="button"
+              onClick={() => setTheme('light')}
+              variant="ghost"
+              size="3"
+              aria-label="Switch to light theme"
+            >
               <SunIcon width="20" height="20" />
-            )}
-          </IconButton>
+            </IconButton>
+          </>
         )}
       </Flex>
     </Navbar>

@@ -2,4 +2,4 @@ import BaseWebComponent from '../BaseWebComponent';
 
 class RootComponent extends BaseWebComponent {}
 
-customElements.define('root', RootComponent);
+customElements.define('root-component', RootComponent);

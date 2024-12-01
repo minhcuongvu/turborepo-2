@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["APP_NODE_ENV", "THEME"],
+  "globalEnv": ["APP_NODE_ENV"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],

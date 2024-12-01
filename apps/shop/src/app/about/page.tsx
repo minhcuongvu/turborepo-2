@@ -12,17 +12,6 @@ export const metadata: Metadata = {
   title: 'About',
 };
 
-//export default function About({
-//  params,
-//  searchParams,
-//}: {
-//  params?: any;
-//  searchParams?: { [key: string]: string | undefined };
-//}) {
-//  return (
-//    <Page />
-//  );
-//}
 const About = () => {
   return (
     <Page>

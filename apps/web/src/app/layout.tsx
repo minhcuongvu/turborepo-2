@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import '@repo/ui/styles.css';
 import StoreProvider from './StoreProvider';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata: Metadata = {
   title: {
     template: '%s | App',
