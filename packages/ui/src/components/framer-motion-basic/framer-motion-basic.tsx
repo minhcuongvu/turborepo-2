@@ -3,7 +3,9 @@
 import styles from './framer-motion-basic.module.css';
 import { motion, MotionProps } from 'framer-motion';
 
-const MotionDiv = motion.div as React.ComponentType<React.HTMLAttributes<HTMLDivElement> & MotionProps>;
+const MotionDiv = motion.div as React.ComponentType<
+  React.HTMLAttributes<HTMLDivElement> & MotionProps
+>;
 
 export const FramerMotionBasic = () => {
   const boxClassNames = [styles['box'], 'bg-black', 'dark:bg-white']
