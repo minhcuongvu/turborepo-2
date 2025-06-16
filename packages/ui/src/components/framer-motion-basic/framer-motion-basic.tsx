@@ -1,7 +1,9 @@
 'use client';
 
 import styles from './framer-motion-basic.module.css';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
+
+const MotionDiv = motion.div as React.ComponentType<React.HTMLAttributes<HTMLDivElement> & MotionProps>;
 
 export const FramerMotionBasic = () => {
   const boxClassNames = [styles['box'], 'bg-black', 'dark:bg-white']
@@ -11,7 +13,7 @@ export const FramerMotionBasic = () => {
   return (
     <>
       <div className={styles['framer-motion-basic']}>
-        <motion.div
+        <MotionDiv
           className={boxClassNames}
           initial={{ opacity: 0, scale: 0.5 }}
           // https://www.framer.com/motion/animate-function/

@@ -4,6 +4,8 @@ declare module '*.module.css' {
 }
 
 declare namespace JSX {
+  // this used to work but not recommended. 
+  // now this is just here for reference.
   interface IntrinsicElements {
     'root-component': React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,

@@ -6,7 +6,7 @@ export function Code({
 }: {
   children: React.ReactNode;
   className?: string;
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <span className={className}>
       Code:&nbsp;<code className={styles.code}>{children}</code>
