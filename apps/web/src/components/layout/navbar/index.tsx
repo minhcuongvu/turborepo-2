@@ -11,6 +11,7 @@ import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';
 import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
+import styles from './styles.module.css';
 
 export default function NavComponent() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -41,44 +42,58 @@ export default function NavComponent() {
     <Navbar>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
         {isThemeReady && (
-          <>
-            <Tooltip content="Switch to system theme" side="bottom">
-              <IconButton
-                className="cursor-pointer bg-white dark:bg-black text-black dark:text-white transition-colors"
-                type="button"
-                onClick={() => setTheme('system')}
-                variant="ghost"
-                size="3"
-                aria-label="Switch to system theme"
-              >
-                <LaptopIcon width="20" height="20" />
-              </IconButton>
-            </Tooltip>
-            <Tooltip content="Switch to dark theme" side="bottom">
-              <IconButton
-                className="cursor-pointer bg-white dark:bg-black text-black dark:text-white transition-colors"
-                type="button"
-                onClick={() => setTheme('dark')}
-                variant="ghost"
-                size="3"
-                aria-label="Switch to dark theme"
-              >
-                <MoonIcon width="20" height="20" />
-              </IconButton>
-            </Tooltip>
-            <Tooltip content="Switch to light theme" side="bottom">
-              <IconButton
-                className="cursor-pointer bg-white dark:bg-black text-black dark:text-white transition-colors"
-                type="button"
-                onClick={() => setTheme('light')}
-                variant="ghost"
-                size="3"
-                aria-label="Switch to light theme"
-              >
-                <SunIcon width="20" height="20" />
-              </IconButton>
-            </Tooltip>
-          </>
+          <div className={`${styles.tabs} after:light:bg-black/10 after:dark:bg-white/10 h-10 grid grid-flow-col bg-neutral-900 dark:bg-neutral-800 rounded-lg relative border border-neutral-800`}>
+            <input
+              type="radio"
+              id="html"
+              name="theme"
+              value="system"
+              onClick={() => setTheme('system')}
+              defaultChecked={resolvedTheme === 'system'}
+              className="sr-only"
+            />
+            <label
+              htmlFor="html"
+              className="px-4 py-2 cursor-pointer text-center h-full flex gap-2 items-center justify-center rounded-[calc(0.5rem-1px)] text-neutral-400 dark:text-neutral-400 transition-all duration-250 hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100 dark:hover:text-neutral-200"
+            >
+              <LaptopIcon className="w-5 h-5" />
+              {/* <span className="text-sm">System</span> */}
+            </label>
+
+            <input
+              type="radio"
+              id="css"
+              name="theme"
+              value="dark"
+              onClick={() => setTheme('dark')}
+              defaultChecked={resolvedTheme === 'dark'}
+              className="sr-only"
+            />
+            <label
+              htmlFor="css"
+              className="px-4 py-2 cursor-pointer text-center h-full flex gap-2 items-center justify-center rounded-[calc(0.5rem-1px)] text-neutral-400 dark:text-neutral-400 transition-all duration-250 hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100 dark:hover:text-neutral-200"
+            >
+              <MoonIcon className="w-5 h-5" />
+              {/* <span className="text-sm">Dark</span> */}
+            </label>
+
+            <input
+              type="radio"
+              id="javascript"
+              name="theme"
+              value="light"
+              onClick={() => setTheme('light')}
+              defaultChecked={resolvedTheme === 'light'}
+              className="sr-only"
+            />
+            <label
+              htmlFor="javascript"
+              className="px-4 py-2 cursor-pointer text-center h-full flex gap-2 items-center justify-center rounded-[calc(0.5rem-1px)] text-neutral-400 dark:text-neutral-400 transition-all duration-250 hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100 dark:hover:text-neutral-200"
+            >
+              <SunIcon className="w-5 h-5" />
+              {/* <span className="text-sm">Light</span> */}
+            </label>
+          </div>
         )}
       </Flex>
     </Navbar>

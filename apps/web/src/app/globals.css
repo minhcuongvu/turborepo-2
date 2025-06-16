@@ -6,13 +6,13 @@
 
 :root {
   --background-color: #f0f6fc;
-  --background-color-opposite: rgb(10,10,10);
+  --background-color-opposite: rgb(10, 10, 10);
 }
 
 [theme="dark"] {
-  --background-color: rgb(10,10,10);
+  --background-color: rgb(10, 10, 10);
   --background-color-opposite: #f0f6fc;
-  --background: rgb(10,10,10);
+  --background: rgb(10, 10, 10);
   --foreground: #f0f6fc;
 }
 
