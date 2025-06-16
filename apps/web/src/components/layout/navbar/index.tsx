@@ -1,6 +1,5 @@
 'use client';
 
-import { ThemeToggle } from '@/components/ThemeToggle';
 import {
   switchAccentColor,
   //setTheme as themeSliceSetTheme,

@@ -5,6 +5,7 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `web`: a [Next.js](https://nextjs.org/) app
+- `shop`: another [Next.js](https://nextjs.org/) app
 - `@repo/ui`: a React Components/Web Components library
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
@@ -27,7 +28,7 @@ Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 To build all apps and packages, run the following command:
 
 ```
-yarn build
+pnpm build
 ```
 
 ### Develop
@@ -35,7 +36,7 @@ yarn build
 To develop all apps and packages, run the following command:
 
 ```
-yarn dev
+pnpm dev
 ```
 
 ### Testing
@@ -43,7 +44,7 @@ yarn dev
 To run some testing, run the following command:
 
 ```
-yarn test
+pnpm test
 ```
 
 ### Start
@@ -51,7 +52,7 @@ yarn test
 Run build
 
 ```
-yarn start
+pnpm start
 ```
 
 ### Remote Caching
