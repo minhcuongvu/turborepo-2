@@ -9,6 +9,7 @@ import FooterComponent from '@/components/layout/footer';
 import { SunIcon } from '@radix-ui/react-icons';
 import TestRedux from '@/components/test-redux';
 import { useRouter } from 'next/navigation';
+import SignupForm from '../components/signup-form';
 
 const Home = () => {
   const router = useRouter();
@@ -22,10 +23,7 @@ const Home = () => {
           </p>
         </Flex>
         <FramerMotionBasic />
-        <FramerMotionBasic />
-        <FramerMotionBasic />
-        <FramerMotionBasic />
-        <FramerMotionBasic />
+        <SignupForm />
         <FramerMotionBasic />
       </MainComponent>
       <FooterComponent />

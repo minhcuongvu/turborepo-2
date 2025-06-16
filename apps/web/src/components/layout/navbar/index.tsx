@@ -48,8 +48,8 @@ export default function NavComponent() {
     <Navbar>
       <Flex className="flex absolute right-0 top-0" pr="4" pt="2" align="center">
         {isThemeReady && (
-          <div className="flex flex-row gap-2 border border-neutral-400 rounded-lg">
-            <div className="flex items-center justify-center">
+          <Flex direction='row' gap='2' className="border border-neutral-400 rounded-lg">
+            <Flex align='center' justify='center'>
               <input
                 type="radio"
                 id="html"
@@ -67,8 +67,8 @@ export default function NavComponent() {
                   <LaptopIcon className="w-5 h-5" />
                 </label>
               </Tooltip>
-            </div>
-            <div className="flex items-center justify-center">
+            </Flex>
+            <Flex align='center' justify='center'>
               <input
                 type="radio"
                 id="css"
@@ -86,8 +86,8 @@ export default function NavComponent() {
                   <MoonIcon className="w-5 h-5" />
                 </label>
               </Tooltip>
-            </div>
-            <div className="flex items-center justify-center">
+            </Flex>
+            <Flex align='center' justify='center'>
               <input
                 type="radio"
                 id="javascript"
@@ -105,8 +105,8 @@ export default function NavComponent() {
                   <SunIcon className="w-5 h-5" />
                 </label>
               </Tooltip>
-            </div>
-          </div>
+            </Flex>
+          </Flex>
         )}
       </Flex>
     </Navbar>
