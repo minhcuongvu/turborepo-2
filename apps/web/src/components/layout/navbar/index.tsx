@@ -18,7 +18,6 @@ import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';
 import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
-import styles from './styles.module.css';
 
 export default function NavComponent() {
   const { resolvedTheme, setTheme } = useTheme();
