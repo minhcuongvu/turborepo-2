@@ -48,7 +48,7 @@ export default function NavComponent() {
     <Navbar>
       <Flex className="flex absolute right-0 top-0" pr="4" pt="2" align="center">
         {isThemeReady && (
-          <div className={`${styles.tabs} flex flex-row gap-2 border border-neutral-400 rounded-lg`}>
+          <div className="flex flex-row gap-2 border border-neutral-400 rounded-lg">
             <div className="flex items-center justify-center">
               <input
                 type="radio"
@@ -59,12 +59,14 @@ export default function NavComponent() {
                 defaultChecked={resolvedTheme === 'system'}
                 className="sr-only peer"
               />
-              <label
-                htmlFor="html"
-                className="p-1 peer-checked:text-neutral-100 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-              >
-                <LaptopIcon className="w-5 h-5" />
-              </label>
+              <Tooltip content="System Theme">
+                <label
+                  htmlFor="html"
+                  className="p-1 peer-checked:text-neutral-100 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  <LaptopIcon className="w-5 h-5" />
+                </label>
+              </Tooltip>
             </div>
             <div className="flex items-center justify-center">
               <input
@@ -76,12 +78,14 @@ export default function NavComponent() {
                 defaultChecked={resolvedTheme === 'dark'}
                 className="sr-only peer"
               />
-              <label
-                htmlFor="css"
-                className="p-1 peer-checked:text-neutral-100 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-              >
-                <MoonIcon className="w-5 h-5" />
-              </label>
+              <Tooltip content="Dark Mode">
+                <label
+                  htmlFor="css"
+                  className="p-1 peer-checked:text-neutral-100 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  <MoonIcon className="w-5 h-5" />
+                </label>
+              </Tooltip>
             </div>
             <div className="flex items-center justify-center">
               <input
@@ -93,12 +97,14 @@ export default function NavComponent() {
                 defaultChecked={resolvedTheme === 'light'}
                 className="sr-only peer"
               />
-              <label
-                htmlFor="javascript"
-                className="p-1 peer-checked:text-neutral-900 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-              >
-                <SunIcon className="w-5 h-5" />
-              </label>
+              <Tooltip content="Light Mode">
+                <label
+                  htmlFor="javascript"
+                  className="p-1 peer-checked:text-neutral-900 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  <SunIcon className="w-5 h-5" />
+                </label>
+              </Tooltip>
             </div>
           </div>
         )}
