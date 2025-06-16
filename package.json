@@ -2,15 +2,12 @@
   "name": "turborepo-2",
   "private": true,
   "scripts": {
-    "with-env-local": "dotenv -e ./.env.local --",
-    "with-env-development": "dotenv -e ./.env.development --",
-    "with-env-production": "dotenv -e ./.env.production --",
-    "start": "yarn --cwd ./apps/web start",
-    "build": "turbo build",
-    "dev": "yarn with-env-local turbo dev",
-    "lint": "turbo lint",
-    "test": "jest --watch",
-    "format": "prettier --write \"**/*.{ts,tsx}\" --ignore-path=\".eslintignore\""
+    "start": "pnpm --filter ./apps/web start",
+    "build": "pnpm turbo build",
+    "dev": "turbo dev",
+    "lint": "pnpm turbo lint",
+    "test": "pnpm jest --watch",
+    "format": "pnpm prettier --write \"**/*.{ts,tsx}\" --ignore-path=\".eslintignore\""
   },
   "devDependencies": {
     "@testing-library/dom": "^10.3.0",
@@ -27,9 +24,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@1.22.22",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "packageManager": "pnpm@9.15.0"
 }
