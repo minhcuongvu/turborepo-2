@@ -1,3 +1,4 @@
+'use client';
 import { Metadata, ResolvingMetadata } from 'next';
 import { Page } from '@/components/page';
 import HeaderComponent from '@/components/layout/header';
@@ -7,13 +8,10 @@ import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
 import { SunIcon } from '@radix-ui/react-icons';
 import TestRedux from '@/components/test-redux';
-
-export const metadata: Metadata = {
-  title: 'Home',
-  description: '...',
-};
+import { useRouter } from 'next/navigation';
 
 const Home = () => {
+  const router = useRouter();
   return (
     <Page>
       <HeaderComponent />
