@@ -42,7 +42,7 @@ export default function NavComponent() {
     <Navbar>
       <Flex className="flex absolute right-0" pr="4" gap="4" align="center">
         {isThemeReady && (
-          <div className={`${styles.tabs} after:light:bg-black/10 after:dark:bg-white/10 h-10 grid grid-flow-col bg-neutral-900 dark:bg-neutral-800 rounded-lg relative border border-neutral-800`}>
+          <div className="grid grid-flow-col border border-neutral-400 rounded-full">
             <input
               type="radio"
               id="html"
@@ -54,7 +54,7 @@ export default function NavComponent() {
             />
             <label
               htmlFor="html"
-              className="px-4 py-2 cursor-pointer text-center h-full flex gap-2 items-center justify-center rounded-[calc(0.5rem-1px)] text-neutral-400 dark:text-neutral-400 transition-all duration-250 hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100 dark:hover:text-neutral-200"
+              className="px-2 py-1 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               <LaptopIcon className="w-5 h-5" />
               {/* <span className="text-sm">System</span> */}
@@ -71,7 +71,7 @@ export default function NavComponent() {
             />
             <label
               htmlFor="css"
-              className="px-4 py-2 cursor-pointer text-center h-full flex gap-2 items-center justify-center rounded-[calc(0.5rem-1px)] text-neutral-400 dark:text-neutral-400 transition-all duration-250 hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100 dark:hover:text-neutral-200"
+              className="px-2 py-1 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               <MoonIcon className="w-5 h-5" />
               {/* <span className="text-sm">Dark</span> */}
@@ -88,7 +88,7 @@ export default function NavComponent() {
             />
             <label
               htmlFor="javascript"
-              className="px-4 py-2 cursor-pointer text-center h-full flex gap-2 items-center justify-center rounded-[calc(0.5rem-1px)] text-neutral-400 dark:text-neutral-400 transition-all duration-250 hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:text-neutral-100 dark:hover:text-neutral-200"
+              className="px-2 py-1 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
               <SunIcon className="w-5 h-5" />
               {/* <span className="text-sm">Light</span> */}

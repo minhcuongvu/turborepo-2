@@ -22,7 +22,3 @@ body {
   height: 100%;
   position: relative;
 }
-
-svg {
-  color: var(--accent-10);
-}
