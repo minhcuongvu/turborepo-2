@@ -27,3 +27,7 @@ body {
 body {
   position: relative;
 }
+
+html {
+  scrollbar-gutter: stable;
+}

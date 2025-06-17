@@ -1,5 +1,6 @@
 'use server'
 
+import { signIn, signOut } from '@/auth'
 import { SignupFormSchema, FormState } from '@/lib/definitions'
 // import { createSession } from '@/lib/session'
 import { redirect } from 'next/navigation'
@@ -58,4 +59,18 @@ export async function signup(state: FormState, formData: FormData) {
     // await createSession(user.id)
     // 5. Redirect user
     redirect('/profile')
+}
+
+export async function signInWithGoogle() {
+    "use server";
+    await signIn("google");
+}
+
+export async function signOutSession() {
+    "use server";
+    await signOut({
+        redirect: false,
+    });
+    await new Promise(resolve => setTimeout(resolve, 500));
+    redirect('/');
 }

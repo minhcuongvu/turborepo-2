@@ -22,7 +22,7 @@ export const Page: React.FC<PageProps> = ({ children }) => {
         enableSystem={true}
         disableTransitionOnChange
       >
-        <Theme accentColor={accentColorAlt} panelBackground='solid'>
+        <Theme accentColor='gray' panelBackground='solid'>
           {/* <PageWrapper className=""> */}
           {children}
           {/* </PageWrapper> */}
