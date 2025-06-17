@@ -3,7 +3,9 @@ import MainComponent from '@/components/layout/main';
 import HeaderComponent from '@/components/layout/header';
 import FooterComponent from '@/components/layout/footer';
 import { Flex } from '@radix-ui/themes';
-export default function Error() {
+import { Page } from '@/components/page';
+
+export default function NotFound() {
   return (
     <>
       <HeaderComponent />

@@ -3,6 +3,7 @@ import './globals.css';
 import '@repo/ui/styles.css';
 import StoreProvider from './StoreProvider';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Page } from '@/components/page';
 
 export const metadata: Metadata = {
   title: 'Home | Web App',
@@ -42,7 +43,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          <Page>
+            {children}
+          </Page>
+        </StoreProvider>
         <SpeedInsights />
       </body>
     </html>

@@ -25,16 +25,14 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <>
-      <Page>
-        <HeaderComponent />
-        <MainComponent>
-          <Suspense fallback={<Skeleton />}>
-            <SendIt />
-          </Suspense>
-          <FramerMotionBasic />
-        </MainComponent>
-        <FooterComponent />
-      </Page>
+      <HeaderComponent />
+      <MainComponent>
+        <Suspense fallback={<Skeleton />}>
+          <SendIt />
+        </Suspense>
+        <FramerMotionBasic />
+      </MainComponent>
+      <FooterComponent />
     </>
   );
 };
