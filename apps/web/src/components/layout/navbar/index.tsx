@@ -19,7 +19,7 @@ import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
 
-export default function NavComponent() {
+export default function NavComponent({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const dispatch = useAppDispatch();
 
@@ -45,10 +45,10 @@ export default function NavComponent() {
   }, [switchAccentColorHandler]);
 
   return (
-    <Navbar>
+    <Navbar className={className}>
       <Flex className="flex absolute right-0 top-0" pr="4" pt="3" align="center">
         {isThemeReady && (
-          <Flex direction='row' gap='2' className="border border-neutral-400 rounded-lg">
+          <Flex direction='row' gap='2' className="border-2 border-black/30 dark:border-white/10 rounded-lg">
             <Flex align='center' justify='center'>
               <input
                 type="radio"
