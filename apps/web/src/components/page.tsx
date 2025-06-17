@@ -13,17 +13,17 @@ interface PageProps {
 export const Page: React.FC<PageProps> = ({ children }) => {
   const { accentColor } = useAppSelector((state) => state.theme);
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem={true}
-      disableTransitionOnChange
-    >
-      <Theme accentColor={accentColor}>
-        <Root>
-          <PageWrapper>{children}</PageWrapper>
-        </Root>
-      </Theme>
-    </ThemeProvider>
+    <Root>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem={true}
+        disableTransitionOnChange
+      >
+        <Theme accentColor={accentColor}>
+          <PageWrapper className="">{children}</PageWrapper>
+        </Theme>
+      </ThemeProvider>
+    </Root>
   );
 };

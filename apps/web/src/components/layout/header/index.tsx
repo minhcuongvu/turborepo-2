@@ -10,7 +10,7 @@ const fetcher = (...args: [RequestInfo, RequestInit?]) =>
 
 export default function HeaderComponent() {
   return (
-    <Header>
+    <Header className="pt-6 pb-6">
       <NavComponent />
     </Header>
   );

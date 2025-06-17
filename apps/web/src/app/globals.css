@@ -7,6 +7,8 @@
 :root {
   --background-color: #f0f6fc;
   --background-color-opposite: rgb(10, 10, 10);
+  --padding: 2rem;
+  --scroll-threshold: 50vh;
 }
 
 [theme="dark"] {
@@ -16,9 +18,12 @@
   --foreground: #f0f6fc;
 }
 
+html,
 body {
-  --padding: 2rem;
-  --scroll-threshold: 50vh;
   height: 100%;
+  width: 100%;
+}
+
+body {
   position: relative;
 }

@@ -46,7 +46,7 @@ export default function NavComponent() {
 
   return (
     <Navbar>
-      <Flex className="flex absolute right-0 top-0" pr="4" pt="2" align="center">
+      <Flex className="flex absolute right-0 top-0" pr="4" pt="3" align="center">
         {isThemeReady && (
           <Flex direction='row' gap='2' className="border border-neutral-400 rounded-lg">
             <Flex align='center' justify='center'>

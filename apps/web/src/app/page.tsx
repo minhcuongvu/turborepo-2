@@ -49,6 +49,13 @@ const Home = async () => {
           </form>
           <pre className='whitespace-pre-wrap'>{JSON.stringify(parsed, null, 2)}</pre>
         </section>
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
       </MainComponent>
       <FooterComponent />
       <ScrollToTop />
