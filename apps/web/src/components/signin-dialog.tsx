@@ -3,6 +3,7 @@ import { Dialog, Flex, Separator, Text, TextField, Theme } from "@radix-ui/theme
 import { signInWithEmail, signInWithGoogle, signOutSession } from "@/actions/auth";
 import { useActionState, useEffect, useState } from "react";
 import { Google } from "@mui/icons-material";
+import Link from "next/link";
 
 export default function SignInDialog() {
     const [signInWithEmailFormState, signInWithEmailAction] = useActionState(signInWithEmail, {
@@ -50,7 +51,7 @@ export default function SignInDialog() {
             </Dialog.Trigger>
             <Theme accentColor='red' panelBackground='translucent' radius='small' >
                 <Dialog.Content maxWidth="450px" size="4" style={{ boxShadow: 'none' }}>
-                    <Dialog.Title align="center">Log in</Dialog.Title>
+                    <Dialog.Title align="center">Log In To Your Account</Dialog.Title>
                     <Flex direction="column" gap="3">
                         <form
                             action={signInWithEmailAction}
@@ -102,6 +103,9 @@ export default function SignInDialog() {
                                 )}
                             </button>
                         </form>
+                        <Flex align='end' justify='end'>
+                            <Link href="/forgot-password" className="hover:underline">Forgot your password?</Link>
+                        </Flex>
                         <Flex align="center" gap="3" my="2">
                             <Separator size="4" />
                             <Text size="2">OR</Text>

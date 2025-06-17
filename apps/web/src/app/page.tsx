@@ -4,7 +4,7 @@ import { Flex } from '@radix-ui/themes';
 import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
 import { auth } from '@/auth';
-import SignInDialog from '@/components/sign-in-dialog';
+import SignInDialog from '@/components/signin-dialog';
 
 const Home = async () => {
   const session = await auth();
