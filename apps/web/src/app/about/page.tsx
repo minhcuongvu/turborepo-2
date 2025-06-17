@@ -1,10 +1,6 @@
-import React, { Suspense } from 'react';
-import { Metadata } from 'next';
-import { Page } from '@/components/page';
 import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
-import { FramerMotionBasic, Skeleton } from '@repo/ui/components';
-import SendIt from '@/components/send-it';
+import { FramerMotionBasic } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
 import { signIn, signOut, auth } from '@/auth';
 

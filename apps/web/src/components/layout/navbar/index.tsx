@@ -7,15 +7,11 @@ import {
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { LaptopIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import {
-  Button,
-  Container,
   Flex,
-  IconButton,
-  Text,
   Tooltip,
 } from '@radix-ui/themes';
-import { AccentColorSwitcherDropdown, Navbar } from '@repo/ui/components';
-import { AccentColor, AccentColorOptions } from '@repo/ui/interfaces';
+import { Navbar } from '@repo/ui/components';
+import { AccentColor } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
 

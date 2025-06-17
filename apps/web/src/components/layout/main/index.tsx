@@ -1,5 +1,4 @@
-import { Main, MainContainer } from '@repo/ui/components';
-import React, { ReactNode, Suspense } from 'react';
+import { Main } from '@repo/ui/components';
 
 export default function MainComponent({
   children,

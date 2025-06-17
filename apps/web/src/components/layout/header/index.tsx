@@ -1,8 +1,6 @@
 'use client';
 
-import { Button, Header } from '@repo/ui/components';
-import { useRouter } from 'next/navigation';
-import useSWR from 'swr';
+import { Header } from '@repo/ui/components';
 import NavComponent from '../navbar';
 
 const fetcher = (...args: [RequestInfo, RequestInit?]) =>

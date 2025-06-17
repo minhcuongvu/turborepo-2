@@ -1,18 +1,9 @@
-import { Metadata, ResolvingMetadata } from 'next';
-import { Page } from '@/components/page';
 import HeaderComponent from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
-import { Button, Container, Dialog, Flex, IconButton, TextField, Theme } from '@radix-ui/themes';
+import { Flex } from '@radix-ui/themes';
 import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
-import { SunIcon } from '@radix-ui/react-icons';
-import TestRedux from '@/components/test-redux';
-import SignupForm from '../components/signup-form';
-import { decrypt, getSession, login, logout } from '@/lib/session';
-import { redirect } from 'next/navigation';
-import { auth, signIn, signOut } from '@/auth';
-import { Text } from '@radix-ui/themes/components/callout';
-import SignInButton from '@/components/sign-in-button';
+import { auth } from '@/auth';
 import SignInDialog from '@/components/sign-in-dialog';
 
 const Home = async () => {
