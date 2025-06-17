@@ -1,15 +1,42 @@
 'use client';
 import { Dialog, Flex, Separator, Text, TextField, Theme } from "@radix-ui/themes";
-import { signInWithGoogle, signOutSession } from "@/actions/auth";
-import { useState } from "react";
+import { signInWithEmail, signInWithGoogle, signOutSession } from "@/actions/auth";
+import { useActionState, useEffect, useState } from "react";
 import { Google } from "@mui/icons-material";
 
 export default function SignInDialog() {
+    const [signInWithEmailFormState, signInWithEmailAction] = useActionState(signInWithEmail, {
+        email: '',
+        password: '',
+        error: '',
+    });
     const [clickedSignIn, setClickedSignIn] = useState(false);
-    const [clickedSignOut, setClickedSignOut] = useState(false);
+    // const [clickedSignOut, setClickedSignOut] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const [clickedSignInWithGoogle, setClickedSignInWithGoogle] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Reset spinner states when dialog closes or component unmounts
+    useEffect(() => {
+        if (!isOpen) {
+            setClickedSignIn(false);
+            setClickedSignInWithGoogle(false);
+            // setClickedSignOut(false);
+        }
+        return () => {
+            setClickedSignIn(false);
+            setClickedSignInWithGoogle(false);
+            // setClickedSignOut(false);
+        };
+    }, [isOpen]);
+
+    // Reset spinner when form state changes (error or success)
+    useEffect(() => {
+        setClickedSignIn(false);
+    }, [signInWithEmailFormState]);
+
     return (
-        <Dialog.Root>
+        <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
             <Dialog.Trigger>
                 <button
                     className="cursor-pointer flex items-center gap-1 transition-all 
@@ -23,32 +50,41 @@ export default function SignInDialog() {
             </Dialog.Trigger>
             <Theme accentColor='red' panelBackground='translucent' radius='small' >
                 <Dialog.Content maxWidth="450px" size="4" style={{ boxShadow: 'none' }}>
+                    <Dialog.Title align="center">Log in</Dialog.Title>
                     <Flex direction="column" gap="3">
-                        <label>
-                            <Text size="2" mb="1" weight="bold">
-                                Email
-                            </Text>
-                            <TextField.Root
-                                defaultValue=""
-                                placeholder="Enter your email"
-                            />
-                        </label>                        <label>
-                            <Text size="2" mb="1" weight="bold">
-                                Password
-                            </Text>
-                            <TextField.Root
-                                defaultValue=""
-                                placeholder="Enter your password"
-                            />
-                        </label>
-                        <Flex align="center" gap="3">
-                            <Separator size="4" />
-                            <Text size="2">OR</Text>
-                            <Separator size="4" />
-                        </Flex>
                         <form
-                            action={signInWithGoogle}
+                            action={signInWithEmailAction}
                         >
+                            <label className="flex flex-col gap-1 mb-4">
+                                <Text size="2" weight="bold">
+                                    Email
+                                </Text>
+                                <TextField.Root
+                                    name="email"
+                                    type="email"
+                                    autoComplete="email"
+                                    defaultValue={signInWithEmailFormState.email}
+                                    placeholder="Enter your email"
+                                />
+                            </label>
+                            <label className="flex flex-col gap-1 mb-4">
+                                <Text size="2" weight="bold">
+                                    Password
+                                </Text>
+                                <TextField.Root
+                                    name="password"
+                                    type="password"
+                                    defaultValue={signInWithEmailFormState.password}
+                                    placeholder="Enter your password"
+                                />
+                            </label>
+                            {signInWithEmailFormState.error && (
+                                <Flex direction="column" gap="1" className="mb-4">
+                                    <Text size="2" color="red">
+                                        {signInWithEmailFormState.error}
+                                    </Text>
+                                </Flex>
+                            )}
                             <button
                                 className='w-full text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md hover:border-[var(--red-10)] relative flex items-center justify-center gap-2'
                                 type="submit"
@@ -61,13 +97,38 @@ export default function SignInDialog() {
                                     </>
                                 ) : (
                                     <>
+                                        <span>Log in</span>
+                                    </>
+                                )}
+                            </button>
+                        </form>
+                        <Flex align="center" gap="3" my="2">
+                            <Separator size="4" />
+                            <Text size="2">OR</Text>
+                            <Separator size="4" />
+                        </Flex>
+                        <form
+                            action={signInWithGoogle}
+                        >
+                            <button
+                                className='w-full text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md hover:border-[var(--red-10)] relative flex items-center justify-center gap-2'
+                                type="submit"
+                                onClick={() => setClickedSignInWithGoogle(true)}
+                            >
+                                {clickedSignInWithGoogle ? (
+                                    <>
+                                        <div className="animate-spin text-[var(--red-10)] h-5 w-5 border-2 border-current border-t-transparent rounded-full" />
+                                        <span>Logging in</span>
+                                    </>
+                                ) : (
+                                    <>
                                         <Google />
                                         <span>Log in with Google</span>
                                     </>
                                 )}
                             </button>
                         </form>
-                        <form
+                        {/* <form
                             action={signOutSession}
                         >
                             <button
@@ -82,7 +143,7 @@ export default function SignInDialog() {
                                     </>
                                 ) : 'Log out'}
                             </button>
-                        </form>
+                        </form> */}
                     </Flex>
                 </Dialog.Content>
             </Theme>

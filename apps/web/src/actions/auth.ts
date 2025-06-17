@@ -61,6 +61,25 @@ export async function signup(state: FormState, formData: FormData) {
     redirect('/profile')
 }
 
+export async function signInWithEmail(prevState: any, formData: FormData) {
+    "use server";
+
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    console.log({ email, password })
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Simulate failure
+    if (!email || !password) {
+        return { email, password, error: "Missing email or password" };
+    }
+
+    // On success, redirect
+    redirect("/");
+}
+
 export async function signInWithGoogle() {
     "use server";
     await signIn("google");
