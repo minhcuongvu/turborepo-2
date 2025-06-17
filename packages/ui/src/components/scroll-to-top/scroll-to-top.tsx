@@ -14,10 +14,10 @@ const ScrollToTopButton = React.forwardRef<
     ref={ref}
     /* Preserve any inline style while positioning according to the CSS variable padding. */
     style={{ bottom: 'var(--padding)', right: 'var(--padding)', ...style }}
-    className={`group fixed flex items-center justify-center w-16 h-16 rounded-full cursor-pointer transition-transform duration-300 ease-in-out border-2 border-black dark:border-white text-black dark:text-white hover:bg-[var(--accent-10)] hover:border-transparent ${className}`}
+    className={`group fixed flex items-center justify-center w-16 h-16 rounded-full cursor-pointer transition-transform duration-300 ease-in-out border-2 border-black dark:border-white text-black dark:text-white hover:bg-black dark:hover:bg-white hover:border-transparent ${className}`}
     {...props}
   >
-    <Icons.ChevronUpIcon className='w-12 h-12 text-current group-hover:text-[var(--background-color)]' />
+    <Icons.ChevronUpIcon className='w-12 h-12 text-current group-hover:text-white dark:group-hover:text-black' />
   </div>
 ));
 
@@ -76,11 +76,11 @@ export const ScrollToTop = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: isVisible ? 1 : 0,
-        scale: isBouncing ? 1.4 : 1,
+        scale: isBouncing ? 2 : 1,
       }}
       transition={{
         opacity: { duration: 0.3 },
-        scale: { type: 'spring', stiffness: 600, damping: 10 }, // Spring animation for bounce
+        scale: { type: 'spring', stiffness: 600, damping: 8 }, // Spring animation for bounce
       }}
       className={styles.btn}
       onClick={handleClick}
