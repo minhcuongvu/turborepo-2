@@ -10,7 +10,7 @@ const fetcher = (...args: [RequestInfo, RequestInit?]) =>
 
 export default function HeaderComponent() {
   return (
-    <Header className="pt-6 pb-8 sticky top-0 z-10">
+    <Header className="pt-6 pb-8 fixed top-0 w-full z-10">
       <div className='backdrop-blur-md bg-white/10 dark:bg-black/10 border-b-2 border-black/30 dark:border-white/10 absolute top-0 left-0 w-full h-full z-0' />
       <NavComponent />
     </Header>

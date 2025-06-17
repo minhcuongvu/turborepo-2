@@ -33,7 +33,7 @@ const Home = async () => {
               await signIn("google");
             }}
           >
-            <button type="submit">Login</button>
+            <button className='text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md' type="submit">Login</button>
           </form>
           <form
             action={async () => {
@@ -41,7 +41,7 @@ const Home = async () => {
               await signOut();
             }}
           >
-            <button type="submit">Logout</button>
+            <button className='text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md' type="submit">Logout</button>
           </form>
         </section>
         <section className='max-w-lg mx-auto'>

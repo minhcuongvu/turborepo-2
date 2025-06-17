@@ -23,7 +23,9 @@ export const Page: React.FC<PageProps> = ({ children }) => {
         disableTransitionOnChange
       >
         <Theme accentColor={accentColorAlt} panelBackground='solid'>
-          <PageWrapper className="">{children}</PageWrapper>
+          {/* <PageWrapper className=""> */}
+          {children}
+          {/* </PageWrapper> */}
         </Theme>
       </ThemeProvider>
     </Root>
