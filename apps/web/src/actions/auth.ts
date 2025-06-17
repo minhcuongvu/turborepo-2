@@ -1,7 +1,7 @@
 'use server'
 
 import { SignupFormSchema, FormState } from '@/lib/definitions'
-import { createSession } from '@/lib/session'
+// import { createSession } from '@/lib/session'
 import { redirect } from 'next/navigation'
 // import { db } from '@/lib/db'
 // import { users } from '@/lib/db/schema'
@@ -55,7 +55,7 @@ export async function signup(state: FormState, formData: FormData) {
 
     // Current steps:
     // 4. Create user session
-    await createSession(user.id)
+    // await createSession(user.id)
     // 5. Redirect user
     redirect('/profile')
 }

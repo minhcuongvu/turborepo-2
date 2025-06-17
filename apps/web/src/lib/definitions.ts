@@ -17,6 +17,11 @@ export const SignupFormSchema = z.object({
         .trim(),
 })
 
+export const SessionPayload = z.object({
+    userId: z.string(),
+    expiresAt: z.date(),
+})
+
 export type FormState =
     | {
         errors?: {
