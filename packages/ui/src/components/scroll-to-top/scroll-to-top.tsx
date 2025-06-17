@@ -2,48 +2,23 @@
 
 import * as Icons from '@radix-ui/react-icons';
 import styles from './scroll-to-top.module.css';
-import styled from 'styled-components';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 
-// Create a styled button using styled-components for the container
-const ScrollButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem; // 64px
-  height: 4rem; // 64px
-  border-radius: 50%;
-  cursor: pointer;
-  position: fixed;
-  bottom: var(--padding);
-  right: var(--padding);
-  transition: transform 0.3s ease;
-  border: 2px solid var(--accent-10);
-
-  &:hover {
-    background: var(--accent-10);
-    border: none;
-    svg {
-      color: var(--background-color);
-    }
-  }
-`;
-
-const Icon = styled(Icons.ChevronUpIcon)`
-  width: 3rem; // 48px
-  height: 3rem; // 48px
-  color: var(--accent-10);
-`;
-
-// ScrollToTop button as a functional component with forwarded ref
+/* Icon & button now styled with Tailwind utility classes (no styled-components). */
 const ScrollToTopButton = React.forwardRef<
   HTMLDivElement,
   React.HTMLProps<HTMLDivElement>
->((props, ref) => (
-  <ScrollButton ref={ref} {...props}>
-    <Icon />
-  </ScrollButton>
+>(({ className = '', style, ...props }, ref) => (
+  <div
+    ref={ref}
+    /* Preserve any inline style while positioning according to the CSS variable padding. */
+    style={{ bottom: 'var(--padding)', right: 'var(--padding)', ...style }}
+    className={`group fixed flex items-center justify-center w-16 h-16 rounded-full cursor-pointer transition-transform duration-300 ease-in-out border-2 border-black dark:border-white text-black dark:text-white hover:bg-[var(--accent-10)] hover:border-transparent ${className}`}
+    {...props}
+  >
+    <Icons.ChevronUpIcon className='w-12 h-12 text-current group-hover:text-[var(--background-color)]' />
+  </div>
 ));
 
 const MotionComponent = motion.create(ScrollToTopButton);
