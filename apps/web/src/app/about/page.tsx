@@ -6,32 +6,50 @@ import MainComponent from '@/components/layout/main';
 import { FramerMotionBasic, Skeleton } from '@repo/ui/components';
 import SendIt from '@/components/send-it';
 import FooterComponent from '@/components/layout/footer';
+import { signIn, signOut, auth } from '@/auth';
 
-export const metadata: Metadata = {
-  title: 'About',
-};
-
-//export default function About({
-//  params,
-//  searchParams,
-//}: {
-//  params?: any;
-//  searchParams?: { [key: string]: string | undefined };
-//}) {
-//  return (
-//    <Page />
-//  );
-//}
-const About = () => {
+const About = async () => {
+  const session = await auth();
   return (
     <>
       <HeaderComponent />
       <MainComponent>
-        <Suspense fallback={<Skeleton />}>
+        {/* <Suspense fallback={<Skeleton />}>
           <SendIt />
-        </Suspense>
+        </Suspense> */}
+        <section className='max-w-lg mx-auto'>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("google");
+            }}
+          >
+            <button type="submit">Login</button>
+          </form>
+          <form
+            action={async () => {
+              "use server";
+              await signOut();
+            }}
+          >
+            <button type="submit">Logout</button>
+          </form>
+        </section>
+        <section className='max-w-lg mx-auto'>
+          {session && <pre className='whitespace-pre-wrap'>{JSON.stringify(session.user, null, 2)}</pre>}
+        </section>
+        <section className='max-w-lg mx-auto'>
+          {session && <pre className='whitespace-pre-wrap'>{JSON.stringify(session.googleId, null, 2)}</pre>}
+        </section>
         <FramerMotionBasic />
-      </MainComponent>
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+        <FramerMotionBasic />
+      </MainComponent >
       <FooterComponent />
     </>
   );

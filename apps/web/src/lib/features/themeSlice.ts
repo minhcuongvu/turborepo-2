@@ -3,7 +3,7 @@ import { ThemeDefaults } from '@repo/ui/interfaces';
 
 const initialState: ThemeDefaults = {
   //theme: 'dark',
-  accentColor: 'red',
+  accentColor: 'cyan',
 };
 
 const themeSlice = createSlice({

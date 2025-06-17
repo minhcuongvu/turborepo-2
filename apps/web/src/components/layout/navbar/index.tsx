@@ -48,7 +48,7 @@ export default function NavComponent({ className }: { className?: string }) {
     <Navbar className={className}>
       <Flex className="flex absolute right-0 top-0" pr="4" pt="3" align="center">
         {isThemeReady && (
-          <Flex direction='row' gap='2' className="border-2 border-black/30 dark:border-white/10 rounded-lg">
+          <Flex direction='row' gap='2' className="border-2 border-black/30 dark:border-white/10 rounded-lg bg-white/20 dark:bg-black/10">
             <Flex align='center' justify='center'>
               <input
                 type="radio"

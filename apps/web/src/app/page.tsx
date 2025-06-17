@@ -10,10 +10,10 @@ import TestRedux from '@/components/test-redux';
 import SignupForm from '../components/signup-form';
 import { decrypt, getSession, login, logout } from '@/lib/session';
 import { redirect } from 'next/navigation';
+import { auth, signIn, signOut } from '@/auth';
 
 const Home = async () => {
-  const session = await getSession();
-  const parsed = await decrypt(session?.value || '')
+  const session = await auth();
   return (
     <>
       <HeaderComponent />
@@ -28,26 +28,24 @@ const Home = async () => {
         <FramerMotionBasic />
         <section className='max-w-lg mx-auto'>
           <form
-            action={async (formData) => {
+            action={async () => {
               "use server";
-              await login(formData);
-              redirect("/");
+              await signIn("google");
             }}
           >
-            <input type="email" placeholder="Email" />
-            <br />
             <button type="submit">Login</button>
           </form>
           <form
             action={async () => {
               "use server";
-              await logout();
-              redirect("/");
+              await signOut();
             }}
           >
             <button type="submit">Logout</button>
           </form>
-          <pre className='whitespace-pre-wrap'>{JSON.stringify(parsed, null, 2)}</pre>
+        </section>
+        <section className='max-w-lg mx-auto'>
+          {session && <pre className='whitespace-pre-wrap'>{JSON.stringify(session.user, null, 2)}</pre>}
         </section>
         <FramerMotionBasic />
         <FramerMotionBasic />

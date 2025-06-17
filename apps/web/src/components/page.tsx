@@ -5,6 +5,7 @@ import { PageWrapper, Root } from '@repo/ui/components';
 import { ThemeProvider } from 'next-themes';
 import React from 'react';
 import { useAppSelector } from '@/lib/hooks';
+import { AccentColor } from '@repo/ui/interfaces';
 
 interface PageProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ interface PageProps {
 
 export const Page: React.FC<PageProps> = ({ children }) => {
   const { accentColor } = useAppSelector((state) => state.theme);
+  const accentColorAlt: AccentColor = accentColor; // ! TODO: fix this, default slice doesnt work
   return (
     <Root>
       <ThemeProvider
@@ -20,7 +22,7 @@ export const Page: React.FC<PageProps> = ({ children }) => {
         enableSystem={true}
         disableTransitionOnChange
       >
-        <Theme accentColor={accentColor}>
+        <Theme accentColor={accentColorAlt} panelBackground='solid'>
           <PageWrapper className="">{children}</PageWrapper>
         </Theme>
       </ThemeProvider>
