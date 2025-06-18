@@ -5,11 +5,13 @@ import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
 import { auth } from '@/auth';
 import SignInDialog from '@/components/signin-dialog';
+import BackgroundGradient from '@/components/background-gradient';
 
 const Home = async () => {
   const session = await auth();
   return (
     <>
+      <BackgroundGradient />
       <HeaderComponent />
       <MainComponent>
         <Flex className="text-center text-black dark:text-white">
@@ -19,7 +21,6 @@ const Home = async () => {
         </Flex>
         <FramerMotionBasic />
         <SignInDialog />
-        <FramerMotionBasic />
         <section className='max-w-lg mx-auto'>
           {session && <pre className='whitespace-pre-wrap'>{JSON.stringify(session.user, null, 2)}</pre>}
         </section>

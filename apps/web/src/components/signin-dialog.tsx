@@ -12,7 +12,7 @@ export default function SignInDialog() {
         error: '',
     });
     const [clickedSignIn, setClickedSignIn] = useState(false);
-    // const [clickedSignOut, setClickedSignOut] = useState(false);
+    const [clickedSignOut, setClickedSignOut] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [clickedSignInWithGoogle, setClickedSignInWithGoogle] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +22,12 @@ export default function SignInDialog() {
         if (!isOpen) {
             setClickedSignIn(false);
             setClickedSignInWithGoogle(false);
-            // setClickedSignOut(false);
+            setClickedSignOut(false);
         }
         return () => {
             setClickedSignIn(false);
             setClickedSignInWithGoogle(false);
-            // setClickedSignOut(false);
+            setClickedSignOut(false);
         };
     }, [isOpen]);
 
@@ -50,11 +50,12 @@ export default function SignInDialog() {
                 </button>
             </Dialog.Trigger>
             <Theme accentColor='red' panelBackground='translucent' radius='small' >
-                <Dialog.Content maxWidth="450px" size="4" style={{ boxShadow: 'none' }}>
+                <Dialog.Content maxWidth="450px" size="4" style={{ boxShadow: 'none' }} aria-describedby="sign in dialog">
                     <Dialog.Title align="center">Log In To Your Account</Dialog.Title>
                     <Flex direction="column" gap="3">
                         <form
                             action={signInWithEmailAction}
+                            onSubmit={() => setClickedSignIn(true)}
                         >
                             <label className="flex flex-col gap-1 mb-4">
                                 <Text size="2" weight="bold">
@@ -66,6 +67,8 @@ export default function SignInDialog() {
                                     autoComplete="email"
                                     defaultValue={signInWithEmailFormState.email}
                                     placeholder="Enter your email"
+                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                    required
                                 />
                             </label>
                             <label className="flex flex-col gap-1 mb-4">
@@ -77,6 +80,7 @@ export default function SignInDialog() {
                                     type="password"
                                     defaultValue={signInWithEmailFormState.password}
                                     placeholder="Enter your password"
+                                    required
                                 />
                             </label>
                             {signInWithEmailFormState.error && (
@@ -89,7 +93,6 @@ export default function SignInDialog() {
                             <button
                                 className='w-full text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md hover:border-[var(--red-10)] relative flex items-center justify-center gap-2'
                                 type="submit"
-                                onClick={() => setClickedSignIn(true)}
                             >
                                 {clickedSignIn ? (
                                     <>
@@ -113,16 +116,16 @@ export default function SignInDialog() {
                         </Flex>
                         <form
                             action={signInWithGoogle}
+                            onSubmit={() => setClickedSignInWithGoogle(true)}
                         >
                             <button
                                 className='w-full text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md hover:border-[var(--red-10)] relative flex items-center justify-center gap-2'
                                 type="submit"
-                                onClick={() => setClickedSignInWithGoogle(true)}
                             >
                                 {clickedSignInWithGoogle ? (
                                     <>
                                         <div className="animate-spin text-[var(--red-10)] h-5 w-5 border-2 border-current border-t-transparent rounded-full" />
-                                        <span>Logging in</span>
+                                        <span>Logging in with Google</span>
                                     </>
                                 ) : (
                                     <>
@@ -132,13 +135,13 @@ export default function SignInDialog() {
                                 )}
                             </button>
                         </form>
-                        {/* <form
+                        <form
                             action={signOutSession}
+                            onSubmit={() => setClickedSignOut(true)}
                         >
                             <button
                                 className='w-full text-black dark:text-white px-4 py-2 border-2 border-black dark:border-white rounded-md hover:border-[var(--red-10)] relative flex items-center justify-center gap-2'
                                 type="submit"
-                                onClick={() => setClickedSignOut(true)}
                             >
                                 {clickedSignOut ? (
                                     <>
@@ -147,7 +150,7 @@ export default function SignInDialog() {
                                     </>
                                 ) : 'Log out'}
                             </button>
-                        </form> */}
+                        </form>
                     </Flex>
                 </Dialog.Content>
             </Theme>
