@@ -4,7 +4,7 @@ import {
   switchAccentColor,
   //setTheme as themeSliceSetTheme,
 } from '@/lib/features';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { useAppDispatch } from '@/lib/hooks';
 import { LaptopIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import {
   Flex,
@@ -15,96 +15,130 @@ import { AccentColor } from '@repo/ui/interfaces';
 import { useTheme } from 'next-themes';
 import { useCallback, useEffect, useState } from 'react';
 
-export default function NavComponent({ className }: { className?: string }) {
+interface NavComponentProps {
+  className?: string;
+  mobile?: boolean;         // ← new (optional) flag
+  onNavigate?: () => void;  // ← new (optional) callback
+}
+
+export default function NavComponent({
+  className,
+  mobile = false,
+  onNavigate,
+}: NavComponentProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const dispatch = useAppDispatch();
-
-  // State to manage theme loading
   const [isThemeReady, setIsThemeReady] = useState(false);
 
-  // Wrap the handler function in useCallback to prevent it from changing on every render
   const switchAccentColorHandler = useCallback(
     (color: AccentColor) => {
       dispatch(switchAccentColor(color));
       localStorage.setItem('accentColor', color);
-      //document.documentElement.setAttribute('accentColor', color);
     },
     [dispatch]
   );
 
   useEffect(() => {
-    // Check if the theme has been resolved after mount
     setIsThemeReady(true);
     const savedColor =
       (localStorage.getItem('accentColor') as AccentColor) ?? 'red';
     switchAccentColorHandler(savedColor);
   }, [switchAccentColorHandler]);
 
+  if (!isThemeReady) return null;
+
   return (
-    <Navbar className={className}>
-      <Flex className="flex absolute right-0 top-0" pr="4" pt="3" align="center">
-        {isThemeReady && (
-          <Flex direction='row' gap='2' className="border-2 border-black/30 dark:border-white/10 rounded-lg bg-white/20 dark:bg-black/10">
-            <Flex align='center' justify='center'>
-              <input
-                type="radio"
-                id="html"
-                name="theme"
-                value="system"
-                onClick={() => setTheme('system')}
-                defaultChecked={resolvedTheme === 'system'}
-                className="sr-only peer"
-              />
-              <Tooltip content="System Theme">
-                <label
-                  htmlFor="html"
-                  className="p-1 peer-checked:text-neutral-100 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                >
-                  <LaptopIcon className="w-5 h-5" />
-                </label>
-              </Tooltip>
-            </Flex>
-            <Flex align='center' justify='center'>
-              <input
-                type="radio"
-                id="css"
-                name="theme"
-                value="dark"
-                onClick={() => setTheme('dark')}
-                defaultChecked={resolvedTheme === 'dark'}
-                className="sr-only peer"
-              />
-              <Tooltip content="Dark Mode">
-                <label
-                  htmlFor="css"
-                  className="p-1 peer-checked:text-neutral-100 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                >
-                  <MoonIcon className="w-5 h-5" />
-                </label>
-              </Tooltip>
-            </Flex>
-            <Flex align='center' justify='center'>
-              <input
-                type="radio"
-                id="javascript"
-                name="theme"
-                value="light"
-                onClick={() => setTheme('light')}
-                defaultChecked={resolvedTheme === 'light'}
-                className="sr-only peer"
-              />
-              <Tooltip content="Light Mode">
-                <label
-                  htmlFor="javascript"
-                  className="p-1 peer-checked:text-neutral-900 cursor-pointer text-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                >
-                  <SunIcon className="w-5 h-5" />
-                </label>
-              </Tooltip>
-            </Flex>
-          </Flex>
-        )}
-      </Flex>
+    <Navbar
+      className={className + (mobile ? " flex-col space-y-4" : "")}
+      onClick={onNavigate}
+    >
+      <div className="relative">
+        <div className="flex items-center gap-1 p-1 rounded-lg bg-gray-100/90 dark:bg-black/10 border border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-center">
+            <input
+              type="radio"
+              id="system-theme"
+              name="theme"
+              value="system"
+              onClick={() => setTheme('system')}
+              defaultChecked={resolvedTheme === 'system'}
+              className="sr-only peer"
+            />
+            <Tooltip content="System Theme">
+              <label
+                htmlFor="system-theme"
+                className={`
+                  p-2 rounded-md cursor-pointer transition-all duration-200
+                  peer-checked:bg-white peer-checked:dark:bg-gray-700 
+                  peer-checked:text-gray-900 peer-checked:dark:text-white 
+                  peer-checked:shadow-sm
+                  text-gray-500 hover:text-gray-900 
+                  dark:text-gray-400 dark:hover:text-white
+                  hover:bg-white/50 dark:hover:bg-gray-700/50
+                `}
+              >
+                <LaptopIcon className="w-4 h-4" />
+              </label>
+            </Tooltip>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <input
+              type="radio"
+              id="dark-theme"
+              name="theme"
+              value="dark"
+              onClick={() => setTheme('dark')}
+              defaultChecked={resolvedTheme === 'dark'}
+              className="sr-only peer"
+            />
+            <Tooltip content="Dark Mode">
+              <label
+                htmlFor="dark-theme"
+                className={`
+                  p-2 rounded-md cursor-pointer transition-all duration-200
+                  peer-checked:bg-white peer-checked:dark:bg-gray-700 
+                  peer-checked:text-gray-900 peer-checked:dark:text-white 
+                  peer-checked:shadow-sm
+                  text-gray-500 hover:text-gray-900 
+                  dark:text-gray-400 dark:hover:text-white
+                  hover:bg-white/50 dark:hover:bg-gray-700/50
+                `}
+              >
+                <MoonIcon className="w-4 h-4" />
+              </label>
+            </Tooltip>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <input
+              type="radio"
+              id="light-theme"
+              name="theme"
+              value="light"
+              onClick={() => setTheme('light')}
+              defaultChecked={resolvedTheme === 'light'}
+              className="sr-only peer"
+            />
+            <Tooltip content="Light Mode">
+              <label
+                htmlFor="light-theme"
+                className={`
+                  p-2 rounded-md cursor-pointer transition-all duration-200
+                  peer-checked:bg-white peer-checked:dark:bg-gray-700 
+                  peer-checked:text-gray-900 peer-checked:dark:text-white 
+                  peer-checked:shadow-sm
+                  text-gray-500 hover:text-gray-900 
+                  dark:text-gray-400 dark:hover:text-white
+                  hover:bg-white/50 dark:hover:bg-gray-700/50
+                `}
+              >
+                <SunIcon className="w-4 h-4" />
+              </label>
+            </Tooltip>
+          </div>
+        </div>
+      </div>
     </Navbar>
   );
 }

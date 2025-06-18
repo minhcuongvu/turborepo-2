@@ -8,6 +8,6 @@ export const NavBarContainer = ({
   return <div className={styles.container}>{children}</div>;
 };
 
-export const Navbar = ({ children, className }: { children: React.ReactNode | any, className?: string }) => {
-  return <nav className={`${styles.nav} ${className}`}>{children}</nav>;
+export const Navbar = ({ children, className, onClick }: { children: React.ReactNode | any, className?: string, onClick?: () => void }) => {
+  return <nav className={`${styles.nav} ${className}`} onClick={onClick}>{children}</nav>;
 };

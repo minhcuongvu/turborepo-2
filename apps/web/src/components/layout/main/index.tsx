@@ -14,7 +14,7 @@ export default function MainComponent({
 
 const MainContentWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex-grow px-5 pt-20 pb-10 flex flex-col items-center">
+    <div className="w-full flex-grow px-5 pt-20 pb-10 flex flex-col items-center">
       {children}
     </div>
   );
