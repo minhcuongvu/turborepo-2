@@ -19,7 +19,7 @@ function starsToBoxShadow(stars: Star[], color: string): string {
     return stars.map(({ x, y }) => `${x}px ${y}px ${color}`).join(", ");
 }
 
-export default function BackgroundGradient() {
+export default function BackgroundStars() {
     const [isDark, setIsDark] = useState(false);
     const theme = useTheme();
 

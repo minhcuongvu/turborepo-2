@@ -1,18 +1,18 @@
-import HeaderComponent from '@/components/layout/header';
+import { Header2 } from '@/components/layout/header';
 import MainComponent from '@/components/layout/main';
 import { Flex } from '@radix-ui/themes';
 import { FramerMotionBasic, ScrollToTop } from '@repo/ui/components';
 import FooterComponent from '@/components/layout/footer';
 import { auth } from '@/auth';
 import SignInDialog from '@/components/signin-dialog';
-import BackgroundGradient from '@/components/background-gradient';
+import BackgroundStars from '@/components/background-stars';
 
 const Home = async () => {
   const session = await auth();
   return (
     <>
-      <BackgroundGradient />
-      <HeaderComponent />
+      <BackgroundStars />
+      <Header2 />
       <MainComponent>
         <Flex className="text-center text-black dark:text-white">
           <p>
